@@ -32,6 +32,41 @@ namespace Dynamo.Rebar
 
 
         /// <summary>
+        /// Returns a set of morphed Curves of a face
+        /// </summary>
+        /// <param name="face"></param>
+        /// <param name="curveTop">Top Curve of the Face</param>
+        /// <param name="curveBottom">Bottom Curve of the Face</param>
+        /// <param name="number">Number of divisions</param>
+        /// <param name="offset">Offset along Normal</param>
+        /// <returns>List of Curves</returns>
+        public static List<Curve> OffsetCurve(this Face face, Curve curveTop, Curve curveBottom, int number, double offset)
+        {
+            // Mroph between the Top and the bottom curve
+            List<Curve> curves = curveTop.MorphTo(curveBottom, number);
+
+            // Walk through results
+            foreach (Curve curve in curves)
+            {
+                // Get the midpoint
+                XYZ midPoint = curve.Evaluate(0.5,true);
+
+                // Project it onto the Surface
+                IntersectionResult result = face.Project(midPoint);
+
+                if (result != null && result.UVPoint != null)
+                {
+                    // Create an Offset of the Curve along the Normal of the Face at the midpoint
+                    Curve offsetCurve = curve.CreateOffset(offset, face.ComputeNormal(result.UVPoint));
+                    curves.Add(offsetCurve);
+                }
+            }
+
+            return curves;
+        }
+
+
+        /// <summary>
         /// Returns a set of Normal Curves along a Curve of the face
         /// </summary>
         /// <param name="face"></param>
