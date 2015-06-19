@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>Dynamo.Rebar</name>
+  </assembly>
+  <namespaces>
+    <namespace name="Dynamo.Rebar">
+      <category>Dynamo.Rebar</category>
+    </namespace>
+  </namespaces>
+</doc>

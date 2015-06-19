@@ -21,9 +21,9 @@ namespace Dynamo.Rebar
         /// <param name="numberOfBars"></param>
         /// <returns></returns>
         [MultiReturn("BarCurves")]
-        public static Dictionary<string, object> Morph(Edge edge1, Edge edge2, int precision, int numberOfBars)
+        public static Dictionary<string, object> Morph(Curve edge1, Curve edge2, int precision, int numberOfBars)
         {          
-            List<Curve> bars = edge1.AsCurve().MorphTo(edge2.AsCurve(), numberOfBars, precision);
+            List<Curve> bars = edge1.MorphTo(edge2, numberOfBars, precision);
 
             return new Dictionary<string, object>
             {
