@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{09E303FE-0A2F-49B0-878F-870C90C8F40B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dynamo.Rebar</RootNamespace>
+    <AssemblyName>Dynamo.Rebar</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DSCoreNodes">
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DSCoreNodes.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoConversions">
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoConversions.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoCore">
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoCore.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoCore.customization">
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoCore.customization.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoCoreWpf">
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoCoreWpf.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoCrypto">
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoCrypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoServices">
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoServices.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoUtilities">
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="ProtoCore">
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\ProtoCore.dll</HintPath>
+    </Reference>
+    <Reference Include="ProtoGeometry">
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\ProtoGeometry.dll</HintPath>
+    </Reference>
+    <Reference Include="ProtoInterface">
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\ProtoInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitAPI">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2015\RevitAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitNodes">
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2015\RevitNodes.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitServices">
+      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2015\RevitServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="RebarMorphing.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RebarPerpendicular.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Revit\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
