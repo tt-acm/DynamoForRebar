@@ -73,7 +73,6 @@ namespace Dynamo.Rebar
             return curves;
         }
 
-
         /// <summary>
         /// Returns a set of morphed Curves using a precision factor
         /// </summary>
