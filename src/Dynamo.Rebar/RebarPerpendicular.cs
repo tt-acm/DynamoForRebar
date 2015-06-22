@@ -14,9 +14,13 @@ namespace Dynamo.Rebar
     {
 
         [MultiReturn("BarCurves")]
-        public static Dictionary<string, object> Perpendicular(Face face, Edge edge, double height, int numberOfBars)
+        public static Dictionary<string, object> Perpendicular(Autodesk.DesignScript.Geometry.Surface face, List<Autodesk.DesignScript.Geometry.Surface> boundary, Autodesk.DesignScript.Geometry.Curve edge, double height, int numberOfBars)
         {
-            List<Curve> curves = face.NormalCurves(edge.AsCurve(),numberOfBars,height);
+
+         
+
+
+            List<Autodesk.DesignScript.Geometry.Curve> curves = face.NormalCurves(boundary, edge, numberOfBars, height);
 
             return new Dictionary<string, object>
             {

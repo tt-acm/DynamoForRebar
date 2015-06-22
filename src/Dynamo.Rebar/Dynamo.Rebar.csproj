@@ -34,23 +34,11 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DSCoreNodes">
-      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DSCoreNodes.dll</HintPath>
-    </Reference>
-    <Reference Include="DynamoConversions">
-      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoConversions.dll</HintPath>
-    </Reference>
     <Reference Include="DynamoCore">
       <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoCore.dll</HintPath>
     </Reference>
-    <Reference Include="DynamoCore.customization">
-      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoCore.customization.dll</HintPath>
-    </Reference>
     <Reference Include="DynamoCoreWpf">
       <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoCoreWpf.dll</HintPath>
-    </Reference>
-    <Reference Include="DynamoCrypto">
-      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoCrypto.dll</HintPath>
     </Reference>
     <Reference Include="DynamoServices">
       <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoServices.dll</HintPath>
