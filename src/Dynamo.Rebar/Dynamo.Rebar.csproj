@@ -55,11 +55,9 @@
     <Reference Include="ProtoInterface">
       <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\ProtoInterface.dll</HintPath>
     </Reference>
-    <Reference Include="RevitAPI">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2015\RevitAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="RevitAPIUI">
-      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2015\RevitAPIUI.dll</HintPath>
+    <Reference Include="RevitAPI, Version=2015.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2016\RevitAPI.dll</HintPath>
     </Reference>
     <Reference Include="RevitNodes">
       <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2015\RevitNodes.dll</HintPath>
