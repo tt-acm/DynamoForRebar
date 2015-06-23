@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0"?>
 <doc>
   <assembly>
-    <name>Dynamo.Rebar</name>
+    <name>Rebar</name>
   </assembly>
   <namespaces>
-    <namespace name="Dynamo.Rebar">
-      <category>Dynamo.Rebar</category>
+    <namespace name="Rebar">
+      <category>Rebar</category>
     </namespace>
   </namespaces>
 </doc>

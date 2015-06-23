@@ -3,21 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Autodesk.DesignScript.Geometry;
+using Autodesk.DesignScript.Runtime;
 
-namespace Dynamo.Rebar
-{
     /// <summary>
-    /// Revit Extensions
+    /// Extensions
     /// </summary>
     public static class Extensions
     {
-
-        /// <summary>
-        /// Divides the Curves and returns the division points
-        /// </summary>
-        /// <param name="line"></param>
-        /// <param name="counter">division factor</param>
-        /// <returns>Set of division points</returns>
+        [IsVisibleInDynamoLibrary(false)]
         public static Point[] PointDivide(this Curve line, int counter)
         {
             Point[] points = new Point[counter + 1];
@@ -32,22 +25,32 @@ namespace Dynamo.Rebar
             return points;
         }
 
-
-
-        /// <summary>
-        /// Returns a set of Normal Curves along a Curve of the face
-        /// </summary>
-        /// <param name="face"></param>
-        /// <param name="curve">Curve on the Face</param>
-        /// <param name="numberOfLines">Number of Normals to create</param>
-        /// <param name="offset">Offset from Curve</param>
-        /// <returns>List of Normal Curves</returns>
-        public static List<Curve> NormalCurves(this Surface face, List<Surface> surfaces ,Curve curve, int numberOfLines, double offset)
+        [IsVisibleInDynamoLibrary(false)]
+        public static List<Curve> NormalCurves(this Surface face, List<Surface> surfaces, int numberOfLines, double offset, double height, bool horizontal)
         {
             List<Curve> curves = new List<Curve>();
 
+            Point[] points = new Point[numberOfLines];
+
+            bool VisY = true;
+
+            if (face.PointAtParameter(0, height).X == face.PointAtParameter(1, height).X) VisY = false;
+
+            if (!horizontal) VisY = !VisY;
+            
+            
+            
             // Divide the Curve by a number of Lines
-            Point[] points = curve.PointDivide(numberOfLines);
+            for (int i = 1; i <= numberOfLines; i++)
+            {
+                double parameter = (double)i / (double)numberOfLines;
+
+                if (VisY)
+                    points[i-1] = face.PointAtParameter(parameter,height);
+                else
+                    points[i - 1] = face.PointAtParameter(height, parameter);
+            }
+            
 
             // Create Normals for each Point
             for (int i = 0; i < points.Length; i++)
@@ -69,38 +72,84 @@ namespace Dynamo.Rebar
                 // Create an endless line
                 Line line = Line.ByStartPointDirectionLength(startPoint, optimizedNormal, 100000000);
 
-                // Check for intersections with boundary surfaces
-                foreach (Surface boundarySurface in surfaces)
+                List<double> intersections = line.Insersection(surfaces);
+
+                if (intersections.Count > 0)
                 {
-                    Geometry[] intersections = line.Intersect(boundarySurface);
 
-                    foreach (Geometry geometry in intersections)
-                    {
-                        if (geometry.GetType() == typeof(Point))
-                        {
-                            Point intersection = (Point)geometry;
-
-                            // overwrite line by a new line defined by start and endpoint
-                            line = Line.ByStartPointEndPoint(startPoint, intersection);
-
-                            curves.Add(line);
-                        }
-
-                    }
+                    Curve[] segments = line.ParameterTrimSegments(intersections.ToArray(), false);
+                    foreach (Curve segment in segments) { 
+                        if (segment.Length < 100000) curves.Add(segment); }
                 }
 
             }
             return curves;
         }
 
-        /// <summary>
-        /// Returns a set of morphed Curves using a precision factor
-        /// </summary>
-        /// <param name="curve1"></param>
-        /// <param name="curve2">Target Curve</param>
-        /// <param name="numberOfLines">Number of morphed Lines to create</param>
-        /// <param name="precision">Precision level</param>
-        /// <returns>Morphes Curves including the input curves</returns>
+        [IsVisibleInDynamoLibrary(false)]
+        public static List<double> Insersection(this Curve curve, List<Surface> surfaces)
+        {
+            List<double> intersectionParameters = new List<double>();
+
+
+            foreach (Surface surface in surfaces)
+            {
+                Geometry[] intersections = curve.Intersect(surface);
+
+                foreach (Geometry geometry in intersections)
+                {
+                    if (geometry.GetType() == typeof(Point))
+                    {
+                        intersectionParameters.Add(curve.ParameterAtPoint((Point)geometry));
+                    }
+
+                }
+            }
+
+            intersectionParameters.Sort();
+
+
+            return intersectionParameters.RemoveDuplicates();
+
+        }
+
+        [IsVisibleInDynamoLibrary(false)]
+        public static List<double> RemoveDuplicates(this List<double> list)
+        {
+            if (list.Count == 1) return list;
+            else if (list.Count == 2) { list.RemoveAt(1); return list; }
+            else return list;
+        }
+
+        [IsVisibleInDynamoLibrary(false)]
+        public static Curve GetUpperCurve(this Surface surface)
+        {
+            Edge upper = surface.Edges[0];
+
+            foreach (Edge edge in surface.Edges)
+            { 
+                double elevation = edge.StartVertex.PointGeometry.Y + edge.StartVertex.PointGeometry.Y;
+                if (elevation > (upper.StartVertex.PointGeometry.Y + upper.StartVertex.PointGeometry.Y)) upper = edge;           
+            }
+
+            return upper.CurveGeometry;
+        }
+
+        [IsVisibleInDynamoLibrary(false)]
+        public static Curve GetLowerCurve(this Surface surface)
+        {
+            Edge lower = surface.Edges[0];
+
+            foreach (Edge edge in surface.Edges)
+            {
+                double elevation = edge.StartVertex.PointGeometry.Y + edge.StartVertex.PointGeometry.Y;
+                if (elevation < (lower.StartVertex.PointGeometry.Y + lower.StartVertex.PointGeometry.Y)) lower = edge;
+            }
+
+            return lower.CurveGeometry;
+        }
+
+        [IsVisibleInDynamoLibrary(false)]
         public static List<Curve> MorphTo(this Curve curve1, Curve curve2, int numberOfLines, int precision = 10, double offset = 0)
         {
             List<Curve> curves = new List<Curve>();
@@ -149,10 +198,10 @@ namespace Dynamo.Rebar
             return curves;
         }
 
-
         /// <summary>
         /// Flips the Array
         /// </summary>
+        [IsVisibleInDynamoLibrary(false)]
         public static T[][] TransposeRowsAndColumns<T>(this T[][] arr)
         {
             int rowCount = arr.Length;
@@ -187,4 +236,4 @@ namespace Dynamo.Rebar
     }
 
 
-}
+
