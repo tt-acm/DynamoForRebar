@@ -18,13 +18,11 @@ public static class Rebar
     /// <param name="fromCurve">Source Curve</param>
     /// <param name="toCurve">Target Curve</param>
     /// <param name="numberOfBars">Number of Bars to create</param>
-    /// <param name="precision">Morphing precision</param> 
-    /// <param name="offset">Offset</param>
+    /// <param name="coverParameter">Offset</param>
     /// <returns>List of morphed bars</returns>
-    public static List<Curve> MorphedRebar(Curve fromCurve, Curve toCurve, int numberOfBars, int precision = 10, double offset = 0)
+    public static List<Curve> MorphedRebar(Curve fromCurve, Curve toCurve, int numberOfBars, double coverParameter = 0)
     {
-        List<Curve> bars = fromCurve.MorphTo(toCurve, numberOfBars, precision, offset);
-        return bars;
+        return fromCurve.MorphTo(toCurve, numberOfBars, 20, coverParameter);
     }
 
     /// <summary>
@@ -35,12 +33,25 @@ public static class Rebar
     /// <param name="height">Height Parameter</param>
     /// <param name="numberOfBars">Number of Bars to create</param>
     /// <param name="horizontal">Horizontal or Vertical</param>
-    /// <param name="offset">Offset</param>
+    /// <param name="coverParameter">Offset</param>
     /// <returns>List of perpendicular bars</returns>
-    public static List<Curve> PerpendicularRebar(Surface face, List<Surface> boundary, double height, int numberOfBars, bool horizontal = true, double offset = 0)
+    public static List<Curve> PerpendicularRebar(Surface face, List<Surface> boundary, double height, int numberOfBars, bool horizontal = true, double coverParameter = 0)
     {
-        List<Curve> curves = face.NormalCurves(boundary, numberOfBars, offset, height, horizontal);
-        return curves;
+        return face.NormalCurves(boundary, numberOfBars, coverParameter, height, horizontal);
+    }
+
+    /// <summary>
+    /// Create Rebar following a selected surface
+    /// </summary>
+    /// <param name="face">Surface to rebar</param>
+    /// <param name="numberOfBars">Define number of bars or distance between bars</param>
+    /// <param name="distanceBetweenRebar">Define distance between bars or number of bars</param>
+    /// <param name="flip">Flip orientation</param>
+    /// <param name="coverParameter">Rebar cover parameter</param>
+    /// <returns>List of rebar</returns>
+    public static List<Curve> FollowingSurface(Surface face, int numberOfBars, double distanceBetweenRebar = 0, bool flip = true, double coverParameter = 0)
+    {
+       return face.Follow(20, coverParameter, distanceBetweenRebar, numberOfBars, flip);
     }
 
 
