@@ -55,6 +55,10 @@
     <Reference Include="ProtoInterface">
       <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\ProtoInterface.dll</HintPath>
     </Reference>
+    <Reference Include="RebarDBAPI, Version=16.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit Structure 2016\RebarDBAPI.dll</HintPath>
+    </Reference>
     <Reference Include="RevitAPI, Version=16.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit Structure 2016\RevitAPI.dll</HintPath>
