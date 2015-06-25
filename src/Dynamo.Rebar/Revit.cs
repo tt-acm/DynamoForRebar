@@ -27,7 +27,7 @@ using System.Collections.Generic;
 namespace Revit.Elements
 {
     [DynamoServices.RegisterForTrace]
-    public class Rebar : Element
+    public class RebarContainer : Element
     {
         #region Internal Properties
 
@@ -56,7 +56,7 @@ namespace Revit.Elements
         /// Create from an existing Revit Element
         /// </summary>
         /// <param name="rebar"></param>
-        private Rebar(Autodesk.Revit.DB.Structure.RebarContainer rebar)
+        private RebarContainer(Autodesk.Revit.DB.Structure.RebarContainer rebar)
         {
             SafeInit(() => InitRebar(rebar));
         }
@@ -75,7 +75,7 @@ namespace Revit.Elements
         /// <param name="normal"></param>
         /// <param name="useExistingShape"></param>
         /// <param name="createNewShape"></param>
-        private Rebar(System.Collections.Generic.List<Curve> curve,
+        private RebarContainer(System.Collections.Generic.List<Curve> curve,
             Autodesk.Revit.DB.Structure.RebarBarType barType,
             Autodesk.Revit.DB.Structure.RebarStyle barStyle,
             Autodesk.Revit.DB.Element host,
@@ -129,13 +129,13 @@ namespace Revit.Elements
             bool useExistingShape,
             bool createNewShape)
         {
-            Autodesk.Revit.DB.Document Document = DocumentManager.Instance.CurrentDBDocument;
+            Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
 
             // This creates a new wall and deletes the old one
-            TransactionManager.Instance.EnsureInTransaction(Document);
+            TransactionManager.Instance.EnsureInTransaction(document);
 
             //Phase 1 - Check to see if the object exists and should be rebound
-            var rebarElem = ElementBinder.GetElementFromTrace<Autodesk.Revit.DB.Structure.RebarContainer>(Document);
+            var rebarElem = ElementBinder.GetElementFromTrace<Autodesk.Revit.DB.Structure.RebarContainer>(document);
             
             var container = rebarElem;
 
@@ -163,7 +163,6 @@ namespace Revit.Elements
                 revitCurves.Add(curve);
 
                 container.AppendItemFromCurves(Autodesk.Revit.DB.Structure.RebarStyle.Standard, barType, startHook, endHook, XYZ.BasisZ, revitCurves, Autodesk.Revit.DB.Structure.RebarHookOrientation.Left, Autodesk.Revit.DB.Structure.RebarHookOrientation.Left, false, true);
-
             }
 
             InternalSetRebar(container);
@@ -184,7 +183,7 @@ namespace Revit.Elements
 
             if (rebarElem != null)
             {
-                ElementBinder.CleanupAndSetElementForTrace(Document, this.InternalElement);
+                ElementBinder.CleanupAndSetElementForTrace(document, this.InternalElement);
             }
             else
             {
@@ -217,7 +216,7 @@ namespace Revit.Elements
         /// </summary>
         /// <param name="curves">Set of Curves</param>
         /// <param name="hostElementId">Host Element Id</param>
-        public static Rebar ByCurve(System.Collections.Generic.List<Autodesk.DesignScript.Geometry.Curve> curves, int hostElementId)
+        public static RebarContainer ByCurve(System.Collections.Generic.List<Autodesk.DesignScript.Geometry.Curve> curves, int hostElementId)
         {
             if (curves == null) throw new ArgumentNullException("curves");
             if (hostElementId == null) throw new ArgumentNullException("hostElementId");
@@ -251,7 +250,7 @@ namespace Revit.Elements
 
            
 
-            return new Rebar(revitCurves, rebarBarType, Autodesk.Revit.DB.Structure.RebarStyle.Standard, host, hookType, hookType, Autodesk.Revit.DB.Structure.RebarHookOrientation.Left, Autodesk.Revit.DB.Structure.RebarHookOrientation.Left, XYZ.BasisZ, false, true);
+            return new RebarContainer(revitCurves, rebarBarType, Autodesk.Revit.DB.Structure.RebarStyle.Standard, host, hookType, hookType, Autodesk.Revit.DB.Structure.RebarHookOrientation.Left, Autodesk.Revit.DB.Structure.RebarHookOrientation.Left, XYZ.BasisZ, false, true);
         }
 
         #endregion
@@ -264,9 +263,9 @@ namespace Revit.Elements
         /// <param name="rebar"></param>
         /// <param name="isRevitOwned"></param>
         /// <returns></returns>
-        internal static Rebar FromExisting(Autodesk.Revit.DB.Structure.RebarContainer rebar, bool isRevitOwned)
+        internal static RebarContainer FromExisting(Autodesk.Revit.DB.Structure.RebarContainer rebar, bool isRevitOwned)
         {
-            return new Rebar(rebar)
+            return new RebarContainer(rebar)
             {
                // IsRevitOwned = isRevitOwned
             };

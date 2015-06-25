@@ -30,9 +30,9 @@ using Dynamo.Models;
 using ProtoCore.AST.AssociativeAST;
 
 
-    /// <summary>
-    /// Get all available Rebar Hook Types
-    /// </summary>
+/// <summary>
+/// Get all available Rebar Hook Types
+/// </summary>
 [NodeName("Get Rebar Hook Types")]
 [NodeCategory("MyCat")]
 [NodeDescription("GetFamilyParameterDescription")]
@@ -41,7 +41,8 @@ public class RevitRebarHookType : DSDropDownBase
 {
     private const string noTypes = "No Types available.";
 
-    public RevitRebarHookType() : base("Rebar Hook Type")
+    public RevitRebarHookType()
+        : base("Rebar Hook Type")
     {
         DocumentManager.Instance.CurrentUIApplication.Application.DocumentOpened += Controller_RevitDocumentChanged;
     }

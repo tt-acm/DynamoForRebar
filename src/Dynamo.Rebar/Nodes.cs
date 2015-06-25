@@ -27,7 +27,7 @@ using RevitServices.Transactions;
 using DSCoreNodesUI;
 using Dynamo.Utilities;
 using Dynamo.Models;
-
+using Revit.GeometryConversion;
 
 /// <summary>
 /// Rebar Nodes
@@ -75,6 +75,65 @@ public static class Rebar
     {
        return face.Follow(20, coverParameter, distanceBetweenRebar, numberOfBars, flip);
     }
+
+
+    public static void CutRebarByPlane(Surface plane, Revit.Elements.Element rebarContainerElement)
+    {
+        Autodesk.Revit.DB.Structure.RebarContainer rebarContainer  = (Autodesk.Revit.DB.Structure.RebarContainer)rebarContainerElement.InternalElement;
+
+        Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
+        TransactionManager.Instance.EnsureInTransaction(document);
+
+
+        foreach (Autodesk.Revit.DB.Structure.RebarContainerItem rebar in rebarContainer)
+        { 
+            RVT.Structure.RebarBarType barType = (RVT.Structure.RebarBarType)document.GetElement(rebar.BarTypeId);
+            RVT.Structure.RebarHookType hookTypeStart = (RVT.Structure.RebarHookType)document.GetElement(rebar.GetHookTypeId(0));
+            RVT.Structure.RebarHookType hookTypeEnd = (RVT.Structure.RebarHookType)document.GetElement(rebar.GetHookTypeId(1));
+            RVT.Structure.RebarHookOrientation hookOrientationStart = rebar.GetHookOrientation(0);
+            RVT.Structure.RebarHookOrientation hookOrientationEnd = rebar.GetHookOrientation(1);
+
+
+            List<RVT.Curve> rest = new List<RVT.Curve>();
+
+            foreach (RVT.Curve curve in rebar.GetCenterlineCurves(false,true,true))
+            {
+                if (curve.GetType() == typeof(RVT.Line))
+                {
+                    Curve geocurve = curve.ToProtoType();
+
+                    //RVT.XYZ p1 = curve.GetEndPoint(0);
+                    //RVT.XYZ p2 = curve.GetEndPoint(1);
+                    //Line line = Line.ByStartPointEndPoint(Point.ByCoordinates(p1.X,p1.Y,p1.Z), Point.ByCoordinates(p2.X,p2.Y,p2.Z));
+
+                    foreach (Geometry geometry in plane.Intersect(geocurve))
+                    {
+                        if (geometry.GetType() == typeof(Point))
+                        {
+                            Point p = (Point)geometry;
+                            Curve[] curves = geocurve.ParameterSplit(geocurve.ParameterAtPoint(p));
+                           
+                            rest.Add(curves[0].ToRevitType());
+                        }
+                    }
+                }
+            }
+
+            if (rest.Count > 0)
+            {
+                rebar.SetFromCurves(RVT.Structure.RebarStyle.Standard, barType, hookTypeStart, hookTypeEnd, RVT.XYZ.BasisZ, rest, hookOrientationStart, hookOrientationEnd, true, false);
+                   
+            }
+
+            
+        
+        }
+
+
+        TransactionManager.Instance.TransactionTaskDone();
+    
+    }
+
 }
 
 
