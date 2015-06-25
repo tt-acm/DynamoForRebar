@@ -94,44 +94,10 @@ using Autodesk.DesignScript.Runtime;
             // Create Normals for each Point
             for (int i = 0; i < points.Length; i++)
             {
-                // Get the Normal at that point
-                Vector normal = face.NormalAtPoint(points[i]);
+                int intersections = GetIntersection(face, surfaces, points[i], offset, ref curves, false);
 
-                // Remove Z Value in order to create horizontal normals
-                Vector optimizedNormal = Vector.ByCoordinates(normal.X, normal.Y, 0).Reverse();
-                
-                // Get an startpoint offset if it applies
-                Point startPoint = points[i];
-                if (offset > 0)
-                {
-                    Line offsetLine = Line.ByStartPointDirectionLength(points[i], optimizedNormal, offset);
-                    startPoint = offsetLine.EndPoint;
-                }
-
-                // Create an almost endless line
-                Line line = Line.ByStartPointDirectionLength(startPoint, optimizedNormal, 100000000);
-                
-                // Get intersection points with boundary surfaces
-                List<double> intersections = line.Insersection(surfaces);
-
-                // If there are any intersections
-                if (intersections.Count > 1)
-                {
-                    // trim the curve into segments if there are gaps or holes
-                    Curve[] segments = line.ParameterTrimSegments(intersections.ToArray(), false);
-
-                    // Walk through trimmed curves and add only those to the return collection
-                    // which are of a reasonable length
-                    foreach (Curve segment in segments)                  
-                        //if (segment.Length < 100000) 
-                        curves.Add(segment); 
-                }
-                else if (intersections.Count == 1)
-                {
-                    Curve[] segments = line.ParameterSplit(intersections[0]);
-                    curves.Add(segments[0]);
-                }
-               
+                if (intersections == 0)
+                    GetIntersection(face, surfaces, points[i], offset, ref curves, true);
 
             }
             return curves;
@@ -190,6 +156,11 @@ using Autodesk.DesignScript.Runtime;
                 Curve curve = (offset > 0) ? nurbsCurve.Offset(offset) : nurbsCurve;
 
                 curves.Add(curve);
+                //foreach (Curve segment in curve.ApproximateWithArcAndLineSegments())
+                //{
+                //    curves.Add(segment);
+                //}
+
             }
 
             return curves;
@@ -371,12 +342,15 @@ using Autodesk.DesignScript.Runtime;
             // Create Curves from the Matrix
             for (int i = 1; i < transposedPoints.Length-1; i++)
             {
-                NurbsCurve curve = NurbsCurve.ByControlPoints(transposedPoints[i].ToList());
-                
-                if (offset > 0)
-                    curves.Add(curve.Offset(offset));
-                else
-                    curves.Add(curve);
+                NurbsCurve curve = NurbsCurve.ByControlPoints(transposedPoints[i].ToList());         
+                Curve curveToSegment = (offset > 0)? curve.Offset(offset): curve;
+
+                //foreach (Curve segment in curve.ApproximateWithArcAndLineSegments())
+                //{
+                //    curves.Add(segment);
+                //}
+
+                curves.Add(curveToSegment);
             }
 
             return curves;
@@ -417,6 +391,51 @@ using Autodesk.DesignScript.Runtime;
             }
             return transposed;
         }
+
+        private static int GetIntersection(Surface face, List<Surface> surfaces, Point point, double offset, ref List<Curve> curves, bool reverse)
+        {
+            // Get the Normal at that point
+            Vector normal = face.NormalAtPoint(point);
+
+            // Remove Z Value in order to create horizontal normals
+            Vector optimizedNormal = (reverse) ? Vector.ByCoordinates(normal.X, normal.Y, 0).Reverse() : Vector.ByCoordinates(normal.X, normal.Y, 0);
+
+            // Get an startpoint offset if it applies
+            Point startPoint = point;
+            if (offset > 0)
+            {
+                Line offsetLine = Line.ByStartPointDirectionLength(point, optimizedNormal, offset);
+                startPoint = offsetLine.EndPoint;
+            }
+
+            // Create an almost endless line
+            Line line = Line.ByStartPointDirectionLength(startPoint, optimizedNormal, 100000000);
+
+            // Get intersection points with boundary surfaces
+            List<double> intersections = line.Insersection(surfaces);
+
+            // If there are any intersections
+            if (intersections.Count > 1)
+            {
+                // trim the curve into segments if there are gaps or holes
+                Curve[] segments = line.ParameterTrimSegments(intersections.ToArray(), false);
+
+                // Walk through trimmed curves and add only those to the return collection
+                // which are of a reasonable length
+                foreach (Curve segment in segments)
+                    //if (segment.Length < 100000) 
+                    curves.Add(segment);
+            }
+            else if (intersections.Count == 1)
+            {
+                Curve[] segments = line.ParameterSplit(intersections[0]);
+                curves.Add(segments[0]);
+            }
+
+            return intersections.Count;
+
+        }
+
     }
 
 
