@@ -34,6 +34,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CoreNodeModelsWpf">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\nodes\CoreNodeModelsWpf.dll</HintPath>
+    </Reference>
     <Reference Include="DSCoreNodesUI">
       <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\nodes\DSCoreNodesUI.dll</HintPath>
     </Reference>
@@ -69,6 +72,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit Structure 2016\RevitAPI.dll</HintPath>
     </Reference>
+    <Reference Include="RevitAPIUI, Version=2015.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit Structure 2016\RevitAPIUI.dll</HintPath>
+    </Reference>
     <Reference Include="RevitNodes">
       <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2015\RevitNodes.dll</HintPath>
     </Reference>
@@ -91,6 +98,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Revit.cs" />
+    <Compile Include="RevitTypes.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

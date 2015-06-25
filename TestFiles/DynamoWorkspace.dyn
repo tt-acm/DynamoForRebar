@@ -1,4 +1,4 @@
-<Workspace Version="0.8.0.950" X="200.32953264332" Y="139.839379641424" zoom="0.610369135881949" Name="Home" RunType="Manual" RunPeriod="100" HasRunWithoutCrash="True">
+<Workspace Version="0.8.0.950" X="283.272891148049" Y="121.08654359567" zoom="0.618017191475157" Name="Home" RunType="Manual" RunPeriod="100" HasRunWithoutCrash="True">
   <NamespaceResolutionMap />
   <Elements>
     <Dynamo.Nodes.DSFunction guid="962fa771-f538-4495-a460-69e8223e2c34" type="Dynamo.Nodes.DSFunction" nickname="Rebar.FollowingSurface" x="185.292567846112" y="330.399639401319" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="..\bin\AnyCPU\Debug\Revit.Rebar.dll" function="Rebar.FollowingSurface@Autodesk.DesignScript.Geometry.Surface,int,double,bool,double">
@@ -35,12 +35,12 @@
       <PortInfo index="5" default="True" />
     </Dynamo.Nodes.DSFunction>
     <Dynamo.Nodes.DSFaceSelection guid="adb36862-ccad-4685-82ae-0f188c03cb07" type="Dynamo.Nodes.DSFaceSelection" nickname="Select Face" x="-197.193424803725" y="595.24858240217" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
-      <instance id="8b22563e-3247-4edd-977a-41f9118db6db-000334bc:0:INSTANCE:8b22563e-3247-4edd-977a-41f9118db6db-000334ab:36:SURFACE" />
+      <instance id="8b22563e-3247-4edd-977a-41f9118db6db-000334bc:0:INSTANCE:8b22563e-3247-4edd-977a-41f9118db6db-000334ab:51:SURFACE" />
     </Dynamo.Nodes.DSFaceSelection>
     <Dynamo.Nodes.SelectFaces guid="c760b6e2-0dfb-4506-88f2-917f3b73203d" type="Dynamo.Nodes.SelectFaces" nickname="Select Faces" x="-210.501456305425" y="686.741298976356" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
-      <instance id="8b22563e-3247-4edd-977a-41f9118db6db-000334bc:0:INSTANCE:8b22563e-3247-4edd-977a-41f9118db6db-000334ab:22:SURFACE" />
-      <instance id="8b22563e-3247-4edd-977a-41f9118db6db-000334bc:0:INSTANCE:8b22563e-3247-4edd-977a-41f9118db6db-000334ab:26:SURFACE" />
-      <instance id="8b22563e-3247-4edd-977a-41f9118db6db-000334bc:0:INSTANCE:8b22563e-3247-4edd-977a-41f9118db6db-000334ab:32:SURFACE" />
+      <instance id="8b22563e-3247-4edd-977a-41f9118db6db-000334bc:0:INSTANCE:8b22563e-3247-4edd-977a-41f9118db6db-000334ab:41:SURFACE" />
+      <instance id="8b22563e-3247-4edd-977a-41f9118db6db-000334bc:0:INSTANCE:8b22563e-3247-4edd-977a-41f9118db6db-000334ab:49:SURFACE" />
+      <instance id="8b22563e-3247-4edd-977a-41f9118db6db-000334bc:0:INSTANCE:8b22563e-3247-4edd-977a-41f9118db6db-000334ab:53:SURFACE" />
     </Dynamo.Nodes.SelectFaces>
     <Dynamo.Nodes.DSFunction guid="28b4541b-31ce-4329-a0ee-d43a58f2b223" type="Dynamo.Nodes.DSFunction" nickname="Flatten" x="55.0551382444166" y="689.464271367627" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="" function="Flatten@var[]..[]" />
     <Dynamo.Nodes.DoubleInput guid="ca732aef-f53d-47ef-9d1f-a2208cdbd996" type="Dynamo.Nodes.DoubleInput" nickname="Number" x="80.6117327942579" y="774.907007675117" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
@@ -58,6 +58,7 @@
     </Dynamo.Nodes.DSModelElementSelection>
     <Dynamo.Nodes.DSFunction guid="9f8b5ff9-1b83-48e4-b8f4-e44426429f71" type="Dynamo.Nodes.DSFunction" nickname="Element.Id" x="629.346294211672" y="166.495487396394" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="RevitNodes.dll" function="Revit.Elements.Element.Id" />
     <Dynamo.Nodes.DSFunction guid="623addd6-124f-4eb8-a03b-9aada3a4eeec" type="Dynamo.Nodes.DSFunction" nickname="Element.Id" x="593.302531991927" y="787.431209272905" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="RevitNodes.dll" function="Revit.Elements.Element.Id" />
+    <Dynamo.Nodes.DSFunction guid="8b87abf0-37b1-456e-a603-1b6d58adbbe8" type="Dynamo.Nodes.DSFunction" nickname="RevitRebarHookType.RevitRebarHookType" x="578.019164937247" y="472.96372469736" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="..\bin\AnyCPU\Debug\Revit.Rebar.dll" function="RevitRebarHookType.RevitRebarHookType" />
   </Elements>
   <Connectors>
     <Dynamo.Models.ConnectorModel start="962fa771-f538-4495-a460-69e8223e2c34" start_index="0" end="024b567b-62ee-40bb-b222-f276b976f443" end_index="0" portType="0" />
