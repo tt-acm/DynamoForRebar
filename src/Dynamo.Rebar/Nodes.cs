@@ -85,7 +85,10 @@ public static class Rebar
         TransactionManager.Instance.EnsureInTransaction(document);
 
 
-        foreach (Autodesk.Revit.DB.Structure.RebarContainerItem rebar in rebarContainer)
+        List<Autodesk.Revit.DB.Structure.RebarContainerItem> rebars = rebarContainer.ToList();
+
+        
+        foreach (Autodesk.Revit.DB.Structure.RebarContainerItem rebar in rebars)
         { 
             RVT.Structure.RebarBarType barType = (RVT.Structure.RebarBarType)document.GetElement(rebar.BarTypeId);
             RVT.Structure.RebarHookType hookTypeStart = (RVT.Structure.RebarHookType)document.GetElement(rebar.GetHookTypeId(0));
@@ -101,10 +104,6 @@ public static class Rebar
                 if (curve.GetType() == typeof(RVT.Line))
                 {
                     Curve geocurve = curve.ToProtoType();
-
-                    //RVT.XYZ p1 = curve.GetEndPoint(0);
-                    //RVT.XYZ p2 = curve.GetEndPoint(1);
-                    //Line line = Line.ByStartPointEndPoint(Point.ByCoordinates(p1.X,p1.Y,p1.Z), Point.ByCoordinates(p2.X,p2.Y,p2.Z));
 
                     foreach (Geometry geometry in plane.Intersect(geocurve))
                     {
@@ -122,7 +121,6 @@ public static class Rebar
             if (rest.Count > 0)
             {
                 rebar.SetFromCurves(RVT.Structure.RebarStyle.Standard, barType, hookTypeStart, hookTypeEnd, RVT.XYZ.BasisZ, rest, hookOrientationStart, hookOrientationEnd, true, false);
-                   
             }
 
             
