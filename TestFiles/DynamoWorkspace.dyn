@@ -1,4 +1,4 @@
-<Workspace Version="0.8.0.950" X="-692.053794796361" Y="325.63437127401" zoom="0.891875783399439" Name="Home" RunType="Manual" RunPeriod="100" HasRunWithoutCrash="True">
+<Workspace Version="0.8.0.950" X="172.842931118717" Y="161.08462104457" zoom="0.578111110182979" Name="Home" RunType="Manual" RunPeriod="100" HasRunWithoutCrash="True">
   <NamespaceResolutionMap />
   <Elements>
     <Dynamo.Nodes.DSFunction guid="962fa771-f538-4495-a460-69e8223e2c34" type="Dynamo.Nodes.DSFunction" nickname="Rebar.FollowingSurface" x="185.292567846112" y="330.399639401319" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="..\bin\AnyCPU\Debug\Revit.Rebar.dll" function="Rebar.FollowingSurface@Autodesk.DesignScript.Geometry.Surface,int,double,bool,double">
@@ -42,7 +42,7 @@
     </Dynamo.Nodes.SelectFaces>
     <Dynamo.Nodes.DSFunction guid="28b4541b-31ce-4329-a0ee-d43a58f2b223" type="Dynamo.Nodes.DSFunction" nickname="Flatten" x="55.0551382444166" y="689.464271367627" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="" function="Flatten@var[]..[]" />
     <Dynamo.Nodes.DoubleInput guid="ca732aef-f53d-47ef-9d1f-a2208cdbd996" type="Dynamo.Nodes.DoubleInput" nickname="Number" x="-127.490957641472" y="766.413020310393" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
-      <System.Double value="0.3" />
+      <System.Double value="0.5" />
     </Dynamo.Nodes.DoubleInput>
     <Dynamo.Nodes.DoubleInput guid="45d7161b-05ec-4d1d-a5c8-9f82839c9a21" type="Dynamo.Nodes.DoubleInput" nickname="Number" x="-143.949529342436" y="824.778401531857" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
       <System.Double value="10" />
@@ -55,12 +55,9 @@
     </Dynamo.Nodes.DSModelElementSelection>
     <Dynamo.Nodes.DSFunction guid="9f8b5ff9-1b83-48e4-b8f4-e44426429f71" type="Dynamo.Nodes.DSFunction" nickname="Element.Id" x="629.346294211672" y="166.495487396394" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="RevitNodes.dll" function="Revit.Elements.Element.Id" />
     <Dynamo.Nodes.DSFunction guid="623addd6-124f-4eb8-a03b-9aada3a4eeec" type="Dynamo.Nodes.DSFunction" nickname="Element.Id" x="593.302531991927" y="787.431209272905" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="RevitNodes.dll" function="Revit.Elements.Element.Id" />
-    <Dynamo.Nodes.DSFunction guid="8b87abf0-37b1-456e-a603-1b6d58adbbe8" type="Dynamo.Nodes.DSFunction" nickname="RevitRebarHookType.RevitRebarHookType" x="1385.25728903709" y="476.179812841184" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="..\bin\AnyCPU\Debug\Revit.Rebar.dll" function="RevitRebarHookType.RevitRebarHookType" />
-    <Dynamo.Nodes.DSFunction guid="082af81d-4b0d-4112-9b4e-5b07b4b8207b" type="Dynamo.Nodes.DSFunction" nickname="Rebar.CutRebarByPlane" x="1589.35563810962" y="-66.1031060471121" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="..\bin\AnyCPU\Debug\Revit.Rebar.dll" function="Rebar.CutRebarByPlane@Autodesk.DesignScript.Geometry.Surface,Revit.Elements.Element" />
-    <Dynamo.Nodes.DSModelElementSelection guid="ad561189-cae2-4e98-9a4c-98180f4daf05" type="Dynamo.Nodes.DSModelElementSelection" nickname="Select Model Element" x="1222.53335524306" y="-20.2803083891312" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
-      <instance id="7631a757-00b8-4e31-96a1-1c8ff7101f3a-000346a1" />
-    </Dynamo.Nodes.DSModelElementSelection>
-    <Dynamo.Nodes.DSFaceSelection guid="5c0a74dc-8cd4-4fe7-a436-aabbb37c1d85" type="Dynamo.Nodes.DSFaceSelection" nickname="Select Face" x="1199.46884671599" y="-129.881398009398" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+    <Dynamo.Nodes.DSFunction guid="082af81d-4b0d-4112-9b4e-5b07b4b8207b" type="Dynamo.Nodes.DSFunction" nickname="Rebar.CutRebarByPlane" x="1750.94374711603" y="362.105382819875" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="..\bin\AnyCPU\Debug\Revit.Rebar.dll" function="Rebar.CutRebarByPlane@Autodesk.DesignScript.Geometry.Surface,Revit.Elements.Element" />
+    <Dynamo.Nodes.DSModelElementSelection guid="ad561189-cae2-4e98-9a4c-98180f4daf05" type="Dynamo.Nodes.DSModelElementSelection" nickname="Select Model Element" x="1384.12146424947" y="407.928180477856" isVisible="true" isUpstreamVisible="true" lacing="Disabled" />
+    <Dynamo.Nodes.DSFaceSelection guid="5c0a74dc-8cd4-4fe7-a436-aabbb37c1d85" type="Dynamo.Nodes.DSFaceSelection" nickname="Select Face" x="1361.0569557224" y="298.327090857589" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
       <instance id="7109c8a7-b91b-451f-913a-9b70295d08fe-000344bc:5:SURFACE" />
     </Dynamo.Nodes.DSFaceSelection>
     <Dynamo.Nodes.DSFunction guid="d4a992b2-76f4-4ced-9870-fa53008ef0c1" type="Dynamo.Nodes.DSFunction" nickname="RebarContainer.ByCurve" x="823.74931335385" y="-95.2817426085242" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="..\bin\AnyCPU\Debug\Revit.Rebar.dll" function="Revit.Elements.RebarContainer.ByCurve@Autodesk.DesignScript.Geometry.Curve[],int" />

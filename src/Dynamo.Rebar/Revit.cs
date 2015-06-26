@@ -139,17 +139,12 @@ namespace Revit.Elements
             
             var container = rebarElem;
 
-
-
-
+            bool contentUpdated = false;
 
             if (rebarElem == null)
             {
                 ElementId stdC = Autodesk.Revit.DB.Structure.RebarContainerType.CreateDefaultRebarContainerType(DocumentManager.Instance.CurrentDBDocument);
                 container = Autodesk.Revit.DB.Structure.RebarContainer.Create(DocumentManager.Instance.CurrentDBDocument, host, stdC);
-
-                //existingRebar = true;
-
             }
             else
             {
@@ -162,23 +157,12 @@ namespace Revit.Elements
                 System.Collections.Generic.List<Curve> revitCurves = new System.Collections.Generic.List<Curve>();
                 revitCurves.Add(curve);
 
-                container.AppendItemFromCurves(Autodesk.Revit.DB.Structure.RebarStyle.Standard, barType, startHook, endHook, XYZ.BasisZ, revitCurves, Autodesk.Revit.DB.Structure.RebarHookOrientation.Left, Autodesk.Revit.DB.Structure.RebarHookOrientation.Left, false, true);
+                container.AppendItemFromCurves(barStyle, barType, startHook, endHook, XYZ.BasisZ, revitCurves, startHookOrientation, endHookOrientation, false, true);
             }
 
             InternalSetRebar(container);
 
-
-            //var rebar = existingRebar ? rebarElem :
-            //         Autodesk.Revit.DB.Structure.Rebar.CreateFromCurves(Document,barStyle,barType,startHook,endHook,host,normal,curves,startHookOrientation,endHookOrientation,useExistingShape,createNewShape);
-            
-            
-
-  
-
             TransactionManager.Instance.TransactionTaskDone();
-
-            // delete the element stored in trace and add this new one
-            //ElementBinder.CleanupAndSetElementForTrace(Document, InternalRebar);
 
 
             if (rebarElem != null)

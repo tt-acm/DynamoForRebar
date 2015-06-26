@@ -30,6 +30,7 @@ using Dynamo.Models;
 using ProtoCore.AST.AssociativeAST;
 
 
+
 /// <summary>
 /// Get all available Rebar Hook Types
 /// </summary>
@@ -85,7 +86,7 @@ public class RevitRebarHookType : DSDropDownBase
         Items = Items.OrderBy(x => x.Name).ToObservableCollection();
     }
 
-    public override IEnumerable<ProtoCore.AST.AssociativeAST.AssociativeNode> BuildOutputAst(List<ProtoCore.AST.AssociativeAST.AssociativeNode> inputAstNodes)
+    public override IEnumerable<ProtoCore.AST.AssociativeAST.AssociativeNode> BuildOutputAst(List<AssociativeNode> inputAstNodes)
     {
         if (Items.Count == 0 ||
             Items[0].Name == noTypes ||
