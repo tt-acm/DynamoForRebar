@@ -235,14 +235,7 @@ namespace Revit.Elements
             foreach (Autodesk.DesignScript.Geometry.Curve curve in curves)
             {
                
-
-                if (curve.GetType() == typeof(Autodesk.DesignScript.Geometry.NurbsCurve))
-                
-                    revitCurves.Add(Arc.Create(curve.StartPoint.ToRevitType(), curve.EndPoint.ToRevitType(), curve.PointAtParameter(0.5).ToRevitType()));
-                
-                else
-
-                    revitCurves.Add(curve.ToRevitType());
+                    revitCurves.Add(curve.Approximate());
 
             }
 

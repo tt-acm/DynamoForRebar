@@ -38,12 +38,35 @@ using Revit.GeometryConversion;
         {
             if (curve.GetType() == typeof(Autodesk.DesignScript.Geometry.NurbsCurve))
             {
-                return Autodesk.Revit.DB.Arc.Create(curve.StartPoint.ToRevitType(), curve.EndPoint.ToRevitType(), curve.PointAtParameter(0.5).ToRevitType());            
+                NurbsCurve nurbsCurve = (NurbsCurve)curve;
+
+                if (nurbsCurve.IsLinear())
+                {
+                    return Autodesk.Revit.DB.Line.CreateBound(curve.StartPoint.ToRevitType(), curve.EndPoint.ToRevitType());
+                }
+                else
+                {
+                    return Autodesk.Revit.DB.Arc.Create(curve.StartPoint.ToRevitType(), curve.EndPoint.ToRevitType(), curve.PointAtParameter(0.5).ToRevitType());
+                }
             }
             else
                 return curve.ToRevitType();
         }
 
+
+        /// <summary>
+        /// Checks if a curve is linear
+        /// </summary>
+        /// <param name="curve"></param>
+        /// <returns></returns>
+        [IsVisibleInDynamoLibrary(false)]
+        public static bool IsLinear(this NurbsCurve curve)
+        {
+            Line line = Line.ByStartPointEndPoint(curve.StartPoint, curve.EndPoint);
+            Point midLine = line.PointAtParameter(0.5);
+            Point midCurve = curve.PointAtParameter(0.5);
+            return midLine.IsAlmostEqualTo(midCurve);
+        }
 
         /// <summary>
         /// Divides a Curve into equal pieces

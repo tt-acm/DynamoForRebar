@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamo.Rebar", "Dynamo.Reba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamo.Revit.Rebar", "Dynamo.Revit.Rebar\Dynamo.Revit.Rebar.csproj", "{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoIcons", "DynamoIcons\DynamoIcons.csproj", "{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
