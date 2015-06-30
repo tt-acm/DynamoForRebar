@@ -20,12 +20,31 @@ using System.Linq;
 using System.Text;
 using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Runtime;
+using Revit.GeometryConversion;
 
     /// <summary>
     /// Extensions
     /// </summary>
     public static class Extensions
     {
+
+        /// <summary>
+        /// Approximate Curve to Revit Curve
+        /// </summary>
+        /// <param name="curve"></param>
+        /// <returns></returns>
+        [IsVisibleInDynamoLibrary(false)]
+        public static Autodesk.Revit.DB.Curve Approximate(this Curve curve)
+        {
+            if (curve.GetType() == typeof(Autodesk.DesignScript.Geometry.NurbsCurve))
+            {
+                return Autodesk.Revit.DB.Arc.Create(curve.StartPoint.ToRevitType(), curve.EndPoint.ToRevitType(), curve.PointAtParameter(0.5).ToRevitType());            
+            }
+            else
+                return curve.ToRevitType();
+        }
+
+
         /// <summary>
         /// Divides a Curve into equal pieces
         /// </summary>

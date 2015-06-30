@@ -110,6 +110,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RevitTypes.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dynamo.Rebar\Dynamo.Rebar.csproj">
+      <Project>{09e303fe-0a2f-49b0-878f-870c90c8f40b}</Project>
+      <Name>Dynamo.Rebar</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

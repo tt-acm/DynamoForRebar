@@ -93,7 +93,12 @@
     <Compile Include="Nodes.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Revit.cs" />
+    <Compile Include="Revit\Rebar.cs" />
+    <Compile Include="Revit\RebarBarType.cs" />
+    <Compile Include="Revit\RebarHookType.cs" />
+    <Compile Include="Revit\RebarStyle.cs" />
+    <Compile Include="Revit\RebarContainer.cs" />
+    <Compile Include="Revit\RebarHookOrientation.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

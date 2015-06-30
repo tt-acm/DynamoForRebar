@@ -34,7 +34,7 @@ namespace Revit.Elements
         /// <summary>
         /// Internal reference to the Revit Element
         /// </summary>
-        internal Autodesk.Revit.DB.Structure.RebarContainer InternalRebar
+        internal Autodesk.Revit.DB.Structure.RebarContainer InternalRebarContainer
         {
             get;
             private set;
@@ -45,7 +45,7 @@ namespace Revit.Elements
         /// </summary>
         public override Autodesk.Revit.DB.Element InternalElement
         {
-            get { return InternalRebar; }
+            get { return InternalRebarContainer; }
         }
 
         #endregion
@@ -58,7 +58,7 @@ namespace Revit.Elements
         /// <param name="rebar"></param>
         private RebarContainer(Autodesk.Revit.DB.Structure.RebarContainer rebar)
         {
-            SafeInit(() => InitRebar(rebar));
+            SafeInit(() => InitRebarContainer(rebar));
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Revit.Elements
             bool useExistingShape,
             bool createNewShape)
         {
-            SafeInit(() => InitRebar(curve, barType, barStyle,host,startHook,endHook,startHookOrientation,endHookOrientation,normal,useExistingShape,createNewShape));
+            SafeInit(() => InitRebarContainer(curve, barType, barStyle, host, startHook, endHook, startHookOrientation, endHookOrientation, normal, useExistingShape, createNewShape));
         }
 
         #endregion
@@ -98,9 +98,9 @@ namespace Revit.Elements
         /// Initialize a Rebar element
         /// </summary>
         /// <param name="rebar"></param>
-        private void InitRebar(Autodesk.Revit.DB.Structure.RebarContainer rebar)
+        private void InitRebarContainer(Autodesk.Revit.DB.Structure.RebarContainer rebar)
         {
-            InternalSetRebar(rebar);
+            InternalSetRebarContainer(rebar);
         }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace Revit.Elements
         /// <param name="normal"></param>
         /// <param name="useExistingShape"></param>
         /// <param name="createNewShape"></param>
-        private void InitRebar(System.Collections.Generic.List<Curve> curves, 
+        private void InitRebarContainer(System.Collections.Generic.List<Curve> curves, 
             Autodesk.Revit.DB.Structure.RebarBarType barType,
             Autodesk.Revit.DB.Structure.RebarStyle barStyle,
             Autodesk.Revit.DB.Element host, 
@@ -160,7 +160,7 @@ namespace Revit.Elements
                 container.AppendItemFromCurves(barStyle, barType, startHook, endHook, XYZ.BasisZ, revitCurves, startHookOrientation, endHookOrientation, false, true);
             }
 
-            InternalSetRebar(container);
+            InternalSetRebarContainer(container);
 
             TransactionManager.Instance.TransactionTaskDone();
 
@@ -184,9 +184,9 @@ namespace Revit.Elements
         /// Set the internal Element, ElementId, and UniqueId
         /// </summary>
         /// <param name="rebar"></param>
-        private void InternalSetRebar(Autodesk.Revit.DB.Structure.RebarContainer rebar)
+        private void InternalSetRebarContainer(Autodesk.Revit.DB.Structure.RebarContainer rebar)
         {
-            InternalRebar = rebar;
+            InternalRebarContainer = rebar;
             InternalElementId = rebar.Id;
             InternalUniqueId = rebar.UniqueId;
         }
@@ -200,8 +200,20 @@ namespace Revit.Elements
         /// </summary>
         /// <param name="curves">Set of Curves</param>
         /// <param name="hostElementId">Host Element Id</param>
-        public static RebarContainer ByCurve(System.Collections.Generic.List<Autodesk.DesignScript.Geometry.Curve> curves, int hostElementId)
+        public static RebarContainer ByCurve(
+            System.Collections.Generic.List<Autodesk.DesignScript.Geometry.Curve> curves,
+            int hostElementId,
+            string rebarStyle,
+            Revit.Elements.Element rebarBarType,
+            string startHookOrientation,
+            string endHookOrientation,            
+            Revit.Elements.Element startHookType,
+            Revit.Elements.Element endHookType,
+            Autodesk.DesignScript.Geometry.Vector normal
+            )
         {
+            if (normal == null) normal = Autodesk.DesignScript.Geometry.Vector.ZAxis();
+
             if (curves == null) throw new ArgumentNullException("curves");
             if (hostElementId == null) throw new ArgumentNullException("hostElementId");
 
@@ -210,13 +222,15 @@ namespace Revit.Elements
 
             Autodesk.Revit.DB.Element host = DocumentManager.Instance.CurrentDBDocument.GetElement(elementId);
 
-            FilteredElementCollector fec = new FilteredElementCollector(DocumentManager.Instance.CurrentDBDocument).OfClass(typeof(Autodesk.Revit.DB.Structure.RebarHookType));
-            Autodesk.Revit.DB.Structure.RebarHookType hookType = (Autodesk.Revit.DB.Structure.RebarHookType)fec.FirstElement();
-
-            FilteredElementCollector fec2 = new FilteredElementCollector(DocumentManager.Instance.CurrentDBDocument).OfClass(typeof(Autodesk.Revit.DB.Structure.RebarBarType));
-            Autodesk.Revit.DB.Structure.RebarBarType rebarBarType = (Autodesk.Revit.DB.Structure.RebarBarType)fec2.FirstElement();
-
             System.Collections.Generic.List<Curve> revitCurves = new System.Collections.Generic.List<Curve>();
+
+            Autodesk.Revit.DB.Structure.RebarStyle barStyle = Autodesk.Revit.DB.Structure.RebarStyle.StirrupTie;
+            Enum.TryParse<Autodesk.Revit.DB.Structure.RebarStyle>(rebarStyle, out barStyle);
+
+            Autodesk.Revit.DB.Structure.RebarHookOrientation startOrientation = Autodesk.Revit.DB.Structure.RebarHookOrientation.Left;
+            Enum.TryParse<Autodesk.Revit.DB.Structure.RebarHookOrientation>(startHookOrientation, out startOrientation);
+            Autodesk.Revit.DB.Structure.RebarHookOrientation endOrientation = Autodesk.Revit.DB.Structure.RebarHookOrientation.Left;
+            Enum.TryParse<Autodesk.Revit.DB.Structure.RebarHookOrientation>(endHookOrientation, out endOrientation);
 
             foreach (Autodesk.DesignScript.Geometry.Curve curve in curves)
             {
@@ -232,9 +246,9 @@ namespace Revit.Elements
 
             }
 
-           
-
-            return new RebarContainer(revitCurves, rebarBarType, Autodesk.Revit.DB.Structure.RebarStyle.Standard, host, hookType, hookType, Autodesk.Revit.DB.Structure.RebarHookOrientation.Left, Autodesk.Revit.DB.Structure.RebarHookOrientation.Left, XYZ.BasisZ, false, true);
+            return new RebarContainer(revitCurves, (Autodesk.Revit.DB.Structure.RebarBarType)rebarBarType.InternalElement, barStyle, host,
+                (Autodesk.Revit.DB.Structure.RebarHookType)startHookType.InternalElement,
+                (Autodesk.Revit.DB.Structure.RebarHookType)endHookType.InternalElement, startOrientation, endOrientation, normal.ToRevitType(), false, true);
         }
 
         #endregion
@@ -251,7 +265,7 @@ namespace Revit.Elements
         {
             return new RebarContainer(rebar)
             {
-               // IsRevitOwned = isRevitOwned
+               //IsRevitOwned = isRevitOwned
             };
         }
 
