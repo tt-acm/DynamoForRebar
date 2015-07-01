@@ -138,7 +138,7 @@ namespace Revit.Elements
             var rebarElem = ElementBinder.GetElementFromTrace<Autodesk.Revit.DB.Structure.Rebar>(document);
 
             if (rebarElem == null)
-                Autodesk.Revit.DB.Structure.Rebar.CreateFromCurves(document, barStyle, barType, startHook, endHook, host, XYZ.BasisZ, curves, startHookOrientation, endHookOrientation, false, true);           
+                rebarElem = Autodesk.Revit.DB.Structure.Rebar.CreateFromCurves(document, barStyle, barType, startHook, endHook, host, XYZ.BasisZ, curves, startHookOrientation, endHookOrientation, false, true);           
 
             InternalSetRebar(rebarElem);
 

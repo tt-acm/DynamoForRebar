@@ -7,8 +7,8 @@
     <ProjectGuid>{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dynamo.Revit.Rebar</RootNamespace>
-    <AssemblyName>Dynamo.Revit.Rebar</AssemblyName>
+    <RootNamespace>Dynamo.Rebar.UI</RootNamespace>
+    <AssemblyName>Dynamo.Rebar.UI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\AnyCPU\Debug\Dynamo.Revit.Rebar.XML</DocumentationFile>
+    <DocumentationFile>..\..\bin\AnyCPU\Debug\Dynamo.Rebar.UI.xml</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">

@@ -76,7 +76,11 @@ public static class Rebar
        return face.Follow(20, coverParameter, distanceBetweenRebar, numberOfBars, flip);
     }
 
-
+    /// <summary>
+    /// Cuts a set of Rebars by Plane
+    /// </summary>
+    /// <param name="plane">Plane to cut by</param>
+    /// <param name="rebarContainerElement">Rebar Container</param>
     public static void CutRebarByPlane(Surface plane, Revit.Elements.Element rebarContainerElement)
     {
         Autodesk.Revit.DB.Structure.RebarContainer rebarContainer  = (Autodesk.Revit.DB.Structure.RebarContainer)rebarContainerElement.InternalElement;
@@ -131,6 +135,7 @@ public static class Rebar
         TransactionManager.Instance.TransactionTaskDone();
     
     }
+
 
 }
 

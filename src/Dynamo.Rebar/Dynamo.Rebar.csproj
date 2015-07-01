@@ -104,6 +104,7 @@
     <Compile Include="Revit\RebarStyle.cs" />
     <Compile Include="Revit\RebarContainer.cs" />
     <Compile Include="Revit\RebarHookOrientation.cs" />
+    <Compile Include="Revit\Tag.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
