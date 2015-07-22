@@ -30,114 +30,22 @@ using Dynamo.Models;
 using ProtoCore.AST.AssociativeAST;
 
 
-
 [NodeName("Rebar Hook Type")]
 [NodeCategory("Revit.Rebar")]
 [NodeDescription("Select Rebar Hook Type")]
 [IsDesignScriptCompatible]
-public class RevitRebarHookType : RevitDropDownBase
+public class RevitRebarHookType : RevitElementDropDown
 {
-    private const string noTypes = "No Types available.";
-
-    public RevitRebarHookType() : base("Rebar Hook Type") { }
-
-
-    public override void PopulateItems()
-    {
-        Items.Clear();
-
-        var fec = new RVT.FilteredElementCollector(DocumentManager.Instance.CurrentDBDocument);
-        fec.OfClass(typeof(Autodesk.Revit.DB.Structure.RebarHookType));
-
-        if (fec.ToElements().Count == 0)
-        {
-            Items.Add(new DSCoreNodesUI.DynamoDropDownItem(noTypes, null));
-            SelectedIndex = 0;
-            return;
-        }
-
-        foreach (var ft in fec.ToElements())
-        {
-            Items.Add(new DSCoreNodesUI.DynamoDropDownItem(ft.Name, ft));
-        }
-
-        Items = Items.OrderBy(x => x.Name).ToObservableCollection();
-    }
-
-
-    public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> inputAstNodes)
-    {
-        if (Items.Count == 0 ||
-            SelectedIndex == -1)
-        {
-            return new[] { AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), AstFactory.BuildNullNode()) };
-        }
-
-        var node = AstFactory.BuildFunctionCall(
-            "Revit.Elements.ElementSelector",
-            "ByElementId",
-            new List<AssociativeNode>
-                {
-                    AstFactory.BuildIntNode(((Autodesk.Revit.DB.Structure.RebarHookType)Items[SelectedIndex].Item).Id.IntegerValue)
-                });
-
-        return new[] { AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), node) };
-    }
-
-
-
+    public RevitRebarHookType() : base("Rebar Hook Type", typeof(Autodesk.Revit.DB.Structure.RebarHookType)) { }
 }
 
 [NodeName("Rebar Bar Type")]
 [NodeCategory("Revit.Rebar")]
 [NodeDescription("Select Rebar Bar Type")]
 [IsDesignScriptCompatible]
-public class RebarBarType : RevitDropDownBase
+public class RebarBarType : RevitElementDropDown
 {
-    private const string noTypes = "No Types available.";
-
-    public RebarBarType() : base("Rebar Bar Type") { }
-
-    public override void PopulateItems()
-    {
-        Items.Clear();
-
-        var fec = new RVT.FilteredElementCollector(DocumentManager.Instance.CurrentDBDocument);
-        fec.OfClass(typeof(Autodesk.Revit.DB.Structure.RebarBarType));
-
-        if (fec.ToElements().Count == 0)
-        {
-            Items.Add(new DSCoreNodesUI.DynamoDropDownItem(noTypes, null));
-            SelectedIndex = 0;
-            return;
-        }
-
-        foreach (var ft in fec.ToElements())
-        {
-            Items.Add(new DSCoreNodesUI.DynamoDropDownItem(ft.Name, ft));
-        }
-
-        Items = Items.OrderBy(x => x.Name).ToObservableCollection();
-    }
-
-    public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> inputAstNodes)
-    {
-        if (Items.Count == 0 ||
-            SelectedIndex == -1)
-        {
-            return new[] { AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), AstFactory.BuildNullNode()) };
-        }
-
-        var node = AstFactory.BuildFunctionCall(
-            "Revit.Elements.ElementSelector",
-            "ByElementId",
-            new List<AssociativeNode>
-                {
-                    AstFactory.BuildIntNode(((Autodesk.Revit.DB.Structure.RebarBarType)Items[SelectedIndex].Item).Id.IntegerValue)
-                });
-
-        return new[] { AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), node) };
-    }
+    public RebarBarType() : base("Rebar Bar Type", typeof(Autodesk.Revit.DB.Structure.RebarBarType)) { }
 }
 
 
@@ -145,34 +53,9 @@ public class RebarBarType : RevitDropDownBase
 [NodeCategory("Revit.Rebar")]
 [NodeDescription("Select Rebar Hook Orientation")]
 [IsDesignScriptCompatible]
-public class RebarHookOrientation : RevitDropDownBase
+public class RebarHookOrientation : GenericEnumerationDropDown
 {
-    public RebarHookOrientation() : base("Rebar Hook Orientation") { }
-
-    public override void PopulateItems()
-    {
-        Items.Clear();
-
-        foreach (string name in Enum.GetNames(typeof(Autodesk.Revit.DB.Structure.RebarHookOrientation)))
-        {
-            Items.Add(new DSCoreNodesUI.DynamoDropDownItem(name, Enum.Parse(typeof(Autodesk.Revit.DB.Structure.RebarHookOrientation), name)));
-        }
-
-        Items = Items.OrderBy(x => x.Name).ToObservableCollection();
-    }
-
-    public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> inputAstNodes)
-    {
-        if (Items.Count == 0 || Items.Count == -1)
-        {
-            PopulateItems();
-        }
-
-        var stringNode = AstFactory.BuildStringNode((string)Items[SelectedIndex].Name);
-        var assign = AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), stringNode);
-
-        return new List<AssociativeNode> { assign };
-    }
+    public RebarHookOrientation() : base("Rebar Hook Orientation", typeof(Autodesk.Revit.DB.Structure.RebarHookOrientation)) { }
 }
 
 
@@ -180,34 +63,9 @@ public class RebarHookOrientation : RevitDropDownBase
 [NodeCategory("Revit.Rebar")]
 [NodeDescription("Select Rebar Style")]
 [IsDesignScriptCompatible]
-public class RebarStyle : RevitDropDownBase
+public class RebarStyle : GenericEnumerationDropDown
 {
-    public RebarStyle() : base("Rebar Style") { }
-
-    public override void PopulateItems()
-    {
-        Items.Clear();
-
-        foreach (string name in Enum.GetNames(typeof(Autodesk.Revit.DB.Structure.RebarStyle)))
-        {
-            Items.Add(new DSCoreNodesUI.DynamoDropDownItem(name, Enum.Parse(typeof(Autodesk.Revit.DB.Structure.RebarStyle), name)));
-        }
-
-        Items = Items.OrderBy(x => x.Name).ToObservableCollection();
-    }
-
-    public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> inputAstNodes)
-    {
-        if (Items.Count == 0 || Items.Count == -1)
-        {
-            PopulateItems();
-        }
-
-        var stringNode = AstFactory.BuildStringNode((string)Items[SelectedIndex].Name);
-        var assign = AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), stringNode);
-
-        return new List<AssociativeNode> { assign };
-    }
+    public RebarStyle() : base("Rebar Style", typeof(Autodesk.Revit.DB.Structure.RebarStyle)) { }
 }
 
 
