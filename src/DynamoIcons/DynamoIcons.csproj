@@ -53,30 +53,6 @@
       <LastGenOutput>Dynamo.Rebar.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Revit.Rebar.Morph.Large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Revit.Rebar.Follow.Large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Revit.Rebar.Cut.Large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Revit.Rebar.Perpendicular.Large.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Revit.Rebar.Perpendicular.Small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Revit.Rebar.Cut.Small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Revit.Rebar.Follow.Small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Revit.Rebar.Morph.Small.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

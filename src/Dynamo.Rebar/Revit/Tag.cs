@@ -140,11 +140,13 @@ namespace Revit.Elements
         #region Public static constructors
 
         /// <summary>
-        /// Create Rebar by Curve
+        /// Create an element based Tag
         /// </summary>
-        /// <param name="curves">Set of Curves</param>
-        /// <param name="hostElementId">Host Element Id</param>
-        public static Tag ByPoint(Element element, bool horizontal, bool addLeader)
+        /// <param name="element">Element to tag</param>
+        /// <param name="horizontal">Horizontal alignment</param>
+        /// <param name="addLeader">Add a leader</param>
+        /// <returns></returns>
+        public static Tag ByElement(Element element, bool horizontal, bool addLeader)
         {
             Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
             Autodesk.Revit.DB.XYZ point = null;
