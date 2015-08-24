@@ -35,6 +35,7 @@ using Revit.GeometryConversion;
         /// <param name="vector">vector to compare</param>
         /// <param name="tolerance">tolerance</param>
         /// <returns></returns>
+        [IsVisibleInDynamoLibrary(false)]
         public static bool Parallel(this Vector thisVector, Vector vector, double tolerance)
         {
             double angle = thisVector.AngleBetween(vector);
@@ -42,12 +43,6 @@ using Revit.GeometryConversion;
             if (Math.Abs(angle) < tolerance || Math.Abs(180 - angle) < tolerance) return true;
             else return false;
 
-            //Vector aUnit = thisVector.Normalized();
-            //Vector bUnit = vector.Normalized();
-            
-            //double vlaue = Math.Abs(aUnit.Dot(bUnit) - 1);
-            //bool isSimilar = vlaue < tolerance;
-            //return isSimilar;
         }
 
 

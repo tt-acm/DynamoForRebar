@@ -68,21 +68,6 @@ public static class Rebar
 
 
     /// <summary>
-    /// Create Curves following an idealized surface
-    /// </summary>
-    /// <param name="face">Surface</param>
-    /// <param name="numberOfCurves">Define number of curves</param>
-    /// <param name="distanceBetweenCurves">Define distance between curves</param>
-    /// <param name="flip">Flip orientation</param>
-    /// <param name="offset">Offset</param>
-    /// <returns>List of Curves</returns>
-    public static List<Curve> FollowingIdealizedSurface(Surface face, int numberOfCurves, double distanceBetweenCurves = 0, bool flip = true, double offset = 0)
-    {
-        return face.Follow(50, offset, distanceBetweenCurves, numberOfCurves, flip);
-    }
-
-
-    /// <summary>
     /// Create Rebar following a selected surface
     /// </summary>
     /// <param name="face">Surface</param>
@@ -90,46 +75,55 @@ public static class Rebar
     /// <param name="distanceBetweenCurves">Define distance between curves or number of bars</param>
     /// <param name="flip">Flip orientation</param>
     /// <param name="offset">Offset</param>
+    /// <param name="idealize">Idealize surfaces to rectangles</param>
     /// <returns>List of rebar</returns>
-    public static List<Curve> FollowingSurface(Surface face, int numberOfCurves, double distanceBetweenCurves = 0, bool flip = true, double offset = 0)
+    public static List<Curve> FollowingSurface(Surface face, int numberOfCurves, double distanceBetweenCurves = 0, bool flip = true, double offset = 0, bool idealize = true)
     {
-        // Create return value collection
-        List<Curve> curves = new List<Curve>();
-
-        // Get a reference curve from the surface
-        UV p1 = UV.ByCoordinates(0, 0);
-        UV p2 = UV.ByCoordinates(1, 0);
-
-        double length = (!flip) ? face.DistanceBetweenPoints(p1, p2) : face.DistanceBetweenPoints(p1.Flip(), p2.Flip());
-
-        // If there is a distance applied use it to determine the number of lines to create
-        if (distanceBetweenCurves > 0) numberOfCurves = (int)(length / (distanceBetweenCurves));
-
-        numberOfCurves++;
-
-        Surface surface = face;
-
-        if (offset != 0)
+        if (idealize)
         {
-            Vector normal = face.NormalAtParameter(0.5, 0.5);
-            surface = (Surface)face.Translate(normal, offset);
+            return face.Follow(50, offset, distanceBetweenCurves, numberOfCurves, flip);
         }
-
-        TrimmedSurface trimmedSurface = new TrimmedSurface(surface);
-
-        // Walk thru the amount of lines to create
-        for (int j = 1; j < numberOfCurves; j++)
+        else
         {
-            // Create a set of points for createing a curve
-            List<Point> points = new List<Point>();
 
-            // Get the height parameter
-            double height = (double)j / (double)numberOfCurves;
+            // Create return value collection
+            List<Curve> curves = new List<Curve>();
 
-            curves.Add(trimmedSurface.GetCurveAtParameter(height, flip));
+            // Get a reference curve from the surface
+            UV p1 = UV.ByCoordinates(0, 0);
+            UV p2 = UV.ByCoordinates(1, 0);
+
+            double length = (!flip) ? face.DistanceBetweenPoints(p1, p2) : face.DistanceBetweenPoints(p1.Flip(), p2.Flip());
+
+            // If there is a distance applied use it to determine the number of lines to create
+            if (distanceBetweenCurves > 0) numberOfCurves = (int)(length / (distanceBetweenCurves));
+
+            numberOfCurves++;
+
+            Surface surface = face;
+
+            if (offset != 0)
+            {
+                Vector normal = face.NormalAtParameter(0.5, 0.5);
+                surface = (Surface)face.Translate(normal, offset);
+            }
+
+            TrimmedSurface trimmedSurface = new TrimmedSurface(surface);
+
+            // Walk thru the amount of lines to create
+            for (int j = 1; j < numberOfCurves; j++)
+            {
+                // Create a set of points for createing a curve
+                List<Point> points = new List<Point>();
+
+                // Get the height parameter
+                double height = (double)j / (double)numberOfCurves;
+
+                curves.Add(trimmedSurface.GetCurveAtParameter(height, flip));
+            }
+
+            return curves;
         }
-
-        return curves;
     }
 
     /// <summary>
@@ -249,6 +243,25 @@ public static class Rebar
             }           
         }
         return result;
+    }
+
+    /// <summary>
+    /// Appends a Bar to an existing Rebar container (or creates it if no container is supplied)
+    /// </summary>
+    /// <param name="rebars">List of Bars to add</param>
+    /// <param name="container">Optional: Existing Rebar Container</param>
+    public static Revit.Elements.RebarContainer AppendBar(List<Revit.Elements.Rebar> rebars, Revit.Elements.RebarContainer container = null)
+    {
+        if (container == null)
+        {
+            container = Revit.Elements.RebarContainer.ByBars(rebars);
+        }
+        else
+        {
+            foreach (Revit.Elements.Rebar rebar in rebars) container.InternalRebarContainer.AppendItemFromRebar(rebar.InternalRebar);
+        }
+
+        return container;
     }
 
 

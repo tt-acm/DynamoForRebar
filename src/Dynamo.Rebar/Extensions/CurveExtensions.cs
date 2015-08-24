@@ -217,6 +217,7 @@ public static class CurveExtensions
     [IsVisibleInDynamoLibrary(false)]
     public static List<Curve> MorphTo(this Curve curve1, Curve curve2, int numberOfLines, int precision = 10, double offset = 0)
     {
+        numberOfLines++;
 
         Surface virtualSurface = Surface.ByLoft(new List<Curve>() { curve1, curve2 });
 

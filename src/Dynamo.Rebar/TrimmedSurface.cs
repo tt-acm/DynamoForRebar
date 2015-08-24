@@ -48,6 +48,7 @@ using Revit.GeometryConversion;
         /// </summary>
         /// <param name="surface">Untrimmed surface</param>
         /// <param name="angleTolerance">Tolerance for outline interpretation, usually 60 deg</param>
+        [IsVisibleInDynamoLibrary(false)]
         public TrimmedSurface(Surface surface, double angleTolerance = 60)
         {
             this.internalSurface = surface;
@@ -102,6 +103,7 @@ using Revit.GeometryConversion;
         /// <param name="parameter">parameter for the 3rd point</param>
         /// <param name="refpoint">Startpoint of one orthogonal boundary</param>
         /// <returns></returns>
+        [IsVisibleInDynamoLibrary(false)]
         private Curve CreateCurve(TwoCurves compareTo, Point A, Point B, double parameter, Point refpoint)
         {
             // Init an empty curve
@@ -143,6 +145,7 @@ using Revit.GeometryConversion;
         /// <param name="parameter">parameter</param>
         /// <param name="flip">change direction</param>
         /// <returns>curve across the surface</returns>
+        [IsVisibleInDynamoLibrary(false)]
         public Curve GetCurveAtParameter(double parameter, bool flip)
         {
             // get the orthogonal boundries and the parallel to compare to
@@ -205,12 +208,14 @@ using Revit.GeometryConversion;
         /// Constructor using one curve to start with
         /// </summary>
         /// <param name="curve1"></param>
+        [IsVisibleInDynamoLibrary(false)]
         public TwoCurves(Curve curve1) { this.Curve1 = curve1; this.Curve2 = null; Undefined = new List<Curve>(); }
 
         /// <summary>
         /// Add a curve to Curve 1 or Curve 2
         /// </summary>
         /// <param name="curve">curve to add</param>
+        [IsVisibleInDynamoLibrary(false)]
         public void AddToMatchingCurve(Curve curve)
         {
             // Prepare a curve list to create a polycurve from
@@ -253,6 +258,7 @@ using Revit.GeometryConversion;
         /// <param name="A">Point A</param>
         /// <param name="B">Point B</param>
         /// <returns>Align parallel</returns>
+        [IsVisibleInDynamoLibrary(false)]
         public bool AreEndpoints(Point A, Point B)
         {
             return

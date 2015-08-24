@@ -59,5 +59,25 @@ namespace DynamoIcons {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rebar_Rebar_Actions_Cut_Large {
+            get {
+                object obj = ResourceManager.GetObject("Rebar.Rebar.Actions.Cut.Large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rebar_Rebar_Actions_Cut_Small {
+            get {
+                object obj = ResourceManager.GetObject("Rebar.Rebar.Actions.Cut.Small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
