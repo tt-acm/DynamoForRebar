@@ -63,9 +63,9 @@ namespace DynamoIcons {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Revit_Rebar_MorphedRebar_Large {
+        internal static System.Drawing.Bitmap Rebar_Rebar_Actions_Cut_Large {
             get {
-                object obj = ResourceManager.GetObject("Revit.Rebar.MorphedRebar.Large", resourceCulture);
+                object obj = ResourceManager.GetObject("Rebar.Rebar.Actions.Cut.Large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,69 +73,9 @@ namespace DynamoIcons {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Revit_Rebar_MorphedRebar_Small {
+        internal static System.Drawing.Bitmap Rebar_Rebar_Actions_Cut_Small {
             get {
-                object obj = ResourceManager.GetObject("Revit.Rebar.MorphedRebar.Small", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Revit_Rebar_Perpendicular_Large {
-            get {
-                object obj = ResourceManager.GetObject("Revit.Rebar.Perpendicular.Large", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Revit_Rebar_Perpendicular_Small {
-            get {
-                object obj = ResourceManager.GetObject("Revit.Rebar.Perpendicular.Small", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Revit_Rebar_Rebar_CurRebarByPlane_Large {
-            get {
-                object obj = ResourceManager.GetObject("Revit.Rebar.Rebar.CurRebarByPlane.Large", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Revit_Rebar_Rebar_CutRebarByPlane_Small {
-            get {
-                object obj = ResourceManager.GetObject("Revit.Rebar.Rebar.CutRebarByPlane.Small", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Revit_Rebar_Rebar_FollowingSurface_Large {
-            get {
-                object obj = ResourceManager.GetObject("Revit.Rebar.Rebar.FollowingSurface.Large", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Revit_Rebar_Rebar_FollowingSurface_Small {
-            get {
-                object obj = ResourceManager.GetObject("Revit.Rebar.Rebar.FollowingSurface.Small", resourceCulture);
+                object obj = ResourceManager.GetObject("Rebar.Rebar.Actions.Cut.Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
