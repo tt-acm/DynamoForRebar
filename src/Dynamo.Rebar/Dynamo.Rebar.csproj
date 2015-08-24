@@ -7,7 +7,7 @@
     <ProjectGuid>{09E303FE-0A2F-49B0-878F-870C90C8F40B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Complex</RootNamespace>
+    <RootNamespace>Revit.Rebar</RootNamespace>
     <AssemblyName>Revit.Rebar</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -37,32 +37,50 @@
     <Reference Include="CoreNodeModelsWpf">
       <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\nodes\CoreNodeModelsWpf.dll</HintPath>
     </Reference>
+    <Reference Include="DSCoreNodes.customization">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\DSCoreNodes.customization.dll</HintPath>
+    </Reference>
     <Reference Include="DSCoreNodesUI">
       <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\nodes\DSCoreNodesUI.dll</HintPath>
     </Reference>
     <Reference Include="DSRevitNodesUI">
       <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2016\nodes\DSRevitNodesUI.dll</HintPath>
     </Reference>
+    <Reference Include="DSRevitNodesUI.customization">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2016\DSRevitNodesUI.customization.dll</HintPath>
+    </Reference>
     <Reference Include="DynamoCore">
-      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoCore.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoCore.dll</HintPath>
     </Reference>
     <Reference Include="DynamoCoreWpf">
-      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoCoreWpf.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoCoreWpf.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoRaaS.customization">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2016\DynamoRaaS.customization.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoRaaSHelper">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2016\DynamoRaaSHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoRevitDS">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2016\DynamoRevitDS.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamoRevitVersionSelector">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2016\DynamoRevitVersionSelector.dll</HintPath>
     </Reference>
     <Reference Include="DynamoServices">
-      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoServices.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoServices.dll</HintPath>
     </Reference>
     <Reference Include="DynamoUtilities">
-      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoUtilities.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\DynamoUtilities.dll</HintPath>
     </Reference>
     <Reference Include="ProtoCore">
-      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\ProtoCore.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\ProtoCore.dll</HintPath>
     </Reference>
     <Reference Include="ProtoGeometry">
-      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\ProtoGeometry.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\ProtoGeometry.dll</HintPath>
     </Reference>
     <Reference Include="ProtoInterface">
-      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\ProtoInterface.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\ProtoInterface.dll</HintPath>
     </Reference>
     <Reference Include="RevitAPI, Version=16.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
@@ -73,13 +91,19 @@
       <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit Structure 2016\RevitAPIUI.dll</HintPath>
     </Reference>
     <Reference Include="RevitNodes">
-      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2015\RevitNodes.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2016\RevitNodes.dll</HintPath>
     </Reference>
     <Reference Include="RevitNodes.customization">
       <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2016\RevitNodes.customization.dll</HintPath>
     </Reference>
+    <Reference Include="RevitRaaS">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2016\RevitRaaS.dll</HintPath>
+    </Reference>
     <Reference Include="RevitServices">
-      <HintPath>..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2015\RevitServices.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2016\RevitServices.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitTestServices">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.8\Revit_2016\RevitTestServices.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -92,6 +116,7 @@
   <ItemGroup>
     <Compile Include="Extensions\SurfaceExtensions.cs" />
     <Compile Include="Extensions\CurveExtensions.cs" />
+    <Compile Include="Revit\SelectEdges.cs" />
     <Compile Include="TrimmedSurface.cs" />
     <Compile Include="Nodes.cs" />
     <Compile Include="Extensions\Extensions.cs" />
