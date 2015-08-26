@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamo.Rebar", "Dynamo.Rebar\Dynamo.Rebar.csproj", "{09E303FE-0A2F-49B0-878F-870C90C8F40B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoRebarImages", "DynamoIcons\DynamoRebarImages.csproj", "{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamo.Rebar.UI", "Dynamo.Revit.Rebar\Dynamo.Rebar.UI.csproj", "{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoRebar", "DynamoRebar\DynamoRebar.csproj", "{09E303FE-0A2F-49B0-878F-870C90C8F40B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoIcons", "DynamoIcons\DynamoIcons.csproj", "{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoRebarUI", "DynamoRebarUI\DynamoRebarUI.csproj", "{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +15,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}.Release|Any CPU.Build.0 = Release|Any CPU
 		{09E303FE-0A2F-49B0-878F-870C90C8F40B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{09E303FE-0A2F-49B0-878F-870C90C8F40B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09E303FE-0A2F-49B0-878F-870C90C8F40B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,10 +27,6 @@ Global
 		{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{572AD1B4-307D-4ABD-AF43-6D1DC9FEEE62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

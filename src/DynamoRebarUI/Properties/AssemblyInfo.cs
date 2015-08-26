@@ -1,4 +1,20 @@
-﻿using System.Reflection;
+﻿//
+// Copyright 2015 Autodesk, Inc.
+// Author: Thornton Tomasetti Ltd, CORE Studio
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Resources;
@@ -6,8 +22,8 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Dynamo Rebar Images")]
-[assembly: AssemblyDescription("Dynamo Rebar Images")]
+[assembly: AssemblyTitle("Dynamo Rebar UI")]
+[assembly: AssemblyDescription("Dynamo Rebar UI Elements")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Autodesk, Inc.")]
 [assembly: AssemblyProduct("Dynamo Rebar")]
@@ -21,7 +37,7 @@ using System.Resources;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("64c0e18e-2989-4573-bc13-bf9a08d4e669")]
+[assembly: Guid("937486ff-a3fe-4c68-9cbb-efe4b2fb7951")]
 
 // Version information for an assembly consists of the following four values:
 //
