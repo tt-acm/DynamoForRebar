@@ -1,6 +1,6 @@
 ﻿//
 // Copyright 2015 Autodesk, Inc.
-// Author: Thornton Tomasetti Ltd, CORE Studio
+// Author: Thornton Tomasetti Ltd, CORE Studio (Maximilian Thumfart)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.

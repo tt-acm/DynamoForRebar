@@ -1,6 +1,6 @@
 ﻿//
 // Copyright 2015 Autodesk, Inc.
-// Author: Thornton Tomasetti Ltd, CORE Studio
+// Author: Thornton Tomasetti Ltd, CORE Studio (Maximilian Thumfart)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -32,7 +32,6 @@ using ProtoCore.AST.AssociativeAST;
 using Revit.Elements;
 using Revit.GeometryConversion;
 using Revit.GeometryObjects;
-//using Revit.Interactivity;
 
 using RevitServices.Elements;
 using RevitServices.Persistence;
@@ -43,20 +42,23 @@ using RevitDynamoModel = Dynamo.Applications.Models.RevitDynamoModel;
 using Point = Autodesk.DesignScript.Geometry.Point;
 using String = System.String;
 using UV = Autodesk.DesignScript.Geometry.UV;
-//using RevitServices.EventHandler;
 using Autodesk.Revit.DB.Events;
 using Dynamo.Applications;
 
 namespace Revit.Elements
 {
-    ///// <summary>
-    ///// Select edges
-    ///// </summary>
-    //public class Edges : Dynamo.Nodes.ReferenceSelection
-    //{
-    //    /// <summary>
-    //    /// Select Edges
-    //    /// </summary>
-    //    public Edges() : base(SelectionType.Many,SelectionObjectType.Edge,"Select edges.","Edges") { }
-    //}
+    /// <summary>
+    /// Select edges
+    /// </summary>
+    [NodeName("Select Edges")]
+    [NodeCategory("Revit.Rebar")]
+    [NodeDescription("Select Edges")]
+    [IsDesignScriptCompatible]
+    public class Edges : Dynamo.Nodes.ReferenceSelection
+    {
+        /// <summary>
+        /// Select Edges
+        /// </summary>
+        public Edges() : base(SelectionType.Many,SelectionObjectType.Edge,"Select edges.","Edges") { }
+    }
 }

@@ -116,7 +116,6 @@
   <ItemGroup>
     <Compile Include="Extensions\SurfaceExtensions.cs" />
     <Compile Include="Extensions\CurveExtensions.cs" />
-    <Compile Include="Revit\SelectEdges.cs" />
     <Compile Include="TrimmedSurface.cs" />
     <Compile Include="Nodes.cs" />
     <Compile Include="Extensions\Extensions.cs" />
