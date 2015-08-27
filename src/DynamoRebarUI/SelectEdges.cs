@@ -26,24 +26,6 @@ using Dynamo.Controls;
 using Dynamo.Interfaces;
 
 using Dynamo.Models;
-using Dynamo.Wpf;
-using ProtoCore.AST.AssociativeAST;
-
-using Revit.Elements;
-using Revit.GeometryConversion;
-using Revit.GeometryObjects;
-
-using RevitServices.Elements;
-using RevitServices.Persistence;
-
-using DividedSurface = Autodesk.Revit.DB.DividedSurface;
-using Element = Autodesk.Revit.DB.Element;
-using RevitDynamoModel = Dynamo.Applications.Models.RevitDynamoModel;
-using Point = Autodesk.DesignScript.Geometry.Point;
-using String = System.String;
-using UV = Autodesk.DesignScript.Geometry.UV;
-using Autodesk.Revit.DB.Events;
-using Dynamo.Applications;
 
 namespace Revit.Elements
 {
