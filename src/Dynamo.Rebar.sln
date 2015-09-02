@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoRebar", "DynamoRebar\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoRebarUI", "DynamoRebarUI\DynamoRebarUI.csproj", "{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoRebarTest", "DynamoRebarTest\DynamoRebarTest.csproj", "{0A983B75-FE12-4E25-AE43-38C0FE03842D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{272F3BD5-23D2-41BE-81C9-31BB3047DBBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A983B75-FE12-4E25-AE43-38C0FE03842D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A983B75-FE12-4E25-AE43-38C0FE03842D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A983B75-FE12-4E25-AE43-38C0FE03842D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A983B75-FE12-4E25-AE43-38C0FE03842D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <OutputPath Condition="'$(OutputPath)' == ''">$(SolutionDir)..\bin\$(Platform)\$(Configuration)</OutputPath>
     <NunitPath Condition="'$(NunitPath)' == ''">$(SolutionDir)..\extern\NUnit</NunitPath>
-    <REVIT_API Condition="'$(REVIT_API)' == ''">C:\Program Files\Autodesk\Revit 2015</REVIT_API>
+    <REVIT_API Condition="'$(REVIT_API)' == ''">C:\Program Files\Autodesk\Revit 2016</REVIT_API>
     <DYNAMO_API Condition="'$(DYNAMO_API)' == ''">C:\Program Files\Dynamo 0.8</DYNAMO_API>
     <REVIT_VERSION>Revit_2015</REVIT_VERSION>
     <BaseIntermediateOutputPath>$(OutputPath)\int\</BaseIntermediateOutputPath>
@@ -19,7 +19,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <OutputPath Condition="'$(OutputPath)' == ''">$(SolutionDir)..\bin\$(Platform)\$(Configuration)</OutputPath>
     <NunitPath Condition="'$(NunitPath)' == ''">$(SolutionDir)..\extern\NUnit</NunitPath>
-    <REVIT_API Condition="'$(REVIT_API)' == ''">C:\Program Files\Autodesk\Revit 2015</REVIT_API>
+    <REVIT_API Condition="'$(REVIT_API)' == ''">C:\Program Files\Autodesk\Revit 2016</REVIT_API>
     <DYNAMO_API Condition="'$(DYNAMO_API)' == ''">C:\Program Files\Dynamo 0.8</DYNAMO_API>
     <REVIT_VERSION>Revit_2015</REVIT_VERSION>
     <BaseIntermediateOutputPath>$(OutputPath)\int\</BaseIntermediateOutputPath>

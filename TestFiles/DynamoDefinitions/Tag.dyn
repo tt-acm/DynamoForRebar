@@ -1,43 +1,43 @@
-<Workspace Version="0.8.1.1942" X="614.387635178207" Y="-20.9551199386775" zoom="0.620117205170901" Name="Home" RunType="Manual" RunPeriod="100" HasRunWithoutCrash="True">
+<Workspace Version="0.8.2.2392" X="614.387635178207" Y="-20.9551199386775" zoom="0.620117205170901" Name="Home" Description="" RunType="Manual" RunPeriod="100" HasRunWithoutCrash="False">
   <NamespaceResolutionMap />
   <Elements>
-    <Dynamo.Nodes.DSFaceSelection guid="6918fe6e-fea2-4f5a-ae51-6262adb5e8cb" type="Dynamo.Nodes.DSFaceSelection" nickname="Select Face" x="-732.277049937014" y="226.162899447091" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+    <Dynamo.Nodes.DSFaceSelection guid="6918fe6e-fea2-4f5a-ae51-6262adb5e8cb" type="Dynamo.Nodes.DSFaceSelection" nickname="Select Face" x="-732.277049937014" y="226.162899447091" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <instance id="124bdba6-bf21-43ca-bf42-6fba6b9f3b63-0003f9e4:1:SURFACE" />
     </Dynamo.Nodes.DSFaceSelection>
-    <DSCoreNodesUI.BoolSelector guid="b5d46f34-f6a8-4bee-bfcf-99233fe93c1e" type="DSCoreNodesUI.BoolSelector" nickname="Boolean" x="-637.277049937014" y="363.110899883132" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+    <DSCoreNodesUI.BoolSelector guid="b5d46f34-f6a8-4bee-bfcf-99233fe93c1e" type="DSCoreNodesUI.BoolSelector" nickname="Boolean" x="-637.277049937014" y="363.110899883132" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <System.Boolean>False</System.Boolean>
     </DSCoreNodesUI.BoolSelector>
-    <Dynamo.Nodes.DoubleInput guid="ad24636f-5e15-4b2e-820f-d481cd4ed22b" type="Dynamo.Nodes.DoubleInput" nickname="Number" x="-572.277049937014" y="307.822424646246" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+    <Dynamo.Nodes.DoubleInput guid="ad24636f-5e15-4b2e-820f-d481cd4ed22b" type="Dynamo.Nodes.DoubleInput" nickname="Number" x="-572.277049937014" y="307.822424646246" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <System.Double value="4" />
     </Dynamo.Nodes.DoubleInput>
-    <Dynamo.Nodes.DSModelElementSelection guid="24039b82-a5c2-4c7b-87e4-40c7d19ce1f6" type="Dynamo.Nodes.DSModelElementSelection" nickname="Select Model Element" x="-602.578352109254" y="636.203587444605" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+    <Dynamo.Nodes.DSModelElementSelection guid="24039b82-a5c2-4c7b-87e4-40c7d19ce1f6" type="Dynamo.Nodes.DSModelElementSelection" nickname="Select Model Element" x="-602.578352109254" y="636.203587444605" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <instance id="124bdba6-bf21-43ca-bf42-6fba6b9f3b63-0003f9e4" />
     </Dynamo.Nodes.DSModelElementSelection>
-    <Dynamo.Nodes.DSFunction guid="9f8b5ff9-1b83-48e4-b8f4-e44426429f71" type="Dynamo.Nodes.DSFunction" nickname="Element.Id" x="-346.195173062699" y="636.973687701228" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="RevitNodes.dll" function="Revit.Elements.Element.Id" />
-    <Dynamo.Nodes.DSFunction guid="193d4300-7f5c-4604-9897-ecc1feddc989" type="Dynamo.Nodes.DSFunction" nickname="RebarContainer.ByCurve" x="234.563590226074" y="618.20967006601" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="..\bin\AnyCPU\Debug\Revit.Rebar.dll" function="Revit.Elements.RebarContainer.ByCurve@Autodesk.DesignScript.Geometry.Curve[],int,string,Revit.Elements.Element,string,string,Revit.Elements.Element,Revit.Elements.Element" />
-    <RebarBarType guid="d7f32880-d501-4d0e-a8fe-f24e20a7ea0c" type="RebarBarType" nickname="Rebar Bar Type" x="-460.068999404824" y="919.541258774894" isVisible="true" isUpstreamVisible="true" lacing="Disabled" index="7:#6" />
-    <RebarHookOrientation guid="95ed21c7-60b4-461a-9e0d-171bbc7b77da" type="RebarHookOrientation" nickname="Rebar Hook Orientation" x="-511.068999404824" y="1001.68940531342" isVisible="true" isUpstreamVisible="true" lacing="Disabled" index="1:Right" />
-    <RebarStyle guid="950c7928-c3db-4b4e-a1d0-49d647cf906d" type="RebarStyle" nickname="Rebar Style" x="-436.182470194523" y="831.810473206498" isVisible="true" isUpstreamVisible="true" lacing="Disabled" index="0:Standard" />
-    <RevitRebarHookType guid="c18cfad9-fe8b-4485-ad21-09260615dfc9" type="RevitRebarHookType" nickname="Rebar Hook Type" x="-498.068999404824" y="1093.79535881299" isVisible="true" isUpstreamVisible="true" lacing="Disabled" index="2:Standard - 90 deg." />
-    <Dynamo.Nodes.DoubleInput guid="7d4eac75-0084-4ecb-b7fb-4520ed8ed0f6" type="Dynamo.Nodes.DoubleInput" nickname="Number" x="-572.277049937014" y="420.392894416437" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+    <Dynamo.Nodes.DSFunction guid="9f8b5ff9-1b83-48e4-b8f4-e44426429f71" type="Dynamo.Nodes.DSFunction" nickname="Element.Id" x="-346.195173062699" y="636.973687701228" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="RevitNodes.dll" function="Revit.Elements.Element.Id" />
+    <Dynamo.Nodes.DSFunction guid="193d4300-7f5c-4604-9897-ecc1feddc989" type="Dynamo.Nodes.DSFunction" nickname="RebarContainer.ByCurve" x="234.563590226074" y="618.20967006601" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="..\..\bin\AnyCPU\Debug\DynamoRebar.dll" function="Revit.Elements.RebarContainer.ByCurve@Autodesk.DesignScript.Geometry.Curve[],int,string,Revit.Elements.Element,string,string,Revit.Elements.Element,Revit.Elements.Element" />
+    <Dynamo.Nodes.DoubleInput guid="7d4eac75-0084-4ecb-b7fb-4520ed8ed0f6" type="Dynamo.Nodes.DoubleInput" nickname="Number" x="-572.277049937014" y="420.392894416437" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <System.Double value="0" />
     </Dynamo.Nodes.DoubleInput>
-    <Dynamo.Nodes.DSFunction guid="2050069a-7529-422c-be9b-e56e55c26c36" type="Dynamo.Nodes.DSFunction" nickname="Tag.ByElement" x="1058.83313481642" y="631.240991473068" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="..\bin\AnyCPU\Debug\Revit.Rebar.dll" function="Revit.Elements.Tag.ByElement@Revit.Elements.Element,bool,bool" />
-    <DSCoreNodesUI.BoolSelector guid="256dc7f6-e6ba-409b-9485-17bb487b22d7" type="DSCoreNodesUI.BoolSelector" nickname="Boolean" x="737.305588628062" y="692.705560355192" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+    <Dynamo.Nodes.DSFunction guid="2050069a-7529-422c-be9b-e56e55c26c36" type="Dynamo.Nodes.DSFunction" nickname="Tag.ByElement" x="1058.83313481642" y="631.240991473068" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="..\..\bin\AnyCPU\Debug\DynamoRebar.dll" function="Revit.Elements.Tag.ByElement@Revit.Elements.Element,bool,bool" />
+    <DSCoreNodesUI.BoolSelector guid="256dc7f6-e6ba-409b-9485-17bb487b22d7" type="DSCoreNodesUI.BoolSelector" nickname="Boolean" x="737.305588628062" y="692.705560355192" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <System.Boolean>True</System.Boolean>
     </DSCoreNodesUI.BoolSelector>
-    <DSCoreNodesUI.BoolSelector guid="00c0a08f-0cd1-4ad6-a93c-374b55871b91" type="DSCoreNodesUI.BoolSelector" nickname="Boolean" x="734.404801594109" y="755.921306870248" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+    <DSCoreNodesUI.BoolSelector guid="00c0a08f-0cd1-4ad6-a93c-374b55871b91" type="DSCoreNodesUI.BoolSelector" nickname="Boolean" x="734.404801594109" y="755.921306870248" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <System.Boolean>True</System.Boolean>
     </DSCoreNodesUI.BoolSelector>
-    <Dynamo.Nodes.DSFunction guid="1d76fc7d-67c7-4c06-8696-cd6462871db2" type="Dynamo.Nodes.DSFunction" nickname="Rebar.FollowingSurface" x="-368.316430814642" y="278.081946418601" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="..\bin\AnyCPU\Debug\Revit.Rebar.dll" function="Rebar.FollowingSurface@Autodesk.DesignScript.Geometry.Surface,int,double,bool,double,bool">
+    <Dynamo.Nodes.DSFunction guid="1d76fc7d-67c7-4c06-8696-cd6462871db2" type="Dynamo.Nodes.DSFunction" nickname="Rebar.FollowingSurface" x="-368.316430814642" y="278.081946418601" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="..\..\bin\AnyCPU\Debug\DynamoRebar.dll" function="DynamoRebar.Rebar.FollowingSurface@Autodesk.DesignScript.Geometry.Surface,int,double,bool,double,bool">
       <PortInfo index="2" default="True" />
       <PortInfo index="3" default="True" />
       <PortInfo index="4" default="True" />
       <PortInfo index="5" default="True" />
     </Dynamo.Nodes.DSFunction>
-    <DSCoreNodesUI.BoolSelector guid="4b286c41-6538-4116-a77f-c64b03051370" type="DSCoreNodesUI.BoolSelector" nickname="Boolean" x="-637.277049937014" y="506.607927293046" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+    <DSCoreNodesUI.BoolSelector guid="4b286c41-6538-4116-a77f-c64b03051370" type="DSCoreNodesUI.BoolSelector" nickname="Boolean" x="-637.277049937014" y="506.607927293046" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <System.Boolean>True</System.Boolean>
     </DSCoreNodesUI.BoolSelector>
+    <DynamoRebarUI.RebarBarType guid="f1363248-3b38-427d-946b-329ff624df57" type="DynamoRebarUI.RebarBarType" nickname="Rebar Bar Type" x="-476.620360148413" y="948.326673019334" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="-1" />
+    <DynamoRebarUI.RebarStyle guid="1f185f26-bfbf-42c9-8710-8c9defed3a57" type="DynamoRebarUI.RebarStyle" nickname="Rebar Style" x="-451.620360148413" y="859.766972347512" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="-1" />
+    <DynamoRebarUI.RebarHookOrientation guid="29062ca3-d767-40ea-b1fe-b50a3b2bde46" type="DynamoRebarUI.RebarHookOrientation" nickname="Rebar Hook Orientation" x="-527.620360148413" y="1049.74181411126" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="-1" />
+    <DynamoRebarUI.RevitRebarHookType guid="6a8dbf51-4cdf-4737-8230-2e4bc5f33c22" type="DynamoRebarUI.RevitRebarHookType" nickname="Rebar Hook Type" x="-487.620360148413" y="1138.30151478309" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="-1" />
   </Elements>
   <Connectors>
     <Dynamo.Models.ConnectorModel start="6918fe6e-fea2-4f5a-ae51-6262adb5e8cb" start_index="0" end="1d76fc7d-67c7-4c06-8696-cd6462871db2" end_index="0" portType="0" />
@@ -46,17 +46,17 @@
     <Dynamo.Models.ConnectorModel start="24039b82-a5c2-4c7b-87e4-40c7d19ce1f6" start_index="0" end="9f8b5ff9-1b83-48e4-b8f4-e44426429f71" end_index="0" portType="0" />
     <Dynamo.Models.ConnectorModel start="9f8b5ff9-1b83-48e4-b8f4-e44426429f71" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="1" portType="0" />
     <Dynamo.Models.ConnectorModel start="193d4300-7f5c-4604-9897-ecc1feddc989" start_index="0" end="2050069a-7529-422c-be9b-e56e55c26c36" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="d7f32880-d501-4d0e-a8fe-f24e20a7ea0c" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="3" portType="0" />
-    <Dynamo.Models.ConnectorModel start="95ed21c7-60b4-461a-9e0d-171bbc7b77da" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="4" portType="0" />
-    <Dynamo.Models.ConnectorModel start="95ed21c7-60b4-461a-9e0d-171bbc7b77da" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="5" portType="0" />
-    <Dynamo.Models.ConnectorModel start="950c7928-c3db-4b4e-a1d0-49d647cf906d" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="2" portType="0" />
-    <Dynamo.Models.ConnectorModel start="c18cfad9-fe8b-4485-ad21-09260615dfc9" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="6" portType="0" />
-    <Dynamo.Models.ConnectorModel start="c18cfad9-fe8b-4485-ad21-09260615dfc9" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="7" portType="0" />
     <Dynamo.Models.ConnectorModel start="7d4eac75-0084-4ecb-b7fb-4520ed8ed0f6" start_index="0" end="1d76fc7d-67c7-4c06-8696-cd6462871db2" end_index="4" portType="0" />
     <Dynamo.Models.ConnectorModel start="256dc7f6-e6ba-409b-9485-17bb487b22d7" start_index="0" end="2050069a-7529-422c-be9b-e56e55c26c36" end_index="1" portType="0" />
     <Dynamo.Models.ConnectorModel start="00c0a08f-0cd1-4ad6-a93c-374b55871b91" start_index="0" end="2050069a-7529-422c-be9b-e56e55c26c36" end_index="2" portType="0" />
     <Dynamo.Models.ConnectorModel start="1d76fc7d-67c7-4c06-8696-cd6462871db2" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="0" portType="0" />
     <Dynamo.Models.ConnectorModel start="4b286c41-6538-4116-a77f-c64b03051370" start_index="0" end="1d76fc7d-67c7-4c06-8696-cd6462871db2" end_index="5" portType="0" />
+    <Dynamo.Models.ConnectorModel start="f1363248-3b38-427d-946b-329ff624df57" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="1f185f26-bfbf-42c9-8710-8c9defed3a57" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="29062ca3-d767-40ea-b1fe-b50a3b2bde46" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="4" portType="0" />
+    <Dynamo.Models.ConnectorModel start="29062ca3-d767-40ea-b1fe-b50a3b2bde46" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="5" portType="0" />
+    <Dynamo.Models.ConnectorModel start="6a8dbf51-4cdf-4737-8230-2e4bc5f33c22" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="6" portType="0" />
+    <Dynamo.Models.ConnectorModel start="6a8dbf51-4cdf-4737-8230-2e4bc5f33c22" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="7" portType="0" />
   </Connectors>
   <Notes />
   <Annotations>
@@ -64,7 +64,7 @@
       <Models ModelGuid="24039b82-a5c2-4c7b-87e4-40c7d19ce1f6" />
       <Models ModelGuid="9f8b5ff9-1b83-48e4-b8f4-e44426429f71" />
     </Dynamo.Models.AnnotationModel>
-    <Dynamo.Models.AnnotationModel guid="ada3c575-f5fd-4c02-87a6-0b79c12ec4df" annotationText="Curvature" left="-742.277049937014" top="196.162899447091" width="636.960619122373" height="378.445027845955" fontSize="14" InitialTop="226.162899447091" InitialHeight="313.348219913687" TextblockHeight="20" backgrouund="#FFA4E1FF">
+    <Dynamo.Models.AnnotationModel guid="ada3c575-f5fd-4c02-87a6-0b79c12ec4df" annotationText="Curvature" left="-742.277049937014" top="196.162899447091" width="636.960619122372" height="378.445027845955" fontSize="14" InitialTop="226.162899447091" InitialHeight="313.348219913687" TextblockHeight="20" backgrouund="#FFA4E1FF">
       <Models ModelGuid="6918fe6e-fea2-4f5a-ae51-6262adb5e8cb" />
       <Models ModelGuid="b5d46f34-f6a8-4bee-bfcf-99233fe93c1e" />
       <Models ModelGuid="ad24636f-5e15-4b2e-820f-d481cd4ed22b" />
@@ -72,21 +72,21 @@
       <Models ModelGuid="1d76fc7d-67c7-4c06-8696-cd6462871db2" />
       <Models ModelGuid="4b286c41-6538-4116-a77f-c64b03051370" />
     </Dynamo.Models.AnnotationModel>
-    <Dynamo.Models.AnnotationModel guid="4a597f7d-a85f-4c9c-9418-efae08c47d8a" annotationText="Rebar Options" left="-521.068999404824" top="801.810473206498" width="274.886529210301" height="384.984885606492" fontSize="14" InitialTop="831.810473206498" InitialHeight="384.984885606494" TextblockHeight="20" backgrouund="#FFFFB8D8">
-      <Models ModelGuid="d7f32880-d501-4d0e-a8fe-f24e20a7ea0c" />
-      <Models ModelGuid="95ed21c7-60b4-461a-9e0d-171bbc7b77da" />
-      <Models ModelGuid="950c7928-c3db-4b4e-a1d0-49d647cf906d" />
-      <Models ModelGuid="c18cfad9-fe8b-4485-ad21-09260615dfc9" />
-    </Dynamo.Models.AnnotationModel>
     <Dynamo.Models.AnnotationModel guid="9fe8dffa-ce30-4602-a99b-87cf3c24a7e1" annotationText="Tag" left="724.404801594109" top="601.240991473068" width="495.428333222311" height="222.68031539718" fontSize="14" InitialTop="631.240991473068" InitialHeight="222.68031539718" TextblockHeight="20" backgrouund="#FFC1D676">
       <Models ModelGuid="2050069a-7529-422c-be9b-e56e55c26c36" />
       <Models ModelGuid="256dc7f6-e6ba-409b-9485-17bb487b22d7" />
       <Models ModelGuid="00c0a08f-0cd1-4ad6-a93c-374b55871b91" />
     </Dynamo.Models.AnnotationModel>
+    <Dynamo.Models.AnnotationModel guid="c15bd175-f011-4d99-b831-df5813b559c1" annotationText="Rebar Options&#xD;&#xA;" left="0" top="-262" width="0" height="0" fontSize="14" InitialTop="0" InitialHeight="0" TextblockHeight="252" backgrouund="#FFFFC999" />
+    <Dynamo.Models.AnnotationModel guid="66646ca4-e480-4779-8ec9-90e0ce50ca4a" annotationText="Rebar Options" left="-537.620360148413" top="829.766972347512" width="276" height="401.534542435574" fontSize="14" InitialTop="859.766972347512" InitialHeight="401.534542435574" TextblockHeight="20" backgrouund="#FFFFC999">
+      <Models ModelGuid="f1363248-3b38-427d-946b-329ff624df57" />
+      <Models ModelGuid="1f185f26-bfbf-42c9-8710-8c9defed3a57" />
+      <Models ModelGuid="29062ca3-d767-40ea-b1fe-b50a3b2bde46" />
+      <Models ModelGuid="6a8dbf51-4cdf-4737-8230-2e4bc5f33c22" />
+    </Dynamo.Models.AnnotationModel>
   </Annotations>
-  <SessionTraceData>
-    <NodeTraceData NodeId="193d4300-7f5c-4604-9897-ecc1feddc989">
-      <CallsiteTraceData>PFNPQVAtRU5WOkVudmVsb3BlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOlNPQVAtRU5DPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyIgeG1sbnM6U09BUC1FTlY9Imh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3NvYXAvZW52ZWxvcGUvIiB4bWxuczpjbHI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vc29hcC9lbmNvZGluZy9jbHIvMS4wIiBTT0FQLUVOVjplbmNvZGluZ1N0eWxlPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyI+DQo8U09BUC1FTlY6Qm9keT4NCjxhMTpDYWxsU2l0ZV94MDAyQl9UcmFjZVNlcmlhbGlzZXJIZWxwZXIgaWQ9InJlZi0xIiB4bWxuczphMT0iaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9jbHIvbnNhc3NlbS9Qcm90b0NvcmUvUHJvdG9Db3JlJTJDJTIwVmVyc2lvbiUzRDAuOC4xLjE5NDIlMkMlMjBDdWx0dXJlJTNEbmV1dHJhbCUyQyUyMFB1YmxpY0tleVRva2VuJTNEbnVsbCI+DQo8TnVtYmVyT2ZFbGVtZW50cz4xPC9OdW1iZXJPZkVsZW1lbnRzPg0KPEJhc2UtMF9IYXNEYXRhPmZhbHNlPC9CYXNlLTBfSGFzRGF0YT4NCjxCYXNlLTBfSGFzTmVzdGVkRGF0YT50cnVlPC9CYXNlLTBfSGFzTmVzdGVkRGF0YT4NCjxCYXNlLTBfTmVzdGVkRGF0YUNvdW50PjE8L0Jhc2UtMF9OZXN0ZWREYXRhQ291bnQ+DQo8QmFzZS0wLTBfSGFzRGF0YT50cnVlPC9CYXNlLTAtMF9IYXNEYXRhPg0KPEJhc2UtMC0wX0RhdGEgaWQ9InJlZi0zIj5QRk5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxJSGh0Ykc1ek9uaHphVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRXRhVzV6ZEdGdVkyVWlJSGh0Ykc1ek9uaHpaRDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRWlJSGh0Ykc1ek9sTlBRVkF0UlU1RFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJZ2VHMXNibk02VTA5QlVDMUZUbFk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbmh0YkhOdllYQXViM0puTDNOdllYQXZaVzUyWld4dmNHVXZJaUI0Yld4dWN6cGpiSEk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbTFwWTNKdmMyOW1kQzVqYjIwdmMyOWhjQzlsYm1OdlpHbHVaeTlqYkhJdk1TNHdJaUJUVDBGUUxVVk9WanBsYm1OdlpHbHVaMU4wZVd4bFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJK0RRbzhVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqeGhNVHBUWlhKcFlXeHBlbUZpYkdWSlpDQnBaRDBpY21WbUxURWlJSGh0Ykc1ek9tRXhQU0pvZEhSd09pOHZjMk5vWlcxaGN5NXRhV055YjNOdlpuUXVZMjl0TDJOc2NpOXVjMkZ6YzJWdEwxSmxkbWwwVTJWeWRtbGpaWE11VUdWeWMybHpkR1Z1WTJVdlVtVjJhWFJUWlhKMmFXTmxjeVV5UXlVeU1GWmxjbk5wYjI0bE0wUXdMamd1TVM0eE9UUXlKVEpESlRJd1EzVnNkSFZ5WlNVelJHNWxkWFJ5WVd3bE1rTWxNakJRZFdKc2FXTkxaWGxVYjJ0bGJpVXpSRzUxYkd3aVBnMEtQSE4wY21sdVowbEVJR2xrUFNKeVpXWXRNeUkrT0dOaU16VmlNRGN0WkRFNE9TMDBZV014TFRrM1pUQXRORFUyWldJNVltVTRNVE16TFRBd01EUXhNR0UxUEM5emRISnBibWRKUkQ0TkNqeHBiblJKUkQ0eU5qWTBNRFU4TDJsdWRFbEVQZzBLUEM5aE1UcFRaWEpwWVd4cGVtRmliR1ZKWkQ0TkNqd3ZVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqd3ZVMDlCVUMxRlRsWTZSVzUyWld4dmNHVStEUW89PC9CYXNlLTAtMF9EYXRhPg0KPEJhc2UtMC0wX0hhc05lc3RlZERhdGE+ZmFsc2U8L0Jhc2UtMC0wX0hhc05lc3RlZERhdGE+DQo8L2ExOkNhbGxTaXRlX3gwMDJCX1RyYWNlU2VyaWFsaXNlckhlbHBlcj4NCjwvU09BUC1FTlY6Qm9keT4NCjwvU09BUC1FTlY6RW52ZWxvcGU+DQo=</CallsiteTraceData>
-    </NodeTraceData>
-  </SessionTraceData>
+  <Presets />
+  <Cameras>
+    <Camera Name="background_preview" eyeX="10" eyeY="15" eyeZ="10" lookX="-10" lookY="-10" lookZ="-10" />
+  </Cameras>
 </Workspace>
