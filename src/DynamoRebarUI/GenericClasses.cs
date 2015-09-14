@@ -89,7 +89,9 @@ namespace DynamoRebarUI
         public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> inputAstNodes)
         {
             // If there are no elements in the dropdown or the selected Index is invalid return a Null node.
-            if (Items.Count == 0 || SelectedIndex == -1)
+            if (Items.Count == 0 || 
+            Items[0].Name == noTypes ||
+            SelectedIndex == -1)
             {
                 return new[] { AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), AstFactory.BuildNullNode()) };
             }
