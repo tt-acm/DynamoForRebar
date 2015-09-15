@@ -85,10 +85,8 @@ namespace Revit.Elements
         {
             Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
 
-            // This creates a new wall and deletes the old one
             TransactionManager.Instance.EnsureInTransaction(document);
 
-            //Phase 1 - Check to see if the object exists and should be rebound
             var barTypeElem = ElementBinder.GetElementFromTrace<Autodesk.Revit.DB.Structure.RebarBarType>(document);
 
             if (barTypeElem == null)
@@ -174,6 +172,7 @@ namespace Revit.Elements
         {
             return new RebarBarType(rebarBarType)
             {
+                // Cannot access base classes internal bool IsRevitOwned
                 //IsRevitOwned = isRevitOwned
             };
         }

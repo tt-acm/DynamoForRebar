@@ -1,4 +1,4 @@
-<Workspace Version="0.8.2.2392" X="698.620264960704" Y="-0.973717908453409" zoom="0.700092700513465" Name="Home" Description="" RunType="Manual" RunPeriod="100" HasRunWithoutCrash="False">
+<Workspace Version="0.8.2.2392" X="698.620264960704" Y="-0.973717908453409" zoom="0.700092700513465" Name="Home" Description="" RunType="Manual" RunPeriod="100" HasRunWithoutCrash="True">
   <NamespaceResolutionMap />
   <Elements>
     <Dynamo.Nodes.DoubleInput guid="ad24636f-5e15-4b2e-820f-d481cd4ed22b" type="Dynamo.Nodes.DoubleInput" nickname="Number" x="-688.896257978466" y="426.667912226822" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
@@ -18,8 +18,8 @@
     <Dynamo.Nodes.DSEdgeSelection guid="9dbd0911-c0d0-4051-abd2-e27e6d3b1354" type="Dynamo.Nodes.DSEdgeSelection" nickname="Select Edge" x="-759.502762503212" y="222.750572863425" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <instance id="8b22563e-3247-4edd-977a-41f9118db6db-000334bc:0:INSTANCE:8b22563e-3247-4edd-977a-41f9118db6db-000334ab:88:LINEAR" />
     </Dynamo.Nodes.DSEdgeSelection>
-    <DynamoRebarUI.RebarBarType guid="818c65b8-8d3c-4607-b377-8341b97971c3" type="DynamoRebarUI.RebarBarType" nickname="Rebar Bar Type" x="-456.980218579281" y="916.970634583498" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="1:#11" />
-    <DynamoRebarUI.RebarHookOrientation guid="ea4d9ae8-daac-4bf8-ad91-af1310f8927d" type="DynamoRebarUI.RebarHookOrientation" nickname="Rebar Hook Orientation" x="-507.980218579281" y="1018.38577567542" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:Left" />
+    <DynamoRebarUI.RebarBarType guid="818c65b8-8d3c-4607-b377-8341b97971c3" type="DynamoRebarUI.RebarBarType" nickname="Rebar Bar Type" x="-456.980218579281" y="916.970634583498" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:#10" />
+    <DynamoRebarUI.RebarHookOrientation guid="ea4d9ae8-daac-4bf8-ad91-af1310f8927d" type="DynamoRebarUI.RebarHookOrientation" nickname="Rebar Hook Orientation" x="-509.408600848181" y="1022.67092248212" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:Left" />
     <DynamoRebarUI.RevitRebarHookType guid="d833f208-9560-4440-b70a-09bcc1bfdc04" type="DynamoRebarUI.RevitRebarHookType" nickname="Rebar Hook Type" x="-467.980218579281" y="1106.94547634725" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:Rebar Hook 90" />
     <DynamoRebarUI.RebarStyle guid="242c2c29-c078-486f-94e8-4839a933c912" type="DynamoRebarUI.RebarStyle" nickname="Rebar Style" x="-431.980218579281" y="828.410933911676" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:Standard" />
   </Elements>
@@ -49,7 +49,7 @@
       <Models ModelGuid="b6126bb4-40c0-4009-aeaf-c426c326c06e" />
       <Models ModelGuid="b9527c1d-3472-4724-a37e-f5595741b05c" />
     </Dynamo.Models.AnnotationModel>
-    <Dynamo.Models.AnnotationModel guid="2b8b8ad6-775f-488d-a90f-54edfc92bb73" annotationText="Rebar Options&#xD;&#xA;" left="-517.980218579281" top="784.410933911676" width="276" height="415.534542435569" fontSize="14" InitialTop="828.410933911676" InitialHeight="380.108808402064" TextblockHeight="34" backgrouund="#FFFFC999">
+    <Dynamo.Models.AnnotationModel guid="2b8b8ad6-775f-488d-a90f-54edfc92bb73" annotationText="Rebar Options&#xD;&#xA;" left="-519.408600848181" top="784.410933911676" width="277.4283822689" height="415.534542435574" fontSize="14" InitialTop="828.410933911676" InitialHeight="380.108808402064" TextblockHeight="34" backgrouund="#FFFFC999">
       <Models ModelGuid="818c65b8-8d3c-4607-b377-8341b97971c3" />
       <Models ModelGuid="ea4d9ae8-daac-4bf8-ad91-af1310f8927d" />
       <Models ModelGuid="d833f208-9560-4440-b70a-09bcc1bfdc04" />
@@ -60,4 +60,9 @@
   <Cameras>
     <Camera Name="background_preview" eyeX="10" eyeY="15" eyeZ="10" lookX="-10" lookY="-10" lookZ="-10" />
   </Cameras>
+  <SessionTraceData>
+    <NodeTraceData NodeId="193d4300-7f5c-4604-9897-ecc1feddc989">
+      <CallsiteTraceData>PFNPQVAtRU5WOkVudmVsb3BlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOlNPQVAtRU5DPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyIgeG1sbnM6U09BUC1FTlY9Imh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3NvYXAvZW52ZWxvcGUvIiB4bWxuczpjbHI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vc29hcC9lbmNvZGluZy9jbHIvMS4wIiBTT0FQLUVOVjplbmNvZGluZ1N0eWxlPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyI+DQo8U09BUC1FTlY6Qm9keT4NCjxhMTpDYWxsU2l0ZV94MDAyQl9UcmFjZVNlcmlhbGlzZXJIZWxwZXIgaWQ9InJlZi0xIiB4bWxuczphMT0iaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9jbHIvbnNhc3NlbS9Qcm90b0NvcmUvUHJvdG9Db3JlJTJDJTIwVmVyc2lvbiUzRDAuOC4yLjIzOTIlMkMlMjBDdWx0dXJlJTNEbmV1dHJhbCUyQyUyMFB1YmxpY0tleVRva2VuJTNEbnVsbCI+DQo8TnVtYmVyT2ZFbGVtZW50cz4xPC9OdW1iZXJPZkVsZW1lbnRzPg0KPEJhc2UtMF9IYXNEYXRhPnRydWU8L0Jhc2UtMF9IYXNEYXRhPg0KPEJhc2UtMF9EYXRhIGlkPSJyZWYtMyI+UEZOUFFWQXRSVTVXT2tWdWRtVnNiM0JsSUhodGJHNXpPbmh6YVQwaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNUzlZVFV4VFkyaGxiV0V0YVc1emRHRnVZMlVpSUhodGJHNXpPbmh6WkQwaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNUzlZVFV4VFkyaGxiV0VpSUhodGJHNXpPbE5QUVZBdFJVNURQU0pvZEhSd09pOHZjMk5vWlcxaGN5NTRiV3h6YjJGd0xtOXlaeTl6YjJGd0wyVnVZMjlrYVc1bkx5SWdlRzFzYm5NNlUwOUJVQzFGVGxZOUltaDBkSEE2THk5elkyaGxiV0Z6TG5odGJITnZZWEF1YjNKbkwzTnZZWEF2Wlc1MlpXeHZjR1V2SWlCNGJXeHVjenBqYkhJOUltaDBkSEE2THk5elkyaGxiV0Z6TG0xcFkzSnZjMjltZEM1amIyMHZjMjloY0M5bGJtTnZaR2x1Wnk5amJISXZNUzR3SWlCVFQwRlFMVVZPVmpwbGJtTnZaR2x1WjFOMGVXeGxQU0pvZEhSd09pOHZjMk5vWlcxaGN5NTRiV3h6YjJGd0xtOXlaeTl6YjJGd0wyVnVZMjlrYVc1bkx5SStEUW84VTA5QlVDMUZUbFk2UW05a2VUNE5DanhoTVRwVFpYSnBZV3hwZW1GaWJHVkpaQ0JwWkQwaWNtVm1MVEVpSUhodGJHNXpPbUV4UFNKb2RIUndPaTh2YzJOb1pXMWhjeTV0YVdOeWIzTnZablF1WTI5dEwyTnNjaTl1YzJGemMyVnRMMUpsZG1sMFUyVnlkbWxqWlhNdVVHVnljMmx6ZEdWdVkyVXZVbVYyYVhSVFpYSjJhV05sY3lVeVF5VXlNRlpsY25OcGIyNGxNMFF3TGpndU1pNHlNemt5SlRKREpUSXdRM1ZzZEhWeVpTVXpSRzVsZFhSeVlXd2xNa01sTWpCUWRXSnNhV05MWlhsVWIydGxiaVV6Ukc1MWJHd2lQZzBLUEhOMGNtbHVaMGxFSUdsa1BTSnlaV1l0TXlJK1pqSmtNbU0wT1RZdE56WXlPQzAwT1RJNUxXRmlaV0l0TkRjeU5tRTBNVFl3WXpjMkxUQXdNRFF4TVdFNFBDOXpkSEpwYm1kSlJENE5DanhwYm5SSlJENHlOalkyTmpROEwybHVkRWxFUGcwS1BDOWhNVHBUWlhKcFlXeHBlbUZpYkdWSlpENE5Dand2VTA5QlVDMUZUbFk2UW05a2VUNE5Dand2VTA5QlVDMUZUbFk2Ulc1MlpXeHZjR1UrRFFvPTwvQmFzZS0wX0RhdGE+DQo8QmFzZS0wX0hhc05lc3RlZERhdGE+ZmFsc2U8L0Jhc2UtMF9IYXNOZXN0ZWREYXRhPg0KPC9hMTpDYWxsU2l0ZV94MDAyQl9UcmFjZVNlcmlhbGlzZXJIZWxwZXI+DQo8L1NPQVAtRU5WOkJvZHk+DQo8L1NPQVAtRU5WOkVudmVsb3BlPg0K</CallsiteTraceData>
+    </NodeTraceData>
+  </SessionTraceData>
 </Workspace>

@@ -136,24 +136,19 @@ namespace Revit.Elements
         {
             Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
 
-            // This creates a new wall and deletes the old one
             TransactionManager.Instance.EnsureInTransaction(document);
 
-            //Phase 1 - Check to see if the object exists and should be rebound
             var rebarElem = ElementBinder.GetElementFromTrace<Autodesk.Revit.DB.Structure.RebarContainer>(document);
             
-            var container = rebarElem;
-
-            bool contentUpdated = false;
 
             if (rebarElem == null)
             {
                 ElementId stdC = Autodesk.Revit.DB.Structure.RebarContainerType.CreateDefaultRebarContainerType(DocumentManager.Instance.CurrentDBDocument);
-                container = Autodesk.Revit.DB.Structure.RebarContainer.Create(DocumentManager.Instance.CurrentDBDocument, host, stdC);
+                rebarElem = Autodesk.Revit.DB.Structure.RebarContainer.Create(DocumentManager.Instance.CurrentDBDocument, host, stdC);
             }
             else
             {
-                container.ClearItems();
+                rebarElem.ClearItems();
             }
 
 
@@ -162,10 +157,10 @@ namespace Revit.Elements
                 System.Collections.Generic.List<Curve> revitCurves = new System.Collections.Generic.List<Curve>();
                 revitCurves.Add(curve);
 
-                container.AppendItemFromCurves(barStyle, barType, startHook, endHook, normal, revitCurves, startHookOrientation, endHookOrientation, useExistingShape, createNewShape);
+                rebarElem.AppendItemFromCurves(barStyle, barType, startHook, endHook, normal, revitCurves, startHookOrientation, endHookOrientation, useExistingShape, createNewShape);
             }
 
-            InternalSetRebarContainer(container);
+            InternalSetRebarContainer(rebarElem);
 
             TransactionManager.Instance.TransactionTaskDone();
 
@@ -187,32 +182,26 @@ namespace Revit.Elements
             {
                 Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
 
-                // This creates a new wall and deletes the old one
                 TransactionManager.Instance.EnsureInTransaction(document);
 
-                //Phase 1 - Check to see if the object exists and should be rebound
                 var rebarElem = ElementBinder.GetElementFromTrace<Autodesk.Revit.DB.Structure.RebarContainer>(document);
-
-                var container = rebarElem;
-
-                bool contentUpdated = false;
 
                 if (rebarElem == null)
                 {
                     ElementId stdC = Autodesk.Revit.DB.Structure.RebarContainerType.CreateDefaultRebarContainerType(DocumentManager.Instance.CurrentDBDocument);
                     Autodesk.Revit.DB.Element host = DocumentManager.Instance.CurrentDBDocument.GetElement(rebars[0].InternalRebar.GetHostId());
-                    container = Autodesk.Revit.DB.Structure.RebarContainer.Create(DocumentManager.Instance.CurrentDBDocument, host, stdC);
+                    rebarElem = Autodesk.Revit.DB.Structure.RebarContainer.Create(DocumentManager.Instance.CurrentDBDocument, host, stdC);
                 }
                 else
                 {
-                    container.ClearItems();
+                    rebarElem.ClearItems();
                 }
 
 
                 foreach (Revit.Elements.Rebar rebar in rebars)
-                    container.AppendItemFromRebar(rebar.InternalRebar);
-                
-                InternalSetRebarContainer(container);
+                    rebarElem.AppendItemFromRebar(rebar.InternalRebar);
+
+                InternalSetRebarContainer(rebarElem);
 
                 TransactionManager.Instance.TransactionTaskDone();
 
@@ -270,11 +259,17 @@ namespace Revit.Elements
             Revit.Elements.Element endHookType
             )
         {
-            if (curves == null) throw new ArgumentNullException("curves");
-            if (hostElementId == null) throw new ArgumentNullException("hostElementId");
+            if (curves == null) throw new ArgumentNullException("Input Curves missing");
+            if (hostElementId == null) throw new ArgumentNullException("Host ElementId missing");
+            if (rebarStyle == null) throw new ArgumentNullException("Rebar Style missing");
+            if (rebarBarType == null) throw new ArgumentNullException("Rebar Bar Type missing");
+            if (startHookOrientation == null) throw new ArgumentNullException("Start Hook Orientation missing");
+            if (endHookOrientation == null) throw new ArgumentNullException("End Hook Orientation missing");
+            if (startHookType == null) throw new ArgumentNullException("Start Hook Type missing");
+            if (endHookType == null) throw new ArgumentNullException("End Hook Type missing");
 
             ElementId elementId = new ElementId(hostElementId);
-            if (elementId == ElementId.InvalidElementId) throw new ArgumentNullException("hostElementId");
+            if (elementId == ElementId.InvalidElementId) throw new ArgumentNullException("Host ElementId error");
 
             Autodesk.Revit.DB.Element host = DocumentManager.Instance.CurrentDBDocument.GetElement(elementId);
 
@@ -323,6 +318,7 @@ namespace Revit.Elements
         {
             return new RebarContainer(rebar)
             {
+               // Cannot access base classes internal bool IsRevitOwned
                //IsRevitOwned = isRevitOwned
             };
         }
