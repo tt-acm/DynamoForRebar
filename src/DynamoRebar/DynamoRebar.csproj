@@ -110,7 +110,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -138,7 +137,6 @@
     <Compile Include="Revit\Tag.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DynamoRebarImages.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -152,28 +150,17 @@
     <Content Include="Diagrams\Morphing.png" />
     <Content Include="Diagrams\Offset.png" />
     <Content Include="Diagrams\Perpendicular.png" />
-    <EmbeddedResource Include="Resources\DynamoRebar.Rebar.Cut.Large.png" />
-    <EmbeddedResource Include="Resources\DynamoRebar.Rebar.Cut.Small.png" />
-    <EmbeddedResource Include="Resources\DynamoRebar.Rebar.Shorten.Large.png" />
-    <EmbeddedResource Include="Resources\DynamoRebar.Rebar.Shorten.Small.png" />
-    <EmbeddedResource Include="Resources\DynamoRebar.Rebar.Perpendicular.Large.png" />
-    <EmbeddedResource Include="Resources\DynamoRebar.Rebar.Perpendicular.Small.png" />
-    <EmbeddedResource Include="Resources\DynamoRebar.Rebar.Morphed.Small.png" />
-    <EmbeddedResource Include="Resources\DynamoRebar.Rebar.Morphed.Large.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
-    <GetReferenceAssemblyPaths TargetFrameworkMoniker=".NETFramework, Version=v2.0">
-      <Output TaskParameter="FullFrameworkReferenceAssemblyPaths" PropertyName="FrameworkAssembliesPath" />
-    </GetReferenceAssemblyPaths>
-    <GenerateResource UseSourcePath="true" Sources="$(ProjectDir)DynamoRebarImages.resx" OutputResources="$(ProjectDir)DynamoRebarImages.resources" References="$(FrameworkAssembliesPath)System.Drawing.dll" />
-    <AL TargetType="library" EmbedResources="$(ProjectDir)DynamoRebarImages.resources" OutputAssembly="$(OutDir)DynamoRebar.customization.dll" />
   </Target>
   <Target Name="AfterBuild">
   </Target>
+  -->
 </Project>
