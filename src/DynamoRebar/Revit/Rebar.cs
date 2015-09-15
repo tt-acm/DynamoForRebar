@@ -131,10 +131,8 @@ namespace Revit.Elements
         {
             Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
 
-            // This creates a new wall and deletes the old one
             TransactionManager.Instance.EnsureInTransaction(document);
 
-            //Phase 1 - Check to see if the object exists and should be rebound
             var rebarElem = ElementBinder.GetElementFromTrace<Autodesk.Revit.DB.Structure.Rebar>(document);
 
             if (rebarElem == null)
@@ -201,11 +199,17 @@ namespace Revit.Elements
             Revit.Elements.Element endHookType
             )
         {
-            if (curves == null) throw new ArgumentNullException("curves");
-            if (hostElementId == null) throw new ArgumentNullException("hostElementId");
+            if (curves == null) throw new ArgumentNullException("Input Curves missing");
+            if (hostElementId == null) throw new ArgumentNullException("Host ElementId missing");
+            if (rebarStyle == null) throw new ArgumentNullException("Rebar Style missing");
+            if (rebarBarType == null) throw new ArgumentNullException("Rebar Bar Type missing");
+            if (startHookOrientation == null) throw new ArgumentNullException("Start Hook Orientation missing");
+            if (endHookOrientation == null) throw new ArgumentNullException("End Hook Orientation missing");
+            if (startHookType == null) throw new ArgumentNullException("Start Hook Type missing");
+            if (endHookType == null) throw new ArgumentNullException("End Hook Type missing");
 
             ElementId elementId = new ElementId(hostElementId);
-            if (elementId == ElementId.InvalidElementId) throw new ArgumentNullException("hostElementId");
+            if (elementId == ElementId.InvalidElementId) throw new ArgumentNullException("Host ElementId error");
 
             Autodesk.Revit.DB.Element host = DocumentManager.Instance.CurrentDBDocument.GetElement(elementId);
 
@@ -240,6 +244,7 @@ namespace Revit.Elements
         {
             return new Rebar(rebar)
             {
+                // Cannot access base classes internal bool IsRevitOwned
                 //IsRevitOwned = isRevitOwned
             };
         }
