@@ -304,6 +304,26 @@ namespace Revit.Elements
             return new RebarContainer(rebars);
         }
 
+
+        /// <summary>
+        /// Appends a Bar to an existing Rebar container (or creates it if no container is supplied)
+        /// </summary>
+        /// <param name="rebars">List of Bars to add</param>
+        /// <param name="container">Optional: Existing Rebar Container</param>
+        public static Revit.Elements.RebarContainer AppendBar(List<Revit.Elements.Rebar> rebars, Revit.Elements.RebarContainer container = null)
+        {
+            if (container == null)
+            {
+                container = Revit.Elements.RebarContainer.ByBars(rebars);
+            }
+            else
+            {
+                foreach (Revit.Elements.Rebar rebar in rebars) container.InternalRebarContainer.AppendItemFromRebar(rebar.InternalRebar);
+            }
+
+            return container;
+        }
+
         #endregion
 
         #region Internal static constructors
