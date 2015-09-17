@@ -40,7 +40,7 @@ namespace DynamoRebarUI
         /// </summary>
         /// <param name="name">Name of the Node</param>
         /// <param name="elementType">Type of Revit Element to display</param>
-        public CustomRevitElementDropDown(string name, Type elementType) : base(name) { this.ElementType = elementType; }
+        public CustomRevitElementDropDown(string name, Type elementType) : base(name) { this.ElementType = elementType; PopulateItems(); }
 
         /// <summary>
         /// Constant message for missing Types
@@ -119,7 +119,7 @@ namespace DynamoRebarUI
         /// </summary>
         /// <param name="name">Node Name</param>
         /// <param name="enumerationType">Type of Enumeration to Display</param>
-        public CustomGenericEnumerationDropDown(string name, Type enumerationType) : base(name) { this.EnumerationType = enumerationType; }
+        public CustomGenericEnumerationDropDown(string name, Type enumerationType) : base(name) { this.EnumerationType = enumerationType; PopulateItems(); }
 
         /// <summary>
         /// Type of Enumeration
