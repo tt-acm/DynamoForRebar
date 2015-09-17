@@ -47,5 +47,5 @@ The tag element node creates a tag of any taggable revit element in the current 
 ####Select Nodes
 This set of nodes also comes with a very generic one: A node to select multiple edges. This allows you to select any number of edges from your Revit model and use them in Dynamo to create bars or even place adaptive components along them (see Image).
 
-EnergyAnalysisForDynamo is developed and maintained by [Thornton Tomasetti](http://www.thorntontomasetti.com/)’s [CORE studio](http://core.thorntontomasetti.com/).  The main developers are:
+Dynamo For Rebar is developed and maintained by [Thornton Tomasetti](http://www.thorntontomasetti.com/)’s [CORE studio](http://core.thorntontomasetti.com/).  The main developers are:
 - [Maximilian Thumfart](https://github.com/moethu)
