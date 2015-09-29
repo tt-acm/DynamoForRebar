@@ -256,7 +256,8 @@ namespace Revit.Elements
             string startHookOrientation,
             string endHookOrientation,            
             Revit.Elements.Element startHookType,
-            Revit.Elements.Element endHookType
+            Revit.Elements.Element endHookType,
+            Autodesk.DesignScript.Geometry.Vector vector
             )
         {
             if (curves == null) throw new ArgumentNullException("Input Curves missing");
@@ -267,6 +268,7 @@ namespace Revit.Elements
             if (endHookOrientation == null) throw new ArgumentNullException("End Hook Orientation missing");
             if (startHookType == null) throw new ArgumentNullException("Start Hook Type missing");
             if (endHookType == null) throw new ArgumentNullException("End Hook Type missing");
+            if (vector == null) throw new ArgumentNullException("Normal Vector missing");
 
             ElementId elementId = new ElementId(hostElementId);
             if (elementId == ElementId.InvalidElementId) throw new ArgumentNullException("Host ElementId error");
@@ -291,7 +293,7 @@ namespace Revit.Elements
 
             return new RebarContainer(revitCurves, (Autodesk.Revit.DB.Structure.RebarBarType)rebarBarType.InternalElement, barStyle, host,
                 (Autodesk.Revit.DB.Structure.RebarHookType)startHookType.InternalElement,
-                (Autodesk.Revit.DB.Structure.RebarHookType)endHookType.InternalElement, startOrientation, endOrientation, XYZ.BasisZ, true, true);
+                (Autodesk.Revit.DB.Structure.RebarHookType)endHookType.InternalElement, startOrientation, endOrientation, vector.ToRevitType(), true, true);
         }
 
         /// <summary>

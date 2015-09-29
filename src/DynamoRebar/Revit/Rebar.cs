@@ -75,7 +75,7 @@ namespace Revit.Elements
         /// <param name="normal"></param>
         /// <param name="useExistingShape"></param>
         /// <param name="createNewShape"></param>
-        private Rebar(System.Collections.Generic.List<Curve> curve,
+        private Rebar(Curve curve,
             Autodesk.Revit.DB.Structure.RebarBarType barType,
             Autodesk.Revit.DB.Structure.RebarStyle barStyle,
             Autodesk.Revit.DB.Element host,
@@ -117,7 +117,7 @@ namespace Revit.Elements
         /// <param name="normal"></param>
         /// <param name="useExistingShape"></param>
         /// <param name="createNewShape"></param>
-        private void InitRebar(System.Collections.Generic.List<Curve> curves,
+        private void InitRebar(Curve curve,
             Autodesk.Revit.DB.Structure.RebarBarType barType,
             Autodesk.Revit.DB.Structure.RebarStyle barStyle,
             Autodesk.Revit.DB.Element host,
@@ -130,14 +130,15 @@ namespace Revit.Elements
             bool createNewShape)
         {
             Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
-
+            
             TransactionManager.Instance.EnsureInTransaction(document);
 
             var rebarElem = ElementBinder.GetElementFromTrace<Autodesk.Revit.DB.Structure.Rebar>(document);
 
-            if (rebarElem == null)
-                rebarElem = Autodesk.Revit.DB.Structure.Rebar.CreateFromCurves(document, barStyle, barType, startHook, endHook, host, normal, curves, startHookOrientation, endHookOrientation, useExistingShape, createNewShape);           
-
+            //always create a new bar
+            //if (rebarElem == null)
+                rebarElem = Autodesk.Revit.DB.Structure.Rebar.CreateFromCurves(document, barStyle, barType, startHook, endHook, host, normal, new List<Curve>(){curve}, startHookOrientation, endHookOrientation, useExistingShape, createNewShape);           
+            
             InternalSetRebar(rebarElem);
 
             TransactionManager.Instance.TransactionTaskDone();
@@ -189,17 +190,18 @@ namespace Revit.Elements
         /// <param name="useExistingShape">Use the existing shape</param>
         /// <returns></returns>
         public static Rebar ByCurve(
-            System.Collections.Generic.List<Autodesk.DesignScript.Geometry.Curve> curves,
+            Autodesk.DesignScript.Geometry.Curve curve,
             int hostElementId,
             string rebarStyle,
             Revit.Elements.Element rebarBarType,
             string startHookOrientation,
             string endHookOrientation,
             Revit.Elements.Element startHookType,
-            Revit.Elements.Element endHookType
+            Revit.Elements.Element endHookType,
+            Autodesk.DesignScript.Geometry.Vector vector
             )
         {
-            if (curves == null) throw new ArgumentNullException("Input Curves missing");
+            if (curve == null) throw new ArgumentNullException("Input Curve missing");
             if (hostElementId == null) throw new ArgumentNullException("Host ElementId missing");
             if (rebarStyle == null) throw new ArgumentNullException("Rebar Style missing");
             if (rebarBarType == null) throw new ArgumentNullException("Rebar Bar Type missing");
@@ -207,13 +209,13 @@ namespace Revit.Elements
             if (endHookOrientation == null) throw new ArgumentNullException("End Hook Orientation missing");
             if (startHookType == null) throw new ArgumentNullException("Start Hook Type missing");
             if (endHookType == null) throw new ArgumentNullException("End Hook Type missing");
+            if (vector == null) throw new ArgumentNullException("Normal Vector missing");
 
             ElementId elementId = new ElementId(hostElementId);
             if (elementId == ElementId.InvalidElementId) throw new ArgumentNullException("Host ElementId error");
 
             Autodesk.Revit.DB.Element host = DocumentManager.Instance.CurrentDBDocument.GetElement(elementId);
 
-            System.Collections.Generic.List<Curve> revitCurves = new System.Collections.Generic.List<Curve>();
 
             Autodesk.Revit.DB.Structure.RebarStyle barStyle = Autodesk.Revit.DB.Structure.RebarStyle.StirrupTie;
             Enum.TryParse<Autodesk.Revit.DB.Structure.RebarStyle>(rebarStyle, out barStyle);
@@ -223,11 +225,9 @@ namespace Revit.Elements
             Autodesk.Revit.DB.Structure.RebarHookOrientation endOrientation = Autodesk.Revit.DB.Structure.RebarHookOrientation.Left;
             Enum.TryParse<Autodesk.Revit.DB.Structure.RebarHookOrientation>(endHookOrientation, out endOrientation);
 
-            foreach (Autodesk.DesignScript.Geometry.Curve curve in curves) revitCurves.Add(curve.Approximate());            
-
-            return new Rebar(revitCurves, (Autodesk.Revit.DB.Structure.RebarBarType)rebarBarType.InternalElement, barStyle, host,
+            return new Rebar(curve.Approximate(), (Autodesk.Revit.DB.Structure.RebarBarType)rebarBarType.InternalElement, barStyle, host,
                 (Autodesk.Revit.DB.Structure.RebarHookType)startHookType.InternalElement,
-                (Autodesk.Revit.DB.Structure.RebarHookType)endHookType.InternalElement, startOrientation, endOrientation, XYZ.BasisZ, true, true);
+                (Autodesk.Revit.DB.Structure.RebarHookType)endHookType.InternalElement, startOrientation, endOrientation, vector.ToRevitType(), true, true);
         }
 
         #endregion

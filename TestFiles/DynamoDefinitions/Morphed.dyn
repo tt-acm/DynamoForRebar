@@ -1,4 +1,4 @@
-<Workspace Version="0.8.2.2392" X="640.620064982654" Y="-468.283526745076" zoom="0.838018205641315" Name="Home" Description="" RunType="Manual" RunPeriod="100" HasRunWithoutCrash="False">
+<Workspace Version="0.8.2.2392" X="618.12158459394" Y="-102.479387125311" zoom="0.655098110615698" Name="Home" Description="" RunType="Manual" RunPeriod="100" HasRunWithoutCrash="True">
   <NamespaceResolutionMap />
   <Elements>
     <Dynamo.Nodes.DoubleInput guid="ad24636f-5e15-4b2e-820f-d481cd4ed22b" type="Dynamo.Nodes.DoubleInput" nickname="Number" x="-688.896257978466" y="426.667912226822" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
@@ -8,7 +8,7 @@
       <instance id="730cd6f2-40a1-43dc-8485-13fa6e041589-0003ffe3" />
     </Dynamo.Nodes.DSModelElementSelection>
     <Dynamo.Nodes.DSFunction guid="9f8b5ff9-1b83-48e4-b8f4-e44426429f71" type="Dynamo.Nodes.DSFunction" nickname="Element.Id" x="-346.195173062699" y="636.973687701228" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="RevitNodes.dll" function="Revit.Elements.Element.Id" />
-    <Dynamo.Nodes.DSFunction guid="193d4300-7f5c-4604-9897-ecc1feddc989" type="Dynamo.Nodes.DSFunction" nickname="RebarContainer.ByCurve" x="245.122702698244" y="585.023888010616" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="..\..\bin\AnyCPU\Debug\DynamoRebar.dll" function="Revit.Elements.RebarContainer.ByCurve@Autodesk.DesignScript.Geometry.Curve[],int,string,Revit.Elements.Element,string,string,Revit.Elements.Element,Revit.Elements.Element" />
+    <Dynamo.Nodes.DSFunction guid="193d4300-7f5c-4604-9897-ecc1feddc989" type="Dynamo.Nodes.DSFunction" nickname="RebarContainer.ByCurve" x="245.122702698244" y="585.023888010616" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="..\..\bin\AnyCPU\Debug\DynamoRebar.dll" function="Revit.Elements.RebarContainer.ByCurve@Autodesk.DesignScript.Geometry.Curve[],int,string,Revit.Elements.Element,string,string,Revit.Elements.Element,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Vector" />
     <Dynamo.Nodes.DSFunction guid="b9527c1d-3472-4724-a37e-f5595741b05c" type="Dynamo.Nodes.DSFunction" nickname="Rebar.Morphed" x="-323.562261866448" y="284.596803057568" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="..\..\bin\AnyCPU\Debug\DynamoRebar.dll" function="DynamoRebar.Rebar.Morphed@Autodesk.DesignScript.Geometry.Curve,Autodesk.DesignScript.Geometry.Curve,int,double">
       <PortInfo index="3" default="True" />
     </Dynamo.Nodes.DSFunction>
@@ -22,6 +22,7 @@
     <DynamoRebarUI.RebarHookOrientation guid="ea4d9ae8-daac-4bf8-ad91-af1310f8927d" type="DynamoRebarUI.RebarHookOrientation" nickname="Rebar Hook Orientation" x="-509.408600848181" y="1022.67092248212" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:Left" />
     <DynamoRebarUI.RevitRebarHookType guid="d833f208-9560-4440-b70a-09bcc1bfdc04" type="DynamoRebarUI.RevitRebarHookType" nickname="Rebar Hook Type" x="-467.980218579281" y="1106.94547634725" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:Rebar Hook 90" />
     <DynamoRebarUI.RebarStyle guid="242c2c29-c078-486f-94e8-4839a933c912" type="DynamoRebarUI.RebarStyle" nickname="Rebar Style" x="-431.980218579281" y="828.410933911676" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:Standard" />
+    <Dynamo.Nodes.DSFunction guid="b1ce5c57-ed01-4d55-91d6-c7304ee153d9" type="Dynamo.Nodes.DSFunction" nickname="Vector.ZAxis" x="112.759605236939" y="902.871747726223" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Vector.ZAxis" />
   </Elements>
   <Connectors>
     <Dynamo.Models.ConnectorModel start="ad24636f-5e15-4b2e-820f-d481cd4ed22b" start_index="0" end="b9527c1d-3472-4724-a37e-f5595741b05c" end_index="2" portType="0" />
@@ -36,6 +37,7 @@
     <Dynamo.Models.ConnectorModel start="d833f208-9560-4440-b70a-09bcc1bfdc04" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="6" portType="0" />
     <Dynamo.Models.ConnectorModel start="d833f208-9560-4440-b70a-09bcc1bfdc04" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="7" portType="0" />
     <Dynamo.Models.ConnectorModel start="242c2c29-c078-486f-94e8-4839a933c912" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b1ce5c57-ed01-4d55-91d6-c7304ee153d9" start_index="0" end="193d4300-7f5c-4604-9897-ecc1feddc989" end_index="8" portType="0" />
   </Connectors>
   <Notes />
   <Annotations>
@@ -60,4 +62,9 @@
   <Cameras>
     <Camera Name="background_preview" eyeX="10" eyeY="15" eyeZ="10" lookX="-10" lookY="-10" lookZ="-10" />
   </Cameras>
+  <SessionTraceData>
+    <NodeTraceData NodeId="193d4300-7f5c-4604-9897-ecc1feddc989">
+      <CallsiteTraceData>PFNPQVAtRU5WOkVudmVsb3BlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOlNPQVAtRU5DPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyIgeG1sbnM6U09BUC1FTlY9Imh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3NvYXAvZW52ZWxvcGUvIiB4bWxuczpjbHI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vc29hcC9lbmNvZGluZy9jbHIvMS4wIiBTT0FQLUVOVjplbmNvZGluZ1N0eWxlPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyI+DQo8U09BUC1FTlY6Qm9keT4NCjxhMTpDYWxsU2l0ZV94MDAyQl9UcmFjZVNlcmlhbGlzZXJIZWxwZXIgaWQ9InJlZi0xIiB4bWxuczphMT0iaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9jbHIvbnNhc3NlbS9Qcm90b0NvcmUvUHJvdG9Db3JlJTJDJTIwVmVyc2lvbiUzRDAuOC4yLjIzOTIlMkMlMjBDdWx0dXJlJTNEbmV1dHJhbCUyQyUyMFB1YmxpY0tleVRva2VuJTNEbnVsbCI+DQo8TnVtYmVyT2ZFbGVtZW50cz4xPC9OdW1iZXJPZkVsZW1lbnRzPg0KPEJhc2UtMF9IYXNEYXRhPnRydWU8L0Jhc2UtMF9IYXNEYXRhPg0KPEJhc2UtMF9EYXRhIGlkPSJyZWYtMyI+UEZOUFFWQXRSVTVXT2tWdWRtVnNiM0JsSUhodGJHNXpPbmh6YVQwaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNUzlZVFV4VFkyaGxiV0V0YVc1emRHRnVZMlVpSUhodGJHNXpPbmh6WkQwaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNUzlZVFV4VFkyaGxiV0VpSUhodGJHNXpPbE5QUVZBdFJVNURQU0pvZEhSd09pOHZjMk5vWlcxaGN5NTRiV3h6YjJGd0xtOXlaeTl6YjJGd0wyVnVZMjlrYVc1bkx5SWdlRzFzYm5NNlUwOUJVQzFGVGxZOUltaDBkSEE2THk5elkyaGxiV0Z6TG5odGJITnZZWEF1YjNKbkwzTnZZWEF2Wlc1MlpXeHZjR1V2SWlCNGJXeHVjenBqYkhJOUltaDBkSEE2THk5elkyaGxiV0Z6TG0xcFkzSnZjMjltZEM1amIyMHZjMjloY0M5bGJtTnZaR2x1Wnk5amJISXZNUzR3SWlCVFQwRlFMVVZPVmpwbGJtTnZaR2x1WjFOMGVXeGxQU0pvZEhSd09pOHZjMk5vWlcxaGN5NTRiV3h6YjJGd0xtOXlaeTl6YjJGd0wyVnVZMjlrYVc1bkx5SStEUW84VTA5QlVDMUZUbFk2UW05a2VUNE5DanhoTVRwVFpYSnBZV3hwZW1GaWJHVkpaQ0JwWkQwaWNtVm1MVEVpSUhodGJHNXpPbUV4UFNKb2RIUndPaTh2YzJOb1pXMWhjeTV0YVdOeWIzTnZablF1WTI5dEwyTnNjaTl1YzJGemMyVnRMMUpsZG1sMFUyVnlkbWxqWlhNdVVHVnljMmx6ZEdWdVkyVXZVbVYyYVhSVFpYSjJhV05sY3lVeVF5VXlNRlpsY25OcGIyNGxNMFF3TGpndU1pNHlNemt5SlRKREpUSXdRM1ZzZEhWeVpTVXpSRzVsZFhSeVlXd2xNa01sTWpCUWRXSnNhV05MWlhsVWIydGxiaVV6Ukc1MWJHd2lQZzBLUEhOMGNtbHVaMGxFSUdsa1BTSnlaV1l0TXlJK1pUZzNZVE0zWVRndE0yWTJaaTAwT1dRMUxUaG1ZbVF0WVRJMVpEQTRObVk1WXpJM0xUQXdNRFF4TWpFeVBDOXpkSEpwYm1kSlJENE5DanhwYm5SSlJENHlOalkzTnpBOEwybHVkRWxFUGcwS1BDOWhNVHBUWlhKcFlXeHBlbUZpYkdWSlpENE5Dand2VTA5QlVDMUZUbFk2UW05a2VUNE5Dand2VTA5QlVDMUZUbFk2Ulc1MlpXeHZjR1UrRFFvPTwvQmFzZS0wX0RhdGE+DQo8QmFzZS0wX0hhc05lc3RlZERhdGE+ZmFsc2U8L0Jhc2UtMF9IYXNOZXN0ZWREYXRhPg0KPC9hMTpDYWxsU2l0ZV94MDAyQl9UcmFjZVNlcmlhbGlzZXJIZWxwZXI+DQo8L1NPQVAtRU5WOkJvZHk+DQo8L1NPQVAtRU5WOkVudmVsb3BlPg0K</CallsiteTraceData>
+    </NodeTraceData>
+  </SessionTraceData>
 </Workspace>

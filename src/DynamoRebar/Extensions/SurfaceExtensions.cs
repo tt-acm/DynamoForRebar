@@ -141,10 +141,8 @@ namespace DynamoRebar
         {
 
             Vector normal = surface.NormalAtParameter(0.5, 0.5);
-            Surface myface = (Surface)surface.Translate(normal, offset);
-
-
-
+            Surface myface = (Surface)surface.Offset(offset);
+           
             // Create return value collection
             List<Curve> curves = new List<Curve>();
 
