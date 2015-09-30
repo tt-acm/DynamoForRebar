@@ -185,9 +185,7 @@ namespace Revit.Elements
         /// <param name="endHookOrientation">Hook orientation at the end</param>
         /// <param name="startHookType">Hook type at the start</param>
         /// <param name="endHookType">Hook type at the end</param>
-        /// <param name="normal">Orientation vector</param>
-        /// <param name="createNewShape">Create a new shape</param>
-        /// <param name="useExistingShape">Use the existing shape</param>
+        /// <param name="vector">Curve's Normal Vector</param>
         /// <returns></returns>
         public static Rebar ByCurve(
             Autodesk.DesignScript.Geometry.Curve curve,
