@@ -103,7 +103,7 @@ namespace DynamoRebar
         /// <param name="curve"></param>
         /// <returns></returns>
         [IsVisibleInDynamoLibrary(false)]
-        public static Autodesk.Revit.DB.Curve Approximate(this Curve curve)
+        public static object Approximate(this Curve curve)
         {
             if (curve.GetType() == typeof(Autodesk.DesignScript.Geometry.NurbsCurve))
             {
@@ -118,6 +118,11 @@ namespace DynamoRebar
                     return Autodesk.Revit.DB.Arc.Create(curve.StartPoint.ToRevitType(), curve.EndPoint.ToRevitType(), curve.PointAtParameter(0.5).ToRevitType());
                 }
             }
+            else if (curve.GetType() == typeof(Autodesk.DesignScript.Geometry.PolyCurve))
+            {
+                DynamoRebar.RevitPolyCurve revitpolycurve = new RevitPolyCurve((Autodesk.DesignScript.Geometry.PolyCurve)curve);
+                return revitpolycurve;
+            }
             else
             {
                 Autodesk.Revit.DB.Curve result = curve.ToRevitType();
@@ -129,10 +134,6 @@ namespace DynamoRebar
                 else
                     return result;
             }
-
-
-
-
         }
 
 
@@ -206,6 +207,117 @@ namespace DynamoRebar
 
             // Return a list without duplicates
             return intersectionParameters.RemoveDuplicates();
+        }
+
+
+
+        const double _inch = 1.0 / 12.0;
+        const double _sixteenth = _inch / 16.0;
+
+        /// <summary>
+        /// Sort a list of curves to make them correctly 
+        /// ordered and oriented to form a closed loop.
+        /// From Jeremy Tammik
+        /// </summary>
+        public static void SortCurvesContiguous(IList<Autodesk.Revit.DB.Curve> curves)
+        {
+            int n = curves.Count;
+
+            // Walk through each curve (after the first) 
+            // to match up the curves in order
+
+            for (int i = 0; i < n; ++i)
+            {
+                Autodesk.Revit.DB.Curve curve = curves[i];
+                Autodesk.Revit.DB.XYZ endPoint = curve.GetEndPoint(1);
+
+
+                Autodesk.Revit.DB.XYZ p;
+
+                // Find curve with start point = end point
+
+                bool found = (i + 1 >= n);
+
+                for (int j = i + 1; j < n; ++j)
+                {
+                    p = curves[j].GetEndPoint(0);
+
+                    // If there is a match end->start, 
+                    // this is the next curve
+
+                    if (_sixteenth > p.DistanceTo(endPoint))
+                    {
+
+                        if (i + 1 != j)
+                        {
+                            Autodesk.Revit.DB.Curve tmp = curves[i + 1];
+                            curves[i + 1] = curves[j];
+                            curves[j] = tmp;
+                        }
+                        found = true;
+                        break;
+                    }
+
+                    p = curves[j].GetEndPoint(1);
+
+                    // If there is a match end->end, 
+                    // reverse the next curve
+
+                    if (_sixteenth > p.DistanceTo(endPoint))
+                    {
+                        if (i + 1 == j)
+                        {
+
+                            curves[i + 1] = CreateReversedCurve(curves[j]);
+                        }
+                        else
+                        {
+
+                            Autodesk.Revit.DB.Curve tmp = curves[i + 1];
+                            curves[i + 1] = CreateReversedCurve(curves[j]);
+                            curves[j] = tmp;
+                        }
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    throw new Exception("SortCurvesContiguous:"
+                      + " non-contiguous input curves");
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Create a new curve with the same 
+        /// geometry in the reverse direction.
+        /// rom Jeremy Tammik
+        /// </summary>
+        /// <param name="orig">The original curve.</param>
+        /// <returns>The reversed curve.</returns>
+        /// <throws cref="NotImplementedException">If the 
+        /// curve type is not supported by this utility.</throws>
+        static Autodesk.Revit.DB.Curve CreateReversedCurve(Autodesk.Revit.DB.Curve orig)
+        {
+            if (orig is Autodesk.Revit.DB.Line)
+            {
+                return Autodesk.Revit.DB.Line.CreateBound(
+                  orig.GetEndPoint(1),
+                  orig.GetEndPoint(0));
+            }
+            else if (orig is Autodesk.Revit.DB.Arc)
+            {
+                return Autodesk.Revit.DB.Arc.Create(orig.GetEndPoint(1),
+                  orig.GetEndPoint(0),
+                  orig.Evaluate(0.5, true));
+            }
+            else
+            {
+                throw new Exception(
+                  "CreateReversedCurve - Unreachable");
+            }
         }
 
         /// <summary>

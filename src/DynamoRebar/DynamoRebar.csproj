@@ -118,6 +118,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\PolyCurve.cs" />
     <Compile Include="Extensions\SurfaceExtensions.cs" />
     <Compile Include="Extensions\CurveExtensions.cs" />
     <Compile Include="TrimmedSurface.cs" />

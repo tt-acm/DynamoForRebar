@@ -75,7 +75,7 @@ namespace Revit.Elements
         /// <param name="normal"></param>
         /// <param name="useExistingShape"></param>
         /// <param name="createNewShape"></param>
-        private RebarContainer(System.Collections.Generic.List<Curve> curve,
+        private RebarContainer(System.Collections.Generic.List<object> curve,
             Autodesk.Revit.DB.Structure.RebarBarType barType,
             Autodesk.Revit.DB.Structure.RebarStyle barStyle,
             Autodesk.Revit.DB.Element host,
@@ -122,7 +122,7 @@ namespace Revit.Elements
         /// <param name="normal"></param>
         /// <param name="useExistingShape"></param>
         /// <param name="createNewShape"></param>
-        private void InitRebarContainer(System.Collections.Generic.List<Curve> curves, 
+        private void InitRebarContainer(System.Collections.Generic.List<object> curves, 
             Autodesk.Revit.DB.Structure.RebarBarType barType,
             Autodesk.Revit.DB.Structure.RebarStyle barStyle,
             Autodesk.Revit.DB.Element host, 
@@ -158,11 +158,22 @@ namespace Revit.Elements
             {
                 // If there is only one normal in the list use this one for all curves
                 XYZ normal = (normals.Count == 1) ? normals[0] : normals[i];
-                Curve curve = curves[i];
 
-                System.Collections.Generic.List<Curve> revitCurves = new System.Collections.Generic.List<Curve>();
-                revitCurves.Add(curve);
-                rebarElem.AppendItemFromCurves(barStyle, barType, startHook, endHook, normal, revitCurves, startHookOrientation, endHookOrientation, useExistingShape, createNewShape);
+                // geometry wrapper for polycurves
+
+                List<Curve> geometry = new List<Curve>();
+
+                if (curves[i].GetType() == typeof(DynamoRebar.RevitPolyCurve))
+                {
+                    DynamoRebar.RevitPolyCurve polycurve = (DynamoRebar.RevitPolyCurve)curves[i];
+                    geometry = polycurve.Curves;
+                }
+                else
+                {
+                    geometry.Add((Curve)curves[i]);
+                }
+
+                rebarElem.AppendItemFromCurves(barStyle, barType, startHook, endHook, normal, geometry, startHookOrientation, endHookOrientation, useExistingShape, createNewShape);
             }
 
             InternalSetRebarContainer(rebarElem);
@@ -281,7 +292,7 @@ namespace Revit.Elements
 
             Autodesk.Revit.DB.Element host = DocumentManager.Instance.CurrentDBDocument.GetElement(elementId);
 
-            System.Collections.Generic.List<Curve> revitCurves = new System.Collections.Generic.List<Curve>();
+            System.Collections.Generic.List<object> revitCurves = new System.Collections.Generic.List<object>();
             foreach (Autodesk.DesignScript.Geometry.Curve curve in curves) revitCurves.Add(curve.Approximate());
 
             // Parse Rebar Style

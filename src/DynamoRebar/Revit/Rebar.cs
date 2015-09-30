@@ -75,7 +75,7 @@ namespace Revit.Elements
         /// <param name="normal"></param>
         /// <param name="useExistingShape"></param>
         /// <param name="createNewShape"></param>
-        private Rebar(Curve curve,
+        private Rebar(object curve,
             Autodesk.Revit.DB.Structure.RebarBarType barType,
             Autodesk.Revit.DB.Structure.RebarStyle barStyle,
             Autodesk.Revit.DB.Element host,
@@ -117,7 +117,7 @@ namespace Revit.Elements
         /// <param name="normal"></param>
         /// <param name="useExistingShape"></param>
         /// <param name="createNewShape"></param>
-        private void InitRebar(Curve curve,
+        private void InitRebar(object curve,
             Autodesk.Revit.DB.Structure.RebarBarType barType,
             Autodesk.Revit.DB.Structure.RebarStyle barStyle,
             Autodesk.Revit.DB.Element host,
@@ -135,9 +135,23 @@ namespace Revit.Elements
 
             var rebarElem = ElementBinder.GetElementFromTrace<Autodesk.Revit.DB.Structure.Rebar>(document);
 
-            //always create a new bar
-            //if (rebarElem == null)
-                rebarElem = Autodesk.Revit.DB.Structure.Rebar.CreateFromCurves(document, barStyle, barType, startHook, endHook, host, normal, new List<Curve>(){curve}, startHookOrientation, endHookOrientation, useExistingShape, createNewShape);           
+
+            // geometry wrapper for polycurves
+
+            List<Curve> geometry = new List<Curve>();
+
+            if (curve.GetType() == typeof(DynamoRebar.RevitPolyCurve))
+            {
+                DynamoRebar.RevitPolyCurve polycurve = (DynamoRebar.RevitPolyCurve)curve;
+                geometry = polycurve.Curves;
+            }
+            else
+            {
+                geometry.Add((Curve)curve);
+            }
+
+
+            rebarElem = Autodesk.Revit.DB.Structure.Rebar.CreateFromCurves(document, barStyle, barType, startHook, endHook, host, normal, geometry, startHookOrientation, endHookOrientation, useExistingShape, createNewShape);           
             
             InternalSetRebar(rebarElem);
 
