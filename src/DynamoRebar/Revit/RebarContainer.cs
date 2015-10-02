@@ -274,7 +274,8 @@ namespace Revit.Elements
             string endHookOrientation,            
             Revit.Elements.Element startHookType,
             Revit.Elements.Element endHookType,
-            System.Collections.Generic.List<Autodesk.DesignScript.Geometry.Vector> vectors
+            System.Collections.Generic.List<Autodesk.DesignScript.Geometry.Vector> vectors,
+            bool noHooks = false
             )
         {
             if (curves == null) throw new ArgumentNullException("Input Curves missing");
@@ -283,8 +284,8 @@ namespace Revit.Elements
             if (rebarBarType == null) throw new ArgumentNullException("Rebar Bar Type missing");
             if (startHookOrientation == null) throw new ArgumentNullException("Start Hook Orientation missing");
             if (endHookOrientation == null) throw new ArgumentNullException("End Hook Orientation missing");
-            if (startHookType == null) throw new ArgumentNullException("Start Hook Type missing");
-            if (endHookType == null) throw new ArgumentNullException("End Hook Type missing");
+            //if (startHookType == null) throw new ArgumentNullException("Start Hook Type missing");
+            //if (endHookType == null) throw new ArgumentNullException("End Hook Type missing");
             if (vectors == null) throw new ArgumentNullException("Normal Vector missing");
 
             ElementId elementId = new ElementId(hostElementId);
@@ -310,10 +311,12 @@ namespace Revit.Elements
             List<XYZ> normals = new List<XYZ>();
             foreach (Autodesk.DesignScript.Geometry.Vector vector in vectors) normals.Add(vector.ToRevitType());
 
+            Autodesk.Revit.DB.Structure.RebarHookType startHookT = (noHooks) ? null : (Autodesk.Revit.DB.Structure.RebarHookType)startHookType.InternalElement;
+            Autodesk.Revit.DB.Structure.RebarHookType endHookT = (noHooks) ? null : (Autodesk.Revit.DB.Structure.RebarHookType)endHookType.InternalElement;
 
             return new RebarContainer(revitCurves, (Autodesk.Revit.DB.Structure.RebarBarType)rebarBarType.InternalElement, barStyle, host,
-                (Autodesk.Revit.DB.Structure.RebarHookType)startHookType.InternalElement,
-                (Autodesk.Revit.DB.Structure.RebarHookType)endHookType.InternalElement, startOrientation, endOrientation, normals, true, true);
+                startHookT,
+                endHookT, startOrientation, endOrientation, normals, true, true);
         }
 
         /// <summary>
