@@ -274,8 +274,7 @@ namespace Revit.Elements
             string endHookOrientation,            
             Revit.Elements.Element startHookType,
             Revit.Elements.Element endHookType,
-            System.Collections.Generic.List<Autodesk.DesignScript.Geometry.Vector> vectors,
-            bool noHooks = false
+            System.Collections.Generic.List<Autodesk.DesignScript.Geometry.Vector> vectors
             )
         {
             if (curves == null) throw new ArgumentNullException("Input Curves missing");
@@ -311,8 +310,8 @@ namespace Revit.Elements
             List<XYZ> normals = new List<XYZ>();
             foreach (Autodesk.DesignScript.Geometry.Vector vector in vectors) normals.Add(vector.ToRevitType());
 
-            Autodesk.Revit.DB.Structure.RebarHookType startHookT = (noHooks) ? null : (Autodesk.Revit.DB.Structure.RebarHookType)startHookType.InternalElement;
-            Autodesk.Revit.DB.Structure.RebarHookType endHookT = (noHooks) ? null : (Autodesk.Revit.DB.Structure.RebarHookType)endHookType.InternalElement;
+            Autodesk.Revit.DB.Structure.RebarHookType startHookT = (startHookType == null) ? null : (Autodesk.Revit.DB.Structure.RebarHookType)startHookType.InternalElement;
+            Autodesk.Revit.DB.Structure.RebarHookType endHookT = (endHookType == null) ? null : (Autodesk.Revit.DB.Structure.RebarHookType)endHookType.InternalElement;
 
             return new RebarContainer(revitCurves, (Autodesk.Revit.DB.Structure.RebarBarType)rebarBarType.InternalElement, barStyle, host,
                 startHookT,

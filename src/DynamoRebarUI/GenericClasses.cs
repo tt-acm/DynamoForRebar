@@ -73,6 +73,8 @@ namespace DynamoRebarUI
                     return;
                 }
 
+                if (this.ElementType.FullName == "Autodesk.Revit.DB.Structure.RebarHookType") Items.Add(new DSCoreNodesUI.DynamoDropDownItem("None", null));
+
                 // Walk through all elements in the collector and add them to the dropdown
                 foreach (var ft in fec.ToElements())
                 {
@@ -91,7 +93,7 @@ namespace DynamoRebarUI
             // If there are no elements in the dropdown or the selected Index is invalid return a Null node.
             if (Items.Count == 0 || 
             Items[0].Name == noTypes ||
-            SelectedIndex == -1)
+            SelectedIndex == -1 || Items[SelectedIndex].Name == "None")
             {
                 return new[] { AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), AstFactory.BuildNullNode()) };
             }

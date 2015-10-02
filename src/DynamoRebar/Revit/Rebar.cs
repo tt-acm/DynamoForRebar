@@ -211,8 +211,7 @@ namespace Revit.Elements
             string endHookOrientation,
             Revit.Elements.Element startHookType,
             Revit.Elements.Element endHookType,
-            Autodesk.DesignScript.Geometry.Vector vector,
-            bool noHooks = false
+            Autodesk.DesignScript.Geometry.Vector vector
             )
         {
             if (curve == null) throw new ArgumentNullException("Input Curve missing");
@@ -239,8 +238,8 @@ namespace Revit.Elements
             Autodesk.Revit.DB.Structure.RebarHookOrientation endOrientation = Autodesk.Revit.DB.Structure.RebarHookOrientation.Left;
             Enum.TryParse<Autodesk.Revit.DB.Structure.RebarHookOrientation>(endHookOrientation, out endOrientation);
 
-            Autodesk.Revit.DB.Structure.RebarHookType startHookT = (noHooks) ? null : (Autodesk.Revit.DB.Structure.RebarHookType)startHookType.InternalElement;
-            Autodesk.Revit.DB.Structure.RebarHookType endHookT = (noHooks) ? null : (Autodesk.Revit.DB.Structure.RebarHookType)endHookType.InternalElement;
+            Autodesk.Revit.DB.Structure.RebarHookType startHookT = (startHookType == null) ? null : (Autodesk.Revit.DB.Structure.RebarHookType)startHookType.InternalElement;
+            Autodesk.Revit.DB.Structure.RebarHookType endHookT = (endHookType == null) ? null : (Autodesk.Revit.DB.Structure.RebarHookType)endHookType.InternalElement;
 
             return new Rebar(curve.Approximate(), (Autodesk.Revit.DB.Structure.RebarBarType)rebarBarType.InternalElement, barStyle, host, startHookT, endHookT
                 , startOrientation, endOrientation, vector.ToRevitType(), true, true);
