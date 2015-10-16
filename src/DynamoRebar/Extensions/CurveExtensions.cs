@@ -219,6 +219,7 @@ namespace DynamoRebar
         /// ordered and oriented to form a closed loop.
         /// From Jeremy Tammik
         /// </summary>
+        [IsVisibleInDynamoLibrary(false)]
         public static void SortCurvesContiguous(IList<Autodesk.Revit.DB.Curve> curves)
         {
             int n = curves.Count;
@@ -299,6 +300,7 @@ namespace DynamoRebar
         /// <returns>The reversed curve.</returns>
         /// <throws cref="NotImplementedException">If the 
         /// curve type is not supported by this utility.</throws>
+        [IsVisibleInDynamoLibrary(false)]
         static Autodesk.Revit.DB.Curve CreateReversedCurve(Autodesk.Revit.DB.Curve orig)
         {
             if (orig is Autodesk.Revit.DB.Line)

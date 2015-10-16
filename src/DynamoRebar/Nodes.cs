@@ -105,11 +105,8 @@ namespace DynamoRebar
 
                 Surface surface = face;
 
-                if (offset != 0)
-                {
-                    Vector normal = face.NormalAtParameter(0.5, 0.5);
-                    surface = (Surface)face.Translate(normal, offset);
-                }
+                if (offset != 0) surface = (Surface)face.Offset(offset);
+                
 
                 TrimmedSurface trimmedSurface = new TrimmedSurface(surface);
 
