@@ -27,6 +27,7 @@ using RevitServices.Transactions;
 using DSCoreNodesUI;
 using Dynamo.Utilities;
 using Dynamo.Models;
+using Dynamo.Nodes;
 using ProtoCore.AST.AssociativeAST;
 
 namespace DynamoRebarUI

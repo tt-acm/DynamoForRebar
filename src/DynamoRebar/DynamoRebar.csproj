@@ -2,8 +2,8 @@
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets">
     <Import Project="$(SolutionDir)/config/CS.props" />
-  </ImportGroup>
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+	</ImportGroup>	
+	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -38,75 +38,75 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CoreNodeModelsWpf">
-      <HintPath>$(DYNAMO_API)\nodes\CoreNodeModelsWpf.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\nodes\CoreNodeModelsWpf.dll</HintPath>
     </Reference>
     <Reference Include="DSCoreNodes.customization">
-      <HintPath>$(DYNAMO_API)\DSCoreNodes.customization.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\DSCoreNodes.customization.dll</HintPath>
     </Reference>
     <Reference Include="DSCoreNodesUI">
-      <HintPath>$(DYNAMO_API)\nodes\DSCoreNodesUI.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\nodes\DSCoreNodesUI.dll</HintPath>
     </Reference>
     <Reference Include="DSRevitNodesUI">
-      <HintPath>$(DYNAMO_API)\$(REVIT_VERSION)\nodes\DSRevitNodesUI.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\nodes\DSRevitNodesUI.dll</HintPath>
     </Reference>
     <Reference Include="DSRevitNodesUI.customization">
-      <HintPath>$(DYNAMO_API)\$(REVIT_VERSION)\DSRevitNodesUI.customization.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\DSRevitNodesUI.customization.dll</HintPath>
     </Reference>
     <Reference Include="DynamoCore">
-      <HintPath>$(DYNAMO_API)\DynamoCore.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\DynamoCore.dll</HintPath>
     </Reference>
     <Reference Include="DynamoCoreWpf">
-      <HintPath>$(DYNAMO_API)\DynamoCoreWpf.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\DynamoCoreWpf.dll</HintPath>
     </Reference>
     <Reference Include="DynamoRaaS.customization">
-      <HintPath>$(DYNAMO_API)\$(REVIT_VERSION)\DynamoRaaS.customization.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\DynamoRaaS.customization.dll</HintPath>
     </Reference>
     <Reference Include="DynamoRaaSHelper">
-      <HintPath>$(DYNAMO_API)\$(REVIT_VERSION)\DynamoRaaSHelper.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\DynamoRaaSHelper.dll</HintPath>
     </Reference>
     <Reference Include="DynamoRevitDS">
-      <HintPath>$(DYNAMO_API)\$(REVIT_VERSION)\DynamoRevitDS.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\DynamoRevitDS.dll</HintPath>
     </Reference>
     <Reference Include="DynamoRevitVersionSelector">
-      <HintPath>$(DYNAMO_API)\$(REVIT_VERSION)\DynamoRevitVersionSelector.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\DynamoRevitVersionSelector.dll</HintPath>
     </Reference>
     <Reference Include="DynamoServices">
-      <HintPath>$(DYNAMO_API)\DynamoServices.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\DynamoServices.dll</HintPath>
     </Reference>
     <Reference Include="DynamoUtilities">
-      <HintPath>$(DYNAMO_API)\DynamoUtilities.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\DynamoUtilities.dll</HintPath>
     </Reference>
     <Reference Include="ProtoCore">
-      <HintPath>$(DYNAMO_API)\ProtoCore.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\ProtoCore.dll</HintPath>
     </Reference>
     <Reference Include="ProtoGeometry">
-      <HintPath>$(DYNAMO_API)\ProtoGeometry.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\ProtoGeometry.dll</HintPath>
     </Reference>
     <Reference Include="ProtoInterface">
-      <HintPath>$(DYNAMO_API)\ProtoInterface.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\ProtoInterface.dll</HintPath>
     </Reference>
     <Reference Include="RevitAPI, Version=16.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(REVIT_API)\RevitAPI.dll</HintPath>
+      <HintPath>C:\Program Files\Autodesk\Revit 2016\RevitAPI.dll</HintPath>
     </Reference>
     <Reference Include="RevitAPIUI, Version=2015.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(REVIT_API)\RevitAPIUI.dll</HintPath>
+      <HintPath>C:\Program Files\Autodesk\Revit 2016\RevitAPIUI.dll</HintPath>
     </Reference>
     <Reference Include="RevitNodes">
-      <HintPath>$(DYNAMO_API)\$(REVIT_VERSION)\RevitNodes.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\RevitNodes.dll</HintPath>
     </Reference>
     <Reference Include="RevitNodes.customization">
-      <HintPath>$(DYNAMO_API)\$(REVIT_VERSION)\RevitNodes.customization.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\RevitNodes.customization.dll</HintPath>
     </Reference>
     <Reference Include="RevitRaaS">
-      <HintPath>$(DYNAMO_API)\$(REVIT_VERSION)\RevitRaaS.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\RevitRaaS.dll</HintPath>
     </Reference>
     <Reference Include="RevitServices">
-      <HintPath>$(DYNAMO_API)\$(REVIT_VERSION)\RevitServices.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\RevitServices.dll</HintPath>
     </Reference>
     <Reference Include="RevitTestServices">
-      <HintPath>$(DYNAMO_API)\$(REVIT_VERSION)\RevitTestServices.dll</HintPath>
+      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\RevitTestServices.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

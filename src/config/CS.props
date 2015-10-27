@@ -5,7 +5,7 @@
     <OutputPath Condition="'$(OutputPath)' == ''">$(SolutionDir)..\bin\$(Platform)\$(Configuration)</OutputPath>
     <NunitPath Condition="'$(NunitPath)' == ''">$(SolutionDir)..\extern\NUnit</NunitPath>
     <REVIT_API Condition="'$(REVIT_API)' == ''">C:\Program Files\Autodesk\Revit 2016</REVIT_API>
-    <DYNAMO_API Condition="'$(DYNAMO_API)' == ''">C:\Program Files\Dynamo 0.8</DYNAMO_API>
+    <DYNAMO_API Condition="'$(DYNAMO_API)' == ''">C:\Program Files\Dynamo 0.9</DYNAMO_API>
     <REVIT_VERSION>Revit_2015</REVIT_VERSION>
     <BaseIntermediateOutputPath>$(OutputPath)\int\</BaseIntermediateOutputPath>
     <DebugSymbols>true</DebugSymbols>
@@ -20,7 +20,7 @@
     <OutputPath Condition="'$(OutputPath)' == ''">$(SolutionDir)..\bin\$(Platform)\$(Configuration)</OutputPath>
     <NunitPath Condition="'$(NunitPath)' == ''">$(SolutionDir)..\extern\NUnit</NunitPath>
     <REVIT_API Condition="'$(REVIT_API)' == ''">C:\Program Files\Autodesk\Revit 2016</REVIT_API>
-    <DYNAMO_API Condition="'$(DYNAMO_API)' == ''">C:\Program Files\Dynamo 0.8</DYNAMO_API>
+    <DYNAMO_API Condition="'$(DYNAMO_API)' == ''">C:\Program Files\Dynamo 0.9</DYNAMO_API>
     <REVIT_VERSION>Revit_2015</REVIT_VERSION>
     <BaseIntermediateOutputPath>$(OutputPath)\int\</BaseIntermediateOutputPath>
     <DebugType>pdbonly</DebugType>
