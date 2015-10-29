@@ -176,6 +176,10 @@ namespace Revit.Elements
                 rebarElem.AppendItemFromCurves(barStyle, barType, startHook, endHook, normal, geometry, startHookOrientation, endHookOrientation, useExistingShape, createNewShape);
             }
 
+            // Update Quantity Parameter
+            Autodesk.Revit.DB.Parameter quantityParameter = rebarElem.LookupParameter("Quantitiy");
+            if (quantityParameter != null && !quantityParameter.IsReadOnly) quantityParameter.Set(curves.Count);
+
             InternalSetRebarContainer(rebarElem);
 
             TransactionManager.Instance.TransactionTaskDone();

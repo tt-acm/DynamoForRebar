@@ -127,6 +127,23 @@ namespace DynamoRebar
         }
 
         /// <summary>
+        /// Create Curves using Isolines of a Surface
+        /// </summary>
+        /// <param name="face">Surface</param>
+        /// <param name="isoDirection">Iso Line Direction</param>
+        /// <param name="parameters">Parameters to Evaluate</param>
+        /// <returns>List of IsoCurves</returns>
+        public static List<Curve> FollowingIsoLineSurface(Surface face, int isoDirection, List<double> parameters)
+        {
+            List<Curve> result = new List<Curve>();
+
+            foreach (double parameter in parameters)
+                result.Add(face.GetIsoline(isoDirection, parameter));
+
+            return result;
+        }
+
+        /// <summary>
         /// Cuts a set of Rebars by Plane
         /// </summary>
         /// <param name="plane">Plane to cut by</param>
