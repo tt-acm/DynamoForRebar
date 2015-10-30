@@ -139,7 +139,26 @@ namespace Revit.Elements
             TransactionManager.Instance.EnsureInTransaction(document);
 
             var rebarElem = ElementBinder.GetElementFromTrace<Autodesk.Revit.DB.Structure.RebarContainer>(document);
-            
+
+            // Parse Geometry
+
+            List<List<Curve>> curvature = new List<List<Curve>>();
+            foreach (object curve in curves)
+            {
+                List<Curve> geometry = new List<Curve>();
+
+                if (curve.GetType() == typeof(DynamoRebar.RevitPolyCurve))
+                {
+                    DynamoRebar.RevitPolyCurve polycurve = (DynamoRebar.RevitPolyCurve)curve;
+                    geometry = polycurve.Curves;
+                }
+                else
+                    geometry.Add((Curve)curve);
+
+                curvature.Add(geometry);
+            }
+
+
 
             if (rebarElem == null)
             {
@@ -147,35 +166,46 @@ namespace Revit.Elements
                 rebarElem = Autodesk.Revit.DB.Structure.RebarContainer.Create(DocumentManager.Instance.CurrentDBDocument, host, stdC);
             }
             else
-            {                
-                rebarElem.ClearItems();
+            {
+                //rebarElem.ClearItems();
                 rebarElem.SetHostId(document, host.Id);
             }
 
 
+            int counter = rebarElem.ItemsCount;
+
+            for (int i = 0; i < counter; i++)
+            {
+                Autodesk.Revit.DB.Structure.RebarContainerItem item = rebarElem.GetItem(i);
+
+                int index = GeometryMatches(item.ComputeDrivingCurves(), curvature);
+
+                if (index == -1)
+                    rebarElem.RemoveItem(item);
+                else
+                {
+                    item.SetHookOrientation(0, startHookOrientation);
+                    item.SetHookOrientation(1, endHookOrientation);
+                    item.SetHookTypeId(0, startHook.Id);
+                    item.SetHookTypeId(1, endHook.Id);
+                    curvature.RemoveAt(index);
+                    if (normals.Count > 1) normals.RemoveAt(index);
+                }
+
+            }
 
 
-            for (int i = 0; i < curves.Count; i++)
+
+            for (int i = 0; i < curvature.Count; i++)
             {
                 // If there is only one normal in the list use this one for all curves
                 XYZ normal = (normals.Count == 1) ? normals[0] : normals[i];
-
-                // geometry wrapper for polycurves
-
-                List<Curve> geometry = new List<Curve>();
-
-                if (curves[i].GetType() == typeof(DynamoRebar.RevitPolyCurve))
-                {
-                    DynamoRebar.RevitPolyCurve polycurve = (DynamoRebar.RevitPolyCurve)curves[i];
-                    geometry = polycurve.Curves;
-                }
-                else
-                {
-                    geometry.Add((Curve)curves[i]);
-                }
+                List<Curve> geometry = curvature[i];
 
                 rebarElem.AppendItemFromCurves(barStyle, barType, startHook, endHook, normal, geometry, startHookOrientation, endHookOrientation, useExistingShape, createNewShape);
             }
+
+
 
             // Update Quantity Parameter
             Autodesk.Revit.DB.Parameter quantityParameter = rebarElem.LookupParameter("Quantitiy");
@@ -195,6 +225,31 @@ namespace Revit.Elements
                 ElementBinder.SetElementForTrace(this.InternalElement);
             }
 
+        }
+
+
+        private int GeometryMatches(IList<Curve> existingCurves, List<List<Curve>> newGeometry)
+        {
+                for (int i = 0; i < newGeometry.Count; i++ )
+                {
+                    List<Curve> newCurves = newGeometry[i];
+                
+                    bool match = true;
+
+                    foreach (Curve existingCurve in existingCurves)
+                    {
+                        bool existing = false;
+
+                        foreach (Curve newCurve in newCurves)
+                            if (CurveUtils.CurvesAreSimilar(newCurve, existingCurve)) { existing = true; break; }
+
+                        if (!existing) match = false;
+                    }
+
+                    if (match) return i;
+                }
+
+            return -1;
         }
 
         private void InitRebarContainer(List<Revit.Elements.Rebar> rebars)
