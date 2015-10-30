@@ -147,8 +147,9 @@ namespace Revit.Elements
                 rebarElem = Autodesk.Revit.DB.Structure.RebarContainer.Create(DocumentManager.Instance.CurrentDBDocument, host, stdC);
             }
             else
-            {
+            {                
                 rebarElem.ClearItems();
+                rebarElem.SetHostId(document, host.Id);
             }
 
 
@@ -348,6 +349,24 @@ namespace Revit.Elements
             {
                 foreach (Revit.Elements.Rebar rebar in rebars) container.InternalRebarContainer.AppendItemFromRebar(rebar.InternalRebar);
             }
+
+
+            // Delete Bars from Document
+
+            #region delete Bars
+
+            Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
+            TransactionManager.Instance.EnsureInTransaction(document);
+
+            List<ElementId> idsToDelete = new List<ElementId>();
+            foreach (Revit.Elements.Rebar rebar in rebars)
+                if (rebar.InternalRebar != null && rebar.InternalRebar.Id != ElementId.InvalidElementId) idsToDelete.Add(rebar.InternalRebar.Id);
+
+            document.Delete(idsToDelete);
+
+            TransactionManager.Instance.TransactionTaskDone();
+
+            #endregion
 
             return container;
         }

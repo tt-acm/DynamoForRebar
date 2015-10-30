@@ -135,6 +135,10 @@ namespace Revit.Elements
 
             var rebarElem = ElementBinder.GetElementFromTrace<Autodesk.Revit.DB.Structure.Rebar>(document);
 
+            // Delete exsiting Rebar Element
+            if (rebarElem != null && rebarElem.Id != ElementId.InvalidElementId) 
+                document.Delete(rebarElem.Id);
+
 
             // geometry wrapper for polycurves
 
@@ -151,8 +155,23 @@ namespace Revit.Elements
             }
 
 
-            rebarElem = Autodesk.Revit.DB.Structure.Rebar.CreateFromCurves(document, barStyle, barType, startHook, endHook, host, normal, geometry, startHookOrientation, endHookOrientation, useExistingShape, createNewShape);           
             
+
+            rebarElem = Autodesk.Revit.DB.Structure.Rebar.CreateFromCurves(document, barStyle, barType, startHook, endHook, host, normal, geometry, startHookOrientation, endHookOrientation, useExistingShape, createNewShape);
+            
+            //
+            // Update doesn't make much sense at the moment because there is no way to change the geometry
+            //
+            //if (rebarElem != null)
+            //{
+            //    rebarElem.SetHostId(document, host.Id);
+            //    rebarElem.SetHookTypeId(0, startHook.Id);
+            //    rebarElem.SetHookTypeId(1, endHook.Id);
+            //    rebarElem.SetHookOrientation(0, startHookOrientation);
+            //    rebarElem.SetHookOrientation(1, endHookOrientation);
+            //    rebarElem.ChangeTypeId(barType.Id);
+            //}
+
             InternalSetRebar(rebarElem);
 
             TransactionManager.Instance.TransactionTaskDone();
