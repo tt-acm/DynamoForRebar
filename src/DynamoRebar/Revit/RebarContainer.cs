@@ -388,6 +388,31 @@ namespace Revit.Elements
             return new RebarContainer(rebars);
         }
 
+        /// <summary>
+        /// Set unobscured in specified View
+        /// </summary>
+        /// <param name="rebarContainer">Rebar Container</param>
+        /// <param name="view">View</param>
+        /// <param name="unobscured">Unobscured</param>
+        public static void SetUnobscuredInView(RebarContainer rebarContainer, Revit.Elements.Views.View view, bool unobscured)
+        {
+            Autodesk.Revit.DB.Structure.RebarContainer rebarElement = (Autodesk.Revit.DB.Structure.RebarContainer)rebarContainer.InternalElement;
+            Autodesk.Revit.DB.View viewElement = (Autodesk.Revit.DB.View)view.InternalElement;
+            rebarElement.SetUnobscuredInView(viewElement, unobscured);
+        }
+
+        /// <summary>
+        /// Set Solid In View
+        /// </summary>
+        /// <param name="rebarContainer">Rebar Container</param>
+        /// <param name="view">3D View</param>
+        /// <param name="solid">Solid</param>
+        public static void SetSolidInView(RebarContainer rebarContainer, Revit.Elements.Views.View3D view, bool solid)
+        {
+            Autodesk.Revit.DB.Structure.RebarContainer rebarElement = (Autodesk.Revit.DB.Structure.RebarContainer)rebarContainer.InternalElement;
+            Autodesk.Revit.DB.View3D viewElement = (Autodesk.Revit.DB.View3D)view.InternalElement;
+            rebarElement.SetSolidInView(viewElement, solid);
+        }
 
         /// <summary>
         /// Appends a Bar to an existing Rebar container (or creates it if no container is supplied)

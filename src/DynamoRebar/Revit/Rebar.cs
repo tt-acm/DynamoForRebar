@@ -285,6 +285,33 @@ namespace Revit.Elements
                 , startOrientation, endOrientation, vector.ToRevitType(), true, true);
         }
 
+        /// <summary>
+        /// Set unobscured in specified View
+        /// </summary>
+        /// <param name="rebar">Single Rebar</param>
+        /// <param name="view">View</param>
+        /// <param name="unobscured">Unobscured</param>
+        public static void SetUnobscuredInView(Rebar rebar, Revit.Elements.Views.View view, bool unobscured)
+        {
+            Autodesk.Revit.DB.Structure.Rebar rebarElement = (Autodesk.Revit.DB.Structure.Rebar)rebar.InternalElement;
+            Autodesk.Revit.DB.View viewElement = (Autodesk.Revit.DB.View)view.InternalElement;
+            rebarElement.SetUnobscuredInView(viewElement, unobscured);
+        }
+
+        /// <summary>
+        /// Set Solid In View
+        /// </summary>
+        /// <param name="rebar">Single Rebar</param>
+        /// <param name="view">3D View</param>
+        /// <param name="solid">Solid</param>
+        public static void SetSolidInView(Rebar rebar, Revit.Elements.Views.View3D view, bool solid)
+        {
+            Autodesk.Revit.DB.Structure.Rebar rebarElement = (Autodesk.Revit.DB.Structure.Rebar)rebar.InternalElement;
+            Autodesk.Revit.DB.View3D viewElement = (Autodesk.Revit.DB.View3D)view.InternalElement;
+            rebarElement.SetSolidInView(viewElement, solid);
+        }
+
+
         #endregion
 
         #region Internal static constructors
