@@ -396,9 +396,14 @@ namespace Revit.Elements
         /// <param name="unobscured">Unobscured</param>
         public static void SetUnobscuredInView(RebarContainer rebarContainer, Revit.Elements.Views.View view, bool unobscured)
         {
+            Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
+            TransactionManager.Instance.EnsureInTransaction(document);
+
             Autodesk.Revit.DB.Structure.RebarContainer rebarElement = (Autodesk.Revit.DB.Structure.RebarContainer)rebarContainer.InternalElement;
             Autodesk.Revit.DB.View viewElement = (Autodesk.Revit.DB.View)view.InternalElement;
             rebarElement.SetUnobscuredInView(viewElement, unobscured);
+
+            TransactionManager.Instance.TransactionTaskDone();
         }
 
         /// <summary>
@@ -409,9 +414,14 @@ namespace Revit.Elements
         /// <param name="solid">Solid</param>
         public static void SetSolidInView(RebarContainer rebarContainer, Revit.Elements.Views.View3D view, bool solid)
         {
+            Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
+            TransactionManager.Instance.EnsureInTransaction(document);
+
             Autodesk.Revit.DB.Structure.RebarContainer rebarElement = (Autodesk.Revit.DB.Structure.RebarContainer)rebarContainer.InternalElement;
             Autodesk.Revit.DB.View3D viewElement = (Autodesk.Revit.DB.View3D)view.InternalElement;
             rebarElement.SetSolidInView(viewElement, solid);
+
+            TransactionManager.Instance.TransactionTaskDone();
         }
 
         /// <summary>
