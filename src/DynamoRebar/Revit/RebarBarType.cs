@@ -141,7 +141,7 @@ namespace Revit.Elements
             if (deformed == null) throw new ArgumentNullException("deformed");
 
             Autodesk.Revit.DB.Structure.RebarDeformationType type = (deformed) ? Autodesk.Revit.DB.Structure.RebarDeformationType.Deformed : Autodesk.Revit.DB.Structure.RebarDeformationType.Plain;
-
+            
             return new RebarBarType(diameter, type);
         }
 

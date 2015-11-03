@@ -75,7 +75,7 @@ namespace Revit.Elements
             }
 
             Autodesk.Revit.DB.Structure.RebarStyle style = Autodesk.Revit.DB.Structure.RebarStyle.StirrupTie;
-
+            
             if (!Enum.TryParse<Autodesk.Revit.DB.Structure.RebarStyle>(name, out style))
                 throw new Exception("Cannot parse " + name);
 

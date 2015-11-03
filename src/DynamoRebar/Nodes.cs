@@ -53,6 +53,26 @@ namespace DynamoRebar
         }
 
         /// <summary>
+        /// Cover value to Offset value
+        /// </summary>
+        /// <param name="cover">Cover Value</param>
+        /// <param name="barType">Rebar Bar Type</param>
+        /// <returns>Offset</returns>
+        public static double GetOffset(double cover, Revit.Elements.RebarBarType barType)
+        {
+            double offset = cover;
+
+            if (barType.InternalElement != null)
+            {
+                Autodesk.Revit.DB.Structure.RebarBarType revitBarType = (Autodesk.Revit.DB.Structure.RebarBarType)barType.InternalElement;
+                offset = cover + revitBarType.BarDiameter / 2;            
+            }
+
+            return offset;
+        }
+
+
+        /// <summary>
         /// Create curves perpendicular to Face
         /// </summary>
         /// <param name="face">Face to use</param>
