@@ -1,0 +1,117 @@
+<Workspace Version="0.9.1.2992" X="-3293.48995059756" Y="-983.131001246065" zoom="0.434412990880045" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements>
+    <DynamoRebarUI.RebarHookOrientation guid="9da31c4c-588a-4cac-b3ae-c5c53257bcef" type="DynamoRebarUI.RebarHookOrientation" nickname="Rebar Hook Orientation" x="7994.6327152568" y="2520.14464712781" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:Left" />
+    <DynamoRebarUI.RevitRebarHookType guid="c2762701-091b-4021-9ed3-91d10fea4edb" type="DynamoRebarUI.RevitRebarHookType" nickname="Rebar Hook Type" x="8035.22852079948" y="2355.49470773814" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:None" />
+    <DynamoRebarUI.RebarBarType guid="04f41086-80bc-467f-8e1c-bde0faabf562" type="DynamoRebarUI.RebarBarType" nickname="Rebar Bar Type" x="8043.47192343668" y="2437.06160599278" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:10 220S" />
+    <DynamoRebarUI.RebarBarType guid="26f41209-cd94-4fff-988b-881bd175f7c0" type="DynamoRebarUI.RebarBarType" nickname="Rebar Bar Type" x="8037.2928835118" y="2717.03939671578" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:10 220S" />
+    <DynamoRebarUI.RebarHookOrientation guid="0fc33a7f-494d-41c6-97cf-e67bff954b0c" type="DynamoRebarUI.RebarHookOrientation" nickname="Rebar Hook Orientation" x="7988.53255314027" y="2802.37669001437" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:Left" />
+    <DynamoRebarUI.RevitRebarHookType guid="76c5bb01-c914-490a-9492-ebe354e76e08" type="DynamoRebarUI.RevitRebarHookType" nickname="Rebar Hook Type" x="7991.11864583811" y="2882.56111035553" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:None" />
+    <Dynamo.Nodes.DSFaceSelection guid="60804e7b-6042-4872-b874-1ce65b6176e8" type="Dynamo.Nodes.DSFaceSelection" nickname="Select Face" x="8008.98144424812" y="3309.27092562798" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" />
+    <Dynamo.Nodes.DSFaceSelection guid="19849354-17ac-48c6-9edf-2fddfec5a36e" type="Dynamo.Nodes.DSFaceSelection" nickname="Select Face" x="8007.65243186825" y="3411.39038689644" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" />
+    <Dynamo.Nodes.DSModelElementSelection guid="2e2db108-68a5-45f2-b2f4-51adc09917a8" type="Dynamo.Nodes.DSModelElementSelection" nickname="Select Model Element" x="8059.50123955266" y="3509.78592942294" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" />
+    <Dynamo.Nodes.DoubleInput guid="d07d3100-3ac0-4b85-b709-78cd24d2c6d6" type="Dynamo.Nodes.DoubleInput" nickname="Cover Parameter" x="8053.19080808424" y="3069.23470638038" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Double value="400" />
+    </Dynamo.Nodes.DoubleInput>
+    <Dynamo.Nodes.DoubleInput guid="63336043-f56a-4442-819f-8f1ce853c87f" type="Dynamo.Nodes.DoubleInput" nickname="Division" x="8063.39696560443" y="3140.92712849659" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Double value="4" />
+    </Dynamo.Nodes.DoubleInput>
+    <Dynamo.Nodes.DoubleInput guid="c6cc5652-6eb6-47fa-b6b8-49120095b011" type="Dynamo.Nodes.DoubleInput" nickname="Number" x="8119.63862768915" y="3628.35083100736" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Double value="200" />
+    </Dynamo.Nodes.DoubleInput>
+    <Dynamo.Nodes.DoubleInput guid="12121d2c-7e27-4c66-b3b9-a69570a711cb" type="Dynamo.Nodes.DoubleInput" nickname="Number" x="8122.22770480484" y="3708.63867410208" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Double value="500" />
+    </Dynamo.Nodes.DoubleInput>
+    <DSCoreNodesUI.BoolSelector guid="9deb6a6d-cafc-452a-8448-6a1bf0165fe4" type="DSCoreNodesUI.BoolSelector" nickname="Boolean" x="9248.27604430572" y="3405.92291622599" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Boolean>True</System.Boolean>
+    </DSCoreNodesUI.BoolSelector>
+    <Dynamo.Nodes.DoubleInput guid="48c1ec26-e04a-4211-9d73-decaa272e346" type="Dynamo.Nodes.DoubleInput" nickname="Number" x="8154.7369030298" y="3799.04972257714" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Double value="300" />
+    </Dynamo.Nodes.DoubleInput>
+    <DSRevitNodesUI.Views guid="927c0775-32a1-45cb-b9b3-513ba3bbc493" type="DSRevitNodesUI.Views" nickname="Views" x="9244.34177105031" y="3313.11390470765" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:Project View" />
+    <Dynamo.Nodes.DoubleInput guid="9bf61057-501b-495b-b5d5-3026f3cc2488" type="Dynamo.Nodes.DoubleInput" nickname="Number" x="8146.91285295922" y="3884.87574460824" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Double value="600" />
+    </Dynamo.Nodes.DoubleInput>
+    <Dynamo.Nodes.DSFunction guid="4fb61da8-1175-470a-a362-bd7e59d93ac2" type="Dynamo.Nodes.DSFunction" nickname="Tag.ByElement" x="9542.35496242391" y="3267.51222171752" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="..\..\bin\AnyCPU\Debug\DynamoRebar.dll" function="Revit.Elements.Tag.ByElement@Revit.Elements.Views.View,Revit.Elements.Element,bool,bool" />
+    <Dynamo.Nodes.Function guid="9d040872-27d5-4d0c-bc3d-a1863f45317b" type="Dynamo.Nodes.Function" nickname="Foundation Rebar" x="8768.92481080815" y="2917.37369339966" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="f625aa8e-a73f-4e17-9d03-fb60555c66dc" />
+      <Name value="Foundation Rebar" />
+      <Description value="Standard Rebar for Foundations" />
+      <Inputs>
+        <Input value="Start Rebar Hook Type" />
+        <Input value="End Rebar Hook Type" />
+        <Input value="Rebar Bar Type" />
+        <Input value="Rebar Hook Orientation" />
+        <Input value="Stirrup Bar Type" />
+        <Input value="Stirrup Hook Orientation" />
+        <Input value="Stirrup Hook Type" />
+        <Input value="Bottom Face" />
+        <Input value="Top Face" />
+        <Input value="Cover" />
+        <Input value="Divisions" />
+        <Input value="Parent Element" />
+        <Input value="Stirrup Overlap" />
+        <Input value="Bottom Hook Length" />
+        <Input value="Bottom bending radius" />
+        <Input value="Stirrup Stepping" />
+      </Inputs>
+      <Outputs>
+        <Output value="Stirrups" />
+        <Output value="Bars" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="9da31c4c-588a-4cac-b3ae-c5c53257bcef" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c2762701-091b-4021-9ed3-91d10fea4edb" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c2762701-091b-4021-9ed3-91d10fea4edb" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="04f41086-80bc-467f-8e1c-bde0faabf562" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="26f41209-cd94-4fff-988b-881bd175f7c0" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="4" portType="0" />
+    <Dynamo.Models.ConnectorModel start="0fc33a7f-494d-41c6-97cf-e67bff954b0c" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="5" portType="0" />
+    <Dynamo.Models.ConnectorModel start="76c5bb01-c914-490a-9492-ebe354e76e08" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="6" portType="0" />
+    <Dynamo.Models.ConnectorModel start="60804e7b-6042-4872-b874-1ce65b6176e8" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="7" portType="0" />
+    <Dynamo.Models.ConnectorModel start="19849354-17ac-48c6-9edf-2fddfec5a36e" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="8" portType="0" />
+    <Dynamo.Models.ConnectorModel start="2e2db108-68a5-45f2-b2f4-51adc09917a8" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="11" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d07d3100-3ac0-4b85-b709-78cd24d2c6d6" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="9" portType="0" />
+    <Dynamo.Models.ConnectorModel start="63336043-f56a-4442-819f-8f1ce853c87f" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="10" portType="0" />
+    <Dynamo.Models.ConnectorModel start="c6cc5652-6eb6-47fa-b6b8-49120095b011" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="12" portType="0" />
+    <Dynamo.Models.ConnectorModel start="12121d2c-7e27-4c66-b3b9-a69570a711cb" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="13" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9deb6a6d-cafc-452a-8448-6a1bf0165fe4" start_index="0" end="4fb61da8-1175-470a-a362-bd7e59d93ac2" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9deb6a6d-cafc-452a-8448-6a1bf0165fe4" start_index="0" end="4fb61da8-1175-470a-a362-bd7e59d93ac2" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="48c1ec26-e04a-4211-9d73-decaa272e346" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="14" portType="0" />
+    <Dynamo.Models.ConnectorModel start="927c0775-32a1-45cb-b9b3-513ba3bbc493" start_index="0" end="4fb61da8-1175-470a-a362-bd7e59d93ac2" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9bf61057-501b-495b-b5d5-3026f3cc2488" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="15" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9d040872-27d5-4d0c-bc3d-a1863f45317b" start_index="0" end="4fb61da8-1175-470a-a362-bd7e59d93ac2" end_index="1" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations>
+    <Dynamo.Models.AnnotationModel guid="a77644b1-fac0-4759-a8bf-eeaef57200d8" annotationText="Rebar Type" left="7984.6327152568" top="2325.49470773814" width="273.83920817988" height="287.64993938967" fontSize="14" InitialTop="2355.49470773814" InitialHeight="371.938680078926" TextblockHeight="20" backgrouund="#FFC1D676">
+      <Models ModelGuid="9da31c4c-588a-4cac-b3ae-c5c53257bcef" />
+      <Models ModelGuid="c2762701-091b-4021-9ed3-91d10fea4edb" />
+      <Models ModelGuid="04f41086-80bc-467f-8e1c-bde0faabf562" />
+    </Dynamo.Models.AnnotationModel>
+    <Dynamo.Models.AnnotationModel guid="7d0e09f3-2223-4b04-a0d4-e00d18c080de" annotationText="Stirrup Settings" left="7978.53255314027" top="2687.03939671578" width="273.76033037153" height="288.52171363975" fontSize="14" InitialTop="2717.03939671578" InitialHeight="288.521713639745" TextblockHeight="20" backgrouund="#FFC1D676">
+      <Models ModelGuid="26f41209-cd94-4fff-988b-881bd175f7c0" />
+      <Models ModelGuid="0fc33a7f-494d-41c6-97cf-e67bff954b0c" />
+      <Models ModelGuid="76c5bb01-c914-490a-9492-ebe354e76e08" />
+    </Dynamo.Models.AnnotationModel>
+    <Dynamo.Models.AnnotationModel guid="3cb5f101-72e6-40c7-b77f-b34a334aed30" annotationText="Distribution" left="8043.19080808424" top="3039.23470638038" width="136" height="169.69242211621" fontSize="14" InitialTop="3069.23470638038" InitialHeight="163.471147401485" TextblockHeight="20" backgrouund="#FFC1D676">
+      <Models ModelGuid="d07d3100-3ac0-4b85-b709-78cd24d2c6d6" />
+      <Models ModelGuid="63336043-f56a-4442-819f-8f1ce853c87f" />
+    </Dynamo.Models.AnnotationModel>
+    <Dynamo.Models.AnnotationModel guid="b6aa13f4-683d-4536-be7a-650c2780900a" annotationText="Geometry Selection" left="7997.65243186825" top="3279.27092562798" width="240.848807684411" height="324.51500379496" fontSize="14" InitialTop="3309.27092562798" InitialHeight="324.515003794954" TextblockHeight="20" backgrouund="#FFC1D676">
+      <Models ModelGuid="60804e7b-6042-4872-b874-1ce65b6176e8" />
+      <Models ModelGuid="19849354-17ac-48c6-9edf-2fddfec5a36e" />
+      <Models ModelGuid="2e2db108-68a5-45f2-b2f4-51adc09917a8" />
+    </Dynamo.Models.AnnotationModel>
+  </Annotations>
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="269.941192626953" eyeY="119.398933410645" eyeZ="-127.661903381348" lookX="-269.941192626953" lookY="-116.899436950684" lookZ="127.661903381348" upX="-0.141417250037193" upY="0.987688362598419" upZ="0.0668797418475151" />
+  </Cameras>
+  <SessionTraceData>
+    <NodeTraceData NodeId="4fb61da8-1175-470a-a362-bd7e59d93ac2">
+      <CallsiteTraceData>PFNPQVAtRU5WOkVudmVsb3BlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOlNPQVAtRU5DPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyIgeG1sbnM6U09BUC1FTlY9Imh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3NvYXAvZW52ZWxvcGUvIiB4bWxuczpjbHI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vc29hcC9lbmNvZGluZy9jbHIvMS4wIiBTT0FQLUVOVjplbmNvZGluZ1N0eWxlPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyI+DQo8U09BUC1FTlY6Qm9keT4NCjxhMTpDYWxsU2l0ZV94MDAyQl9UcmFjZVNlcmlhbGlzZXJIZWxwZXIgaWQ9InJlZi0xIiB4bWxuczphMT0iaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9jbHIvbnNhc3NlbS9Qcm90b0NvcmUvUHJvdG9Db3JlJTJDJTIwVmVyc2lvbiUzRDAuOS4xLjI5OTIlMkMlMjBDdWx0dXJlJTNEbmV1dHJhbCUyQyUyMFB1YmxpY0tleVRva2VuJTNEbnVsbCI+DQo8TnVtYmVyT2ZFbGVtZW50cz4xPC9OdW1iZXJPZkVsZW1lbnRzPg0KPEJhc2UtMF9IYXNEYXRhPmZhbHNlPC9CYXNlLTBfSGFzRGF0YT4NCjxCYXNlLTBfSGFzTmVzdGVkRGF0YT50cnVlPC9CYXNlLTBfSGFzTmVzdGVkRGF0YT4NCjxCYXNlLTBfTmVzdGVkRGF0YUNvdW50PjQ8L0Jhc2UtMF9OZXN0ZWREYXRhQ291bnQ+DQo8QmFzZS0wLTBfSGFzRGF0YT50cnVlPC9CYXNlLTAtMF9IYXNEYXRhPg0KPEJhc2UtMC0wX0RhdGEgaWQ9InJlZi0zIj5QRk5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxJSGh0Ykc1ek9uaHphVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRXRhVzV6ZEdGdVkyVWlJSGh0Ykc1ek9uaHpaRDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRWlJSGh0Ykc1ek9sTlBRVkF0UlU1RFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJZ2VHMXNibk02VTA5QlVDMUZUbFk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbmh0YkhOdllYQXViM0puTDNOdllYQXZaVzUyWld4dmNHVXZJaUI0Yld4dWN6cGpiSEk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbTFwWTNKdmMyOW1kQzVqYjIwdmMyOWhjQzlsYm1OdlpHbHVaeTlqYkhJdk1TNHdJaUJUVDBGUUxVVk9WanBsYm1OdlpHbHVaMU4wZVd4bFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJK0RRbzhVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqeGhNVHBUWlhKcFlXeHBlbUZpYkdWSlpDQnBaRDBpY21WbUxURWlJSGh0Ykc1ek9tRXhQU0pvZEhSd09pOHZjMk5vWlcxaGN5NXRhV055YjNOdlpuUXVZMjl0TDJOc2NpOXVjMkZ6YzJWdEwxSmxkbWwwVTJWeWRtbGpaWE11VUdWeWMybHpkR1Z1WTJVdlVtVjJhWFJUWlhKMmFXTmxjeVV5UXlVeU1GWmxjbk5wYjI0bE0wUXdMamt1TVM0eU9Ua3lKVEpESlRJd1EzVnNkSFZ5WlNVelJHNWxkWFJ5WVd3bE1rTWxNakJRZFdKc2FXTkxaWGxVYjJ0bGJpVXpSRzUxYkd3aVBnMEtQSE4wY21sdVowbEVJR2xrUFNKeVpXWXRNeUkrTmpGbE1tVXlZMk10TWpObE15MDBaR1JsTFdGaU5XWXRNalEyT1dFMk5EZ3lOMlppTFRBd01EVmtPRE5sUEM5emRISnBibWRKUkQ0TkNqeHBiblJKUkQ0ek9ETXdNemc4TDJsdWRFbEVQZzBLUEM5aE1UcFRaWEpwWVd4cGVtRmliR1ZKWkQ0TkNqd3ZVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqd3ZVMDlCVUMxRlRsWTZSVzUyWld4dmNHVStEUW89PC9CYXNlLTAtMF9EYXRhPg0KPEJhc2UtMC0wX0hhc05lc3RlZERhdGE+ZmFsc2U8L0Jhc2UtMC0wX0hhc05lc3RlZERhdGE+DQo8QmFzZS0wLTFfSGFzRGF0YT50cnVlPC9CYXNlLTAtMV9IYXNEYXRhPg0KPEJhc2UtMC0xX0RhdGEgaWQ9InJlZi00Ij5QRk5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxJSGh0Ykc1ek9uaHphVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRXRhVzV6ZEdGdVkyVWlJSGh0Ykc1ek9uaHpaRDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRWlJSGh0Ykc1ek9sTlBRVkF0UlU1RFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJZ2VHMXNibk02VTA5QlVDMUZUbFk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbmh0YkhOdllYQXViM0puTDNOdllYQXZaVzUyWld4dmNHVXZJaUI0Yld4dWN6cGpiSEk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbTFwWTNKdmMyOW1kQzVqYjIwdmMyOWhjQzlsYm1OdlpHbHVaeTlqYkhJdk1TNHdJaUJUVDBGUUxVVk9WanBsYm1OdlpHbHVaMU4wZVd4bFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJK0RRbzhVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqeGhNVHBUWlhKcFlXeHBlbUZpYkdWSlpDQnBaRDBpY21WbUxURWlJSGh0Ykc1ek9tRXhQU0pvZEhSd09pOHZjMk5vWlcxaGN5NXRhV055YjNOdlpuUXVZMjl0TDJOc2NpOXVjMkZ6YzJWdEwxSmxkbWwwVTJWeWRtbGpaWE11VUdWeWMybHpkR1Z1WTJVdlVtVjJhWFJUWlhKMmFXTmxjeVV5UXlVeU1GWmxjbk5wYjI0bE0wUXdMamt1TVM0eU9Ua3lKVEpESlRJd1EzVnNkSFZ5WlNVelJHNWxkWFJ5WVd3bE1rTWxNakJRZFdKc2FXTkxaWGxVYjJ0bGJpVXpSRzUxYkd3aVBnMEtQSE4wY21sdVowbEVJR2xrUFNKeVpXWXRNeUkrTmpGbE1tVXlZMk10TWpObE15MDBaR1JsTFdGaU5XWXRNalEyT1dFMk5EZ3lOMlppTFRBd01EVmtPRE5tUEM5emRISnBibWRKUkQ0TkNqeHBiblJKUkQ0ek9ETXdNems4TDJsdWRFbEVQZzBLUEM5aE1UcFRaWEpwWVd4cGVtRmliR1ZKWkQ0TkNqd3ZVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqd3ZVMDlCVUMxRlRsWTZSVzUyWld4dmNHVStEUW89PC9CYXNlLTAtMV9EYXRhPg0KPEJhc2UtMC0xX0hhc05lc3RlZERhdGE+ZmFsc2U8L0Jhc2UtMC0xX0hhc05lc3RlZERhdGE+DQo8QmFzZS0wLTJfSGFzRGF0YT50cnVlPC9CYXNlLTAtMl9IYXNEYXRhPg0KPEJhc2UtMC0yX0RhdGEgaWQ9InJlZi01Ij5QRk5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxJSGh0Ykc1ek9uaHphVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRXRhVzV6ZEdGdVkyVWlJSGh0Ykc1ek9uaHpaRDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRWlJSGh0Ykc1ek9sTlBRVkF0UlU1RFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJZ2VHMXNibk02VTA5QlVDMUZUbFk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbmh0YkhOdllYQXViM0puTDNOdllYQXZaVzUyWld4dmNHVXZJaUI0Yld4dWN6cGpiSEk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbTFwWTNKdmMyOW1kQzVqYjIwdmMyOWhjQzlsYm1OdlpHbHVaeTlqYkhJdk1TNHdJaUJUVDBGUUxVVk9WanBsYm1OdlpHbHVaMU4wZVd4bFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJK0RRbzhVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqeGhNVHBUWlhKcFlXeHBlbUZpYkdWSlpDQnBaRDBpY21WbUxURWlJSGh0Ykc1ek9tRXhQU0pvZEhSd09pOHZjMk5vWlcxaGN5NXRhV055YjNOdlpuUXVZMjl0TDJOc2NpOXVjMkZ6YzJWdEwxSmxkbWwwVTJWeWRtbGpaWE11VUdWeWMybHpkR1Z1WTJVdlVtVjJhWFJUWlhKMmFXTmxjeVV5UXlVeU1GWmxjbk5wYjI0bE0wUXdMamt1TVM0eU9Ua3lKVEpESlRJd1EzVnNkSFZ5WlNVelJHNWxkWFJ5WVd3bE1rTWxNakJRZFdKc2FXTkxaWGxVYjJ0bGJpVXpSRzUxYkd3aVBnMEtQSE4wY21sdVowbEVJR2xrUFNKeVpXWXRNeUkrTmpGbE1tVXlZMk10TWpObE15MDBaR1JsTFdGaU5XWXRNalEyT1dFMk5EZ3lOMlppTFRBd01EVmtPRFF3UEM5emRISnBibWRKUkQ0TkNqeHBiblJKUkQ0ek9ETXdOREE4TDJsdWRFbEVQZzBLUEM5aE1UcFRaWEpwWVd4cGVtRmliR1ZKWkQ0TkNqd3ZVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqd3ZVMDlCVUMxRlRsWTZSVzUyWld4dmNHVStEUW89PC9CYXNlLTAtMl9EYXRhPg0KPEJhc2UtMC0yX0hhc05lc3RlZERhdGE+ZmFsc2U8L0Jhc2UtMC0yX0hhc05lc3RlZERhdGE+DQo8QmFzZS0wLTNfSGFzRGF0YT50cnVlPC9CYXNlLTAtM19IYXNEYXRhPg0KPEJhc2UtMC0zX0RhdGEgaWQ9InJlZi02Ij5QRk5QUVZBdFJVNVdPa1Z1ZG1Wc2IzQmxJSGh0Ykc1ek9uaHphVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRXRhVzV6ZEdGdVkyVWlJSGh0Ykc1ek9uaHpaRDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRWlJSGh0Ykc1ek9sTlBRVkF0UlU1RFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJZ2VHMXNibk02VTA5QlVDMUZUbFk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbmh0YkhOdllYQXViM0puTDNOdllYQXZaVzUyWld4dmNHVXZJaUI0Yld4dWN6cGpiSEk5SW1oMGRIQTZMeTl6WTJobGJXRnpMbTFwWTNKdmMyOW1kQzVqYjIwdmMyOWhjQzlsYm1OdlpHbHVaeTlqYkhJdk1TNHdJaUJUVDBGUUxVVk9WanBsYm1OdlpHbHVaMU4wZVd4bFBTSm9kSFJ3T2k4dmMyTm9aVzFoY3k1NGJXeHpiMkZ3TG05eVp5OXpiMkZ3TDJWdVkyOWthVzVuTHlJK0RRbzhVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqeGhNVHBUWlhKcFlXeHBlbUZpYkdWSlpDQnBaRDBpY21WbUxURWlJSGh0Ykc1ek9tRXhQU0pvZEhSd09pOHZjMk5vWlcxaGN5NXRhV055YjNOdlpuUXVZMjl0TDJOc2NpOXVjMkZ6YzJWdEwxSmxkbWwwVTJWeWRtbGpaWE11VUdWeWMybHpkR1Z1WTJVdlVtVjJhWFJUWlhKMmFXTmxjeVV5UXlVeU1GWmxjbk5wYjI0bE0wUXdMamt1TVM0eU9Ua3lKVEpESlRJd1EzVnNkSFZ5WlNVelJHNWxkWFJ5WVd3bE1rTWxNakJRZFdKc2FXTkxaWGxVYjJ0bGJpVXpSRzUxYkd3aVBnMEtQSE4wY21sdVowbEVJR2xrUFNKeVpXWXRNeUkrTmpGbE1tVXlZMk10TWpObE15MDBaR1JsTFdGaU5XWXRNalEyT1dFMk5EZ3lOMlppTFRBd01EVmtPRFF4UEM5emRISnBibWRKUkQ0TkNqeHBiblJKUkQ0ek9ETXdOREU4TDJsdWRFbEVQZzBLUEM5aE1UcFRaWEpwWVd4cGVtRmliR1ZKWkQ0TkNqd3ZVMDlCVUMxRlRsWTZRbTlrZVQ0TkNqd3ZVMDlCVUMxRlRsWTZSVzUyWld4dmNHVStEUW89PC9CYXNlLTAtM19EYXRhPg0KPEJhc2UtMC0zX0hhc05lc3RlZERhdGE+ZmFsc2U8L0Jhc2UtMC0zX0hhc05lc3RlZERhdGE+DQo8L2ExOkNhbGxTaXRlX3gwMDJCX1RyYWNlU2VyaWFsaXNlckhlbHBlcj4NCjwvU09BUC1FTlY6Qm9keT4NCjwvU09BUC1FTlY6RW52ZWxvcGU+DQo=</CallsiteTraceData>
+    </NodeTraceData>
+  </SessionTraceData>
+</Workspace>
