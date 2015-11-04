@@ -101,8 +101,18 @@ namespace Revit.Elements
 
             var tagElem = ElementBinder.GetElementFromTrace<Autodesk.Revit.DB.IndependentTag>(document);
 
-            if (tagElem == null)
+
+            if (tagElem == null || 
+                view.Id != tagElem.OwnerViewId ||
+                (tagElem.TaggedElementId.HostElementId != host.Id && tagElem.TaggedElementId.LinkedElementId != host.Id))
+
                 tagElem = document.Create.NewTag(view, host, addLeader, mode, orientation, point);
+            else
+            {
+                tagElem.TagOrientation = orientation;
+                tagElem.HasLeader = addLeader;
+                tagElem.TagHeadPosition = point;
+            }
 
             InternalSetTag(tagElem);
 
@@ -150,11 +160,15 @@ namespace Revit.Elements
         /// <param name="horizontalAlignment">Horizontal Alignment</param>
         /// <param name="verticalAlignment">Vertical Alignment</param>
         /// <returns></returns>
-        public static Tag ByElement(Revit.Elements.Views.View view, Element element, bool horizontal, bool addLeader, Autodesk.DesignScript.Geometry.Vector offset = null, HorizontalAlignment horizontalAlignment = null, VerticalAlignment verticalAlignment = null)
+        public static Tag ByElement(Revit.Elements.Views.View view, Element element, bool horizontal, bool addLeader, Autodesk.DesignScript.Geometry.Vector offset = null, string horizontalAlignment = "Center", string verticalAlignment = "Middle")
         {
-            if (horizontalAlignment == null) horizontalAlignment = HorizontalAlignment.ByName("Center");
-            if (verticalAlignment == null) verticalAlignment = VerticalAlignment.ByName("Middle");
             if (offset == null) offset = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 0);
+
+            Autodesk.Revit.DB.HorizontalAlignmentStyle alignHorizontal = Autodesk.Revit.DB.HorizontalAlignmentStyle.Center;
+            Enum.TryParse<Autodesk.Revit.DB.HorizontalAlignmentStyle>(horizontalAlignment, out alignHorizontal);
+
+            Autodesk.Revit.DB.VerticalAlignmentStyle alignVertical = Autodesk.Revit.DB.VerticalAlignmentStyle.Middle;
+            Enum.TryParse<Autodesk.Revit.DB.VerticalAlignmentStyle>(verticalAlignment, out alignVertical);
 
             //Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
             Autodesk.Revit.DB.View revitView = (Autodesk.Revit.DB.View)view.InternalElement;
@@ -189,14 +203,14 @@ namespace Revit.Elements
                     {
                         double Y, X = 0;
 
-                        switch (verticalAlignment.InternalElement)
+                        switch (alignVertical)
                         {
                             case VerticalAlignmentStyle.Bottom: Y = box.Min.Y; break;
                             case VerticalAlignmentStyle.Top: Y = box.Max.Y; break;
                             default: Y = box.Min.Y + ((box.Max.Y - box.Min.Y) / 2); break;                     
                         }
 
-                        switch (horizontalAlignment.InternalElement)
+                        switch (alignHorizontal)
                         {
                             case HorizontalAlignmentStyle.Left: X = box.Min.X; break;
                             case HorizontalAlignmentStyle.Right: X = box.Max.X; break;

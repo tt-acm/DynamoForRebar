@@ -78,7 +78,7 @@ namespace DynamoRebarUI
     [IsDesignScriptCompatible]
     public class HorizontalAlignment : CustomGenericEnumerationDropDown
     {
-        public HorizontalAlignment() : base("Rebar Style", typeof(Autodesk.Revit.DB.HorizontalAlignmentStyle)) { }
+        public HorizontalAlignment() : base("Horizontal Alignment", typeof(Autodesk.Revit.DB.HorizontalAlignmentStyle)) { }
     }
 
     [NodeName("Vertical Text Alignment Style")]
@@ -87,7 +87,7 @@ namespace DynamoRebarUI
     [IsDesignScriptCompatible]
     public class VerticalAlignment : CustomGenericEnumerationDropDown
     {
-        public VerticalAlignment() : base("Rebar Style", typeof(Autodesk.Revit.DB.VerticalAlignmentStyle)) { }
+        public VerticalAlignment() : base("Vertical Alignment", typeof(Autodesk.Revit.DB.VerticalAlignmentStyle)) { }
     }
 
 }

@@ -58,7 +58,7 @@ namespace DynamoRebar
         /// <param name="cover">Cover Value</param>
         /// <param name="barType">Rebar Bar Type</param>
         /// <returns>Offset</returns>
-        public static double CoverToOffset(double cover, Revit.Elements.RebarBarType barType)
+        public static double CoverToOffset(double cover, Revit.Elements.Element barType)
         {
             double offset = cover;
 
