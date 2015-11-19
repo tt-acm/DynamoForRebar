@@ -1,117 +1,105 @@
-<Workspace Version="0.9.1.2992" X="-7647.01238786115" Y="-2520.82958966924" zoom="0.975896982192407" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="True">
+<Workspace Version="0.9.1.2992" X="-8173.03300745197" Y="-2629.98924358323" zoom="0.989037590261096" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="True">
   <NamespaceResolutionMap />
   <Elements>
-    <DynamoRebarUI.RebarHookOrientation guid="9da31c4c-588a-4cac-b3ae-c5c53257bcef" type="DynamoRebarUI.RebarHookOrientation" nickname="Rebar Hook Orientation" x="7934.65551350148" y="2527.111956042" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:Left" />
-    <DynamoRebarUI.RevitRebarHookType guid="c2762701-091b-4021-9ed3-91d10fea4edb" type="DynamoRebarUI.RevitRebarHookType" nickname="Rebar Hook Type" x="7972.10107572633" y="2295.25682587192" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:None" />
-    <DynamoRebarUI.RebarBarType guid="04f41086-80bc-467f-8e1c-bde0faabf562" type="DynamoRebarUI.RebarBarType" nickname="Rebar Bar Type" x="7980.34447836353" y="2414.62664394054" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:10 220S" />
+    <DynamoRebarUI.RebarBarType guid="04f41086-80bc-467f-8e1c-bde0faabf562" type="DynamoRebarUI.RebarBarType" nickname="Rebar Bar Type" x="8017.84979976995" y="2524.14218244729" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:10 220S" />
     <DynamoRebarUI.RebarBarType guid="26f41209-cd94-4fff-988b-881bd175f7c0" type="DynamoRebarUI.RebarBarType" nickname="Rebar Bar Type" x="8017.55217492161" y="2701.94356073505" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:10 220S" />
     <DynamoRebarUI.RebarHookOrientation guid="0fc33a7f-494d-41c6-97cf-e67bff954b0c" type="DynamoRebarUI.RebarHookOrientation" nickname="Rebar Hook Orientation" x="7971.04621782884" y="2810.95177346069" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="0:Left" />
     <DynamoRebarUI.RevitRebarHookType guid="76c5bb01-c914-490a-9492-ebe354e76e08" type="DynamoRebarUI.RevitRebarHookType" nickname="Rebar Hook Type" x="8013.08384290511" y="2931.71491281965" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" index="4:Standard - 90 deg." />
-    <Dynamo.Nodes.DSFaceSelection guid="60804e7b-6042-4872-b874-1ce65b6176e8" type="Dynamo.Nodes.DSFaceSelection" nickname="Select Face" x="8012.83128571636" y="3707.23033094443" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+    <Dynamo.Nodes.DSFaceSelection guid="60804e7b-6042-4872-b874-1ce65b6176e8" type="Dynamo.Nodes.DSFaceSelection" nickname="Select Face" x="8007.84051978388" y="3094.2144950061" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <instance id="1d75da14-8e86-49ce-8b3b-8fc2aa5c6c0e-00055266:0:INSTANCE:1d75da14-8e86-49ce-8b3b-8fc2aa5c6c0e-00055264:14:SURFACE" />
     </Dynamo.Nodes.DSFaceSelection>
-    <Dynamo.Nodes.DSFaceSelection guid="19849354-17ac-48c6-9edf-2fddfec5a36e" type="Dynamo.Nodes.DSFaceSelection" nickname="Select Face" x="8011.50227333649" y="3809.34979221289" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+    <Dynamo.Nodes.DSFaceSelection guid="19849354-17ac-48c6-9edf-2fddfec5a36e" type="Dynamo.Nodes.DSFaceSelection" nickname="Select Face" x="8006.51150740401" y="3196.33395627456" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <instance id="1d75da14-8e86-49ce-8b3b-8fc2aa5c6c0e-00055266:0:INSTANCE:1d75da14-8e86-49ce-8b3b-8fc2aa5c6c0e-00055264:9:SURFACE" />
     </Dynamo.Nodes.DSFaceSelection>
-    <Dynamo.Nodes.DSModelElementSelection guid="2e2db108-68a5-45f2-b2f4-51adc09917a8" type="Dynamo.Nodes.DSModelElementSelection" nickname="Select Model Element" x="8063.3510810209" y="3907.74533473939" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+    <Dynamo.Nodes.DSModelElementSelection guid="2e2db108-68a5-45f2-b2f4-51adc09917a8" type="Dynamo.Nodes.DSModelElementSelection" nickname="Select Model Element" x="8058.36031508842" y="3294.72949880106" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <instance id="1d75da14-8e86-49ce-8b3b-8fc2aa5c6c0e-00055266" />
     </Dynamo.Nodes.DSModelElementSelection>
-    <Dynamo.Nodes.DoubleInput guid="d07d3100-3ac0-4b85-b709-78cd24d2c6d6" type="Dynamo.Nodes.DoubleInput" nickname="Cover Parameter" x="7976.23160207091" y="3081.31066501246" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+    <Dynamo.Nodes.DoubleInput guid="d07d3100-3ac0-4b85-b709-78cd24d2c6d6" type="Dynamo.Nodes.DoubleInput" nickname="Cover Parameter" x="8078.92632779238" y="3523.5826171196" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <System.Double value="200" />
     </Dynamo.Nodes.DoubleInput>
-    <Dynamo.Nodes.DoubleInput guid="63336043-f56a-4442-819f-8f1ce853c87f" type="Dynamo.Nodes.DoubleInput" nickname="Division" x="7993.16019073035" y="3161.96632864767" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+    <Dynamo.Nodes.DoubleInput guid="63336043-f56a-4442-819f-8f1ce853c87f" type="Dynamo.Nodes.DoubleInput" nickname="Division" x="8095.85491645182" y="3604.23828075481" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <System.Double value="4" />
     </Dynamo.Nodes.DoubleInput>
-    <Dynamo.Nodes.DoubleInput guid="c6cc5652-6eb6-47fa-b6b8-49120095b011" type="Dynamo.Nodes.DoubleInput" nickname="Stirrup Gap" x="8145.49805118095" y="3282.36927204472" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+    <Dynamo.Nodes.DoubleInput guid="9bf61057-501b-495b-b5d5-3026f3cc2488" type="Dynamo.Nodes.DoubleInput" nickname="Stirrup Distance" x="8578.76218976217" y="3299.74259382754" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
       <System.Double value="200" />
     </Dynamo.Nodes.DoubleInput>
-    <Dynamo.Nodes.DoubleInput guid="12121d2c-7e27-4c66-b3b9-a69570a711cb" type="Dynamo.Nodes.DoubleInput" nickname="Bottom Hook Length" x="8047.61962398593" y="3466.93466329426" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <System.Double value="500" />
-    </Dynamo.Nodes.DoubleInput>
-    <Dynamo.Nodes.DoubleInput guid="48c1ec26-e04a-4211-9d73-decaa272e346" type="Dynamo.Nodes.DoubleInput" nickname="Bottom Hook Bending Radius" x="8023.44574955044" y="3567.00375436441" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <System.Double value="300" />
-    </Dynamo.Nodes.DoubleInput>
-    <Dynamo.Nodes.DoubleInput guid="9bf61057-501b-495b-b5d5-3026f3cc2488" type="Dynamo.Nodes.DoubleInput" nickname="Stirrup Distance" x="8142.42193353772" y="3345.93623728271" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <System.Double value="300" />
-    </Dynamo.Nodes.DoubleInput>
-    <Dynamo.Nodes.Function guid="9d040872-27d5-4d0c-bc3d-a1863f45317b" type="Dynamo.Nodes.Function" nickname="Foundation Rebar" x="8768.92481080815" y="2917.37369339966" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+    <Dynamo.Nodes.Function guid="f1df9c31-3f92-468e-8788-b7de33b09f2e" type="Dynamo.Nodes.Function" nickname="Foundation Rebar" x="8976.96259794801" y="2789.54621580699" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
       <ID value="f625aa8e-a73f-4e17-9d03-fb60555c66dc" />
       <Name value="Foundation Rebar" />
       <Description value="Standard Rebar for Foundations" />
       <Inputs>
-        <Input value="Start Rebar Hook Type" />
-        <Input value="End Rebar Hook Type" />
-        <Input value="Rebar Bar Type" />
-        <Input value="Rebar Hook Orientation" />
-        <Input value="Stirrup Bar Type" />
-        <Input value="Stirrup Hook Orientation" />
-        <Input value="Stirrup Hook Type" />
-        <Input value="Bottom Face" />
-        <Input value="Top Face" />
-        <Input value="Cover" />
-        <Input value="Divisions" />
-        <Input value="Parent Element" />
-        <Input value="Stirrup Overlap" />
-        <Input value="Bottom Hook Length" />
-        <Input value="Bottom bending radius" />
-        <Input value="Stirrup Stepping" />
+        <Input value="VerticalBarsBarType" />
+        <Input value="StirrupBarType" />
+        <Input value="StirrupHookOrientation" />
+        <Input value="StirrupHookType" />
+        <Input value="SurfaceBottom" />
+        <Input value="SurfaceTop" />
+        <Input value="VericalBarsCover" />
+        <Input value="VerticalBarsAmount" />
+        <Input value="HostElement" />
+        <Input value="StirrupRadius" />
+        <Input value="VerticalBarsHookLength" />
+        <Input value="VerticalBarsBendingRadius" />
+        <Input value="StirrupDistance" />
       </Inputs>
       <Outputs>
         <Output value="Stirrups" />
         <Output value="Bars" />
+        <Output value="0&gt;" />
+        <Output value="1&gt;" />
       </Outputs>
     </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.DoubleInput guid="3268cf49-87cb-4dfb-8749-9d5764f0c70f" type="Dynamo.Nodes.DoubleInput" nickname="Stirrup Distance" x="8587.14749074687" y="3349.59660750083" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Double value="500" />
+    </Dynamo.Nodes.DoubleInput>
+    <Dynamo.Nodes.DoubleInput guid="467ba85d-f697-44e2-af63-dd57b5279680" type="Dynamo.Nodes.DoubleInput" nickname="Stirrup Distance" x="8585.41912823237" y="3422.50327916954" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Double value="200" />
+    </Dynamo.Nodes.DoubleInput>
+    <Dynamo.Nodes.DoubleInput guid="be5e6b79-4b10-47f4-8371-5a2f53c97a96" type="Dynamo.Nodes.DoubleInput" nickname="Stirrup Distance" x="8582.48013373616" y="3491.95322580924" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Double value="500" />
+    </Dynamo.Nodes.DoubleInput>
+    <Dynamo.Nodes.Watch guid="0eb0829e-84d4-41f8-8439-d5ce2d9f98c1" type="Dynamo.Nodes.Watch" nickname="Watch" x="9455.07617368669" y="2813.25098787112" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+    <Dynamo.Nodes.Watch guid="3dae1b39-5e8a-426a-95f2-7fdaf776e059" type="Dynamo.Nodes.Watch" nickname="Watch" x="9454.34708276425" y="2922.90493892512" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
   </Elements>
   <Connectors>
-    <Dynamo.Models.ConnectorModel start="9da31c4c-588a-4cac-b3ae-c5c53257bcef" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="3" portType="0" />
-    <Dynamo.Models.ConnectorModel start="c2762701-091b-4021-9ed3-91d10fea4edb" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="c2762701-091b-4021-9ed3-91d10fea4edb" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="1" portType="0" />
-    <Dynamo.Models.ConnectorModel start="04f41086-80bc-467f-8e1c-bde0faabf562" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="2" portType="0" />
-    <Dynamo.Models.ConnectorModel start="26f41209-cd94-4fff-988b-881bd175f7c0" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="4" portType="0" />
-    <Dynamo.Models.ConnectorModel start="0fc33a7f-494d-41c6-97cf-e67bff954b0c" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="5" portType="0" />
-    <Dynamo.Models.ConnectorModel start="76c5bb01-c914-490a-9492-ebe354e76e08" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="6" portType="0" />
-    <Dynamo.Models.ConnectorModel start="60804e7b-6042-4872-b874-1ce65b6176e8" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="7" portType="0" />
-    <Dynamo.Models.ConnectorModel start="19849354-17ac-48c6-9edf-2fddfec5a36e" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="8" portType="0" />
-    <Dynamo.Models.ConnectorModel start="2e2db108-68a5-45f2-b2f4-51adc09917a8" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="11" portType="0" />
-    <Dynamo.Models.ConnectorModel start="d07d3100-3ac0-4b85-b709-78cd24d2c6d6" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="9" portType="0" />
-    <Dynamo.Models.ConnectorModel start="63336043-f56a-4442-819f-8f1ce853c87f" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="10" portType="0" />
-    <Dynamo.Models.ConnectorModel start="c6cc5652-6eb6-47fa-b6b8-49120095b011" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="12" portType="0" />
-    <Dynamo.Models.ConnectorModel start="12121d2c-7e27-4c66-b3b9-a69570a711cb" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="13" portType="0" />
-    <Dynamo.Models.ConnectorModel start="48c1ec26-e04a-4211-9d73-decaa272e346" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="14" portType="0" />
-    <Dynamo.Models.ConnectorModel start="9bf61057-501b-495b-b5d5-3026f3cc2488" start_index="0" end="9d040872-27d5-4d0c-bc3d-a1863f45317b" end_index="15" portType="0" />
+    <Dynamo.Models.ConnectorModel start="04f41086-80bc-467f-8e1c-bde0faabf562" start_index="0" end="f1df9c31-3f92-468e-8788-b7de33b09f2e" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="26f41209-cd94-4fff-988b-881bd175f7c0" start_index="0" end="f1df9c31-3f92-468e-8788-b7de33b09f2e" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="0fc33a7f-494d-41c6-97cf-e67bff954b0c" start_index="0" end="f1df9c31-3f92-468e-8788-b7de33b09f2e" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="76c5bb01-c914-490a-9492-ebe354e76e08" start_index="0" end="f1df9c31-3f92-468e-8788-b7de33b09f2e" end_index="3" portType="0" />
+    <Dynamo.Models.ConnectorModel start="60804e7b-6042-4872-b874-1ce65b6176e8" start_index="0" end="f1df9c31-3f92-468e-8788-b7de33b09f2e" end_index="4" portType="0" />
+    <Dynamo.Models.ConnectorModel start="19849354-17ac-48c6-9edf-2fddfec5a36e" start_index="0" end="f1df9c31-3f92-468e-8788-b7de33b09f2e" end_index="5" portType="0" />
+    <Dynamo.Models.ConnectorModel start="2e2db108-68a5-45f2-b2f4-51adc09917a8" start_index="0" end="f1df9c31-3f92-468e-8788-b7de33b09f2e" end_index="8" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d07d3100-3ac0-4b85-b709-78cd24d2c6d6" start_index="0" end="f1df9c31-3f92-468e-8788-b7de33b09f2e" end_index="6" portType="0" />
+    <Dynamo.Models.ConnectorModel start="63336043-f56a-4442-819f-8f1ce853c87f" start_index="0" end="f1df9c31-3f92-468e-8788-b7de33b09f2e" end_index="7" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9bf61057-501b-495b-b5d5-3026f3cc2488" start_index="0" end="f1df9c31-3f92-468e-8788-b7de33b09f2e" end_index="9" portType="0" />
+    <Dynamo.Models.ConnectorModel start="f1df9c31-3f92-468e-8788-b7de33b09f2e" start_index="2" end="0eb0829e-84d4-41f8-8439-d5ce2d9f98c1" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="f1df9c31-3f92-468e-8788-b7de33b09f2e" start_index="3" end="3dae1b39-5e8a-426a-95f2-7fdaf776e059" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="3268cf49-87cb-4dfb-8749-9d5764f0c70f" start_index="0" end="f1df9c31-3f92-468e-8788-b7de33b09f2e" end_index="10" portType="0" />
+    <Dynamo.Models.ConnectorModel start="467ba85d-f697-44e2-af63-dd57b5279680" start_index="0" end="f1df9c31-3f92-468e-8788-b7de33b09f2e" end_index="11" portType="0" />
+    <Dynamo.Models.ConnectorModel start="be5e6b79-4b10-47f4-8371-5a2f53c97a96" start_index="0" end="f1df9c31-3f92-468e-8788-b7de33b09f2e" end_index="12" portType="0" />
   </Connectors>
   <Notes />
   <Annotations>
-    <Dynamo.Models.AnnotationModel guid="a77644b1-fac0-4759-a8bf-eeaef57200d8" annotationText="Rebar Type" left="7924.65551350148" top="2265.25682587192" width="270.688964862048" height="354.855130170078" fontSize="14" InitialTop="2295.25682587192" InitialHeight="371.938680078926" TextblockHeight="20" backgrouund="#FFC1D676">
-      <Models ModelGuid="9da31c4c-588a-4cac-b3ae-c5c53257bcef" />
-      <Models ModelGuid="c2762701-091b-4021-9ed3-91d10fea4edb" />
+    <Dynamo.Models.AnnotationModel guid="a77644b1-fac0-4759-a8bf-eeaef57200d8" annotationText="Rebar Type" left="8007.84979976995" top="2494.14218244729" width="225" height="123" fontSize="14" InitialTop="2524.14218244729" InitialHeight="371.938680078926" TextblockHeight="20" backgrouund="#FFC1D676">
       <Models ModelGuid="04f41086-80bc-467f-8e1c-bde0faabf562" />
     </Dynamo.Models.AnnotationModel>
-    <Dynamo.Models.AnnotationModel guid="7d0e09f3-2223-4b04-a0d4-e00d18c080de" annotationText="Stirrup Settings" left="7961.04621782884" top="2671.94356073505" width="305.037625076263" height="352.771352084609" fontSize="14" InitialTop="2701.94356073505" InitialHeight="288.521713639745" TextblockHeight="20" backgrouund="#FFC1D676">
+    <Dynamo.Models.AnnotationModel guid="7d0e09f3-2223-4b04-a0d4-e00d18c080de" annotationText="Stirrup Settings" left="7961.04621782884" top="2671.94356073505" width="305.037625076271" height="352.7713520846" fontSize="14" InitialTop="2701.94356073505" InitialHeight="288.521713639745" TextblockHeight="20" backgrouund="#FFC1D676">
       <Models ModelGuid="26f41209-cd94-4fff-988b-881bd175f7c0" />
       <Models ModelGuid="0fc33a7f-494d-41c6-97cf-e67bff954b0c" />
       <Models ModelGuid="76c5bb01-c914-490a-9492-ebe354e76e08" />
     </Dynamo.Models.AnnotationModel>
-    <Dynamo.Models.AnnotationModel guid="3cb5f101-72e6-40c7-b77f-b34a334aed30" annotationText="Bar Distribution" left="7966.23160207091" top="3051.31066501246" width="136" height="178.655663635204" fontSize="14" InitialTop="3081.31066501246" InitialHeight="163.471147401485" TextblockHeight="20" backgrouund="#FFC1D676">
+    <Dynamo.Models.AnnotationModel guid="3cb5f101-72e6-40c7-b77f-b34a334aed30" annotationText="Bar Distribution" left="8068.92632779238" top="3493.5826171196" width="136" height="178.65566363521" fontSize="14" InitialTop="3523.5826171196" InitialHeight="163.471147401485" TextblockHeight="20" backgrouund="#FFC1D676">
       <Models ModelGuid="d07d3100-3ac0-4b85-b709-78cd24d2c6d6" />
       <Models ModelGuid="63336043-f56a-4442-819f-8f1ce853c87f" />
     </Dynamo.Models.AnnotationModel>
-    <Dynamo.Models.AnnotationModel guid="b6aa13f4-683d-4536-be7a-650c2780900a" annotationText="Geometry Selection" left="8001.50227333649" top="3677.23033094443" width="240.848807684411" height="324.51500379496" fontSize="14" InitialTop="3707.23033094443" InitialHeight="324.515003794954" TextblockHeight="20" backgrouund="#FFC1D676">
+    <Dynamo.Models.AnnotationModel guid="b6aa13f4-683d-4536-be7a-650c2780900a" annotationText="Geometry Selection" left="7996.51150740401" top="3064.2144950061" width="240.84880768441" height="324.51500379496" fontSize="14" InitialTop="3094.2144950061" InitialHeight="324.515003794954" TextblockHeight="20" backgrouund="#FFC1D676">
       <Models ModelGuid="60804e7b-6042-4872-b874-1ce65b6176e8" />
       <Models ModelGuid="19849354-17ac-48c6-9edf-2fddfec5a36e" />
       <Models ModelGuid="2e2db108-68a5-45f2-b2f4-51adc09917a8" />
     </Dynamo.Models.AnnotationModel>
-    <Dynamo.Models.AnnotationModel guid="405481ae-84fa-4954-b422-16738b67e9d6" annotationText="Bottom Hook Settings" left="8013.44574955044" top="3436.93466329426" width="214" height="198.069091070156" fontSize="14" InitialTop="3466.93466329426" InitialHeight="190.937669823552" TextblockHeight="20" backgrouund="#FFC1D676">
-      <Models ModelGuid="12121d2c-7e27-4c66-b3b9-a69570a711cb" />
-      <Models ModelGuid="48c1ec26-e04a-4211-9d73-decaa272e346" />
-    </Dynamo.Models.AnnotationModel>
-    <Dynamo.Models.AnnotationModel guid="435a7656-7ced-48fa-9f22-b7edcc26816c" annotationText="Stirrup Distribution" left="8132.42193353772" top="3252.36927204472" width="131.000000000001" height="161.566965237995" fontSize="14" InitialTop="3282.36927204472" InitialHeight="161.566965237995" TextblockHeight="20" backgrouund="#FFC1D676">
-      <Models ModelGuid="c6cc5652-6eb6-47fa-b6b8-49120095b011" />
-      <Models ModelGuid="9bf61057-501b-495b-b5d5-3026f3cc2488" />
-    </Dynamo.Models.AnnotationModel>
   </Annotations>
   <Presets />
   <Cameras>
-    <Camera Name="Background Preview" eyeX="4393.93690152413" eyeY="6565.70141271666" eyeZ="-3363.04471813802" lookX="-6875.40809293038" lookY="-5065.70141271666" lookZ="97.2810462630237" upX="-0.406695930446989" upY="0.913545481687883" upZ="0.00575440140519779" />
+    <Camera Name="Background Preview" eyeX="9278.97008323515" eyeY="8688.11009693128" eyeZ="-4748.37277246238" lookX="-11791.9124660476" lookY="-8688.11009693128" lookZ="166.845306642064" upX="-0.406695932149887" upY="0.913545489311218" upZ="0.0057544014416635" />
   </Cameras>
 </Workspace>

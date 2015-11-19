@@ -208,8 +208,10 @@ namespace Revit.Elements
 
 
             // Update Quantity Parameter
-            Autodesk.Revit.DB.Parameter quantityParameter = rebarElem.LookupParameter("Quantitiy");
-            if (quantityParameter != null && !quantityParameter.IsReadOnly) quantityParameter.Set(curves.Count);
+            Autodesk.Revit.DB.Parameter quantityParameter = rebarElem.get_Parameter(BuiltInParameter.REBAR_ELEM_QUANTITY_OF_BARS);
+            Autodesk.Revit.DB.Structure.RebarContainerParameterManager containerParameters = rebarElem.GetParametersManager();
+            containerParameters.AddOverride(quantityParameter.Id, curves.Count);
+            
 
             InternalSetRebarContainer(rebarElem);
 
