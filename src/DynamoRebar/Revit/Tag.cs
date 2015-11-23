@@ -156,13 +156,14 @@ namespace Revit.Elements
         /// <param name="element">Element to tag</param>
         /// <param name="horizontal">Horizontal alignment</param>
         /// <param name="addLeader">Add a leader</param>
-        /// <param name="offset">Offset Vector</param>
+        /// <param name="offset">Offset Vector or Tag Location</param>
+        /// <param name="isOffset">Specifies if the point is being used as an offset vector or if it specifies the tags location</param>
         /// <param name="horizontalAlignment">Horizontal Alignment</param>
         /// <param name="verticalAlignment">Vertical Alignment</param>
         /// <returns></returns>
-        public static Tag ByElement(Revit.Elements.Views.View view, Element element, bool horizontal, bool addLeader, Autodesk.DesignScript.Geometry.Vector offset = null, string horizontalAlignment = "Center", string verticalAlignment = "Middle")
+        public static Tag ByElement(Revit.Elements.Views.View view, Element element, bool horizontal, bool addLeader, Autodesk.DesignScript.Geometry.Point offset = null, bool isOffset = false, string horizontalAlignment = "Center", string verticalAlignment = "Middle")
         {
-            if (offset == null) offset = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 0);
+            if (offset == null) offset = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0);
 
             Autodesk.Revit.DB.HorizontalAlignmentStyle alignHorizontal = Autodesk.Revit.DB.HorizontalAlignmentStyle.Center;
             Enum.TryParse<Autodesk.Revit.DB.HorizontalAlignmentStyle>(horizontalAlignment, out alignHorizontal);
@@ -172,10 +173,10 @@ namespace Revit.Elements
 
             //Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
             Autodesk.Revit.DB.View revitView = (Autodesk.Revit.DB.View)view.InternalElement;
-            Autodesk.Revit.DB.XYZ point = null;
+            Autodesk.Revit.DB.XYZ point = offset.ToRevitType(true);
             Autodesk.Revit.DB.TagMode tagMode = TagMode.TM_ADDBY_CATEGORY;
-            Autodesk.Revit.DB.TagOrientation orientation = (horizontal)? TagOrientation.Horizontal : TagOrientation.Vertical;
-            
+            Autodesk.Revit.DB.TagOrientation orientation = (horizontal) ? TagOrientation.Horizontal : TagOrientation.Vertical;
+
             if (revitView.ViewType != ViewType.FloorPlan &&
                 revitView.ViewType != ViewType.EngineeringPlan &&
                 revitView.ViewType != ViewType.Detail &&
@@ -184,46 +185,36 @@ namespace Revit.Elements
                 revitView.ViewType != ViewType.CeilingPlan)
                 throw new ArgumentException("Cannot place a Tag on active View");
 
+            if (isOffset)
+            {
+                BoundingBoxXYZ box = element.InternalElement.get_BoundingBox(revitView);
+                if (box == null) box = element.InternalElement.get_BoundingBox(null);
+                if (box != null)
+                {
+                    double Y, X = 0;
 
-                //if (element.InternalElement.Location.GetType() == typeof(LocationPoint))
-                //{
-                //    LocationPoint locationPoint = (LocationPoint)element.InternalElement.Location;
-                //    point = locationPoint.Point;
-                //}
-                //else if (element.InternalElement.Location.GetType() == typeof(LocationCurve))
-                //{
-                //    LocationCurve locationCurve = (LocationCurve)element.InternalElement.Location;
-                //    point = locationCurve.Curve.GetEndPoint(0);
-                //}
-                //else
-                //{
-                    BoundingBoxXYZ box = element.InternalElement.get_BoundingBox(revitView);
-                    if (box == null) box = element.InternalElement.get_BoundingBox(null);
-                    if (box != null)
+                    switch (alignVertical)
                     {
-                        double Y, X = 0;
-
-                        switch (alignVertical)
-                        {
-                            case VerticalAlignmentStyle.Bottom: Y = box.Min.Y; break;
-                            case VerticalAlignmentStyle.Top: Y = box.Max.Y; break;
-                            default: Y = box.Min.Y + ((box.Max.Y - box.Min.Y) / 2); break;                     
-                        }
-
-                        switch (alignHorizontal)
-                        {
-                            case HorizontalAlignmentStyle.Left: X = box.Min.X; break;
-                            case HorizontalAlignmentStyle.Right: X = box.Max.X; break;
-                            default: X = box.Min.X + ((box.Max.X - box.Min.X) / 2); break;
-                        }
-
-                        point = new XYZ(X + offset.X, Y + offset.Y, 0 + offset.Z);
+                        case VerticalAlignmentStyle.Bottom: Y = box.Min.Y; break;
+                        case VerticalAlignmentStyle.Top: Y = box.Max.Y; break;
+                        default: Y = box.Min.Y + ((box.Max.Y - box.Min.Y) / 2); break;
                     }
-                    else throw new ArgumentNullException("Cannot determine location");
-                //}
 
+                    switch (alignHorizontal)
+                    {
+                        case HorizontalAlignmentStyle.Left: X = box.Min.X; break;
+                        case HorizontalAlignmentStyle.Right: X = box.Max.X; break;
+                        default: X = box.Min.X + ((box.Max.X - box.Min.X) / 2); break;
+                    }
 
-                return new Tag(revitView, element.InternalElement, orientation, tagMode, addLeader, point);
+                    point = new XYZ(X + point.X, Y + point.Y, 0 + point.Z);
+                }
+                else throw new ArgumentNullException("Cannot determine location");
+            }
+
+            
+
+            return new Tag(revitView, element.InternalElement, orientation, tagMode, addLeader, point);
         }
 
         #endregion
