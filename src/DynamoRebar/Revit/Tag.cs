@@ -209,7 +209,27 @@ namespace Revit.Elements
 
                     point = new XYZ(X + point.X, Y + point.Y, 0 + point.Z);
                 }
-                else throw new ArgumentNullException("Cannot determine location");
+                else
+                {
+                    if (element.InternalElement.Location != null)
+                    {
+                        if (element.InternalElement.Location.GetType() == typeof(LocationCurve))
+                        {
+                            LocationCurve lc = (LocationCurve)element.InternalElement.Location;
+                            XYZ midpoint = lc.Curve.Evaluate(0.5,true);
+                            point = new XYZ(midpoint.X + point.X, midpoint.Y + point.Y, 0 + point.Z);
+                        }
+                        else if (element.InternalElement.Location.GetType() == typeof(LocationPoint))
+                        {
+                            LocationPoint lp = (LocationPoint)element.InternalElement.Location;
+                            point = new XYZ(lp.Point.X + point.X, lp.Point.Y + point.Y, 0 + point.Z);
+                        }
+                        else
+                            throw new ArgumentNullException("Cannot determine location"); 
+                    }
+                    else
+                        throw new ArgumentNullException("Cannot determine location"); 
+                }
             }
 
             
