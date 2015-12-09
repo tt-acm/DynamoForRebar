@@ -1,0 +1,34 @@
+<Workspace Version="0.9.0.3067" X="-249.533078403804" Y="-141.216685170529" zoom="0.910486800477932" Name="Home" Description="" RunType="Automatic" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Nodes.DSFunction guid="64e15a03-e822-48a9-ab4e-affd74ecb1bd" type="Dynamo.Nodes.DSFunction" nickname="Rebar.GetMaterialNames" x="512.455083340355" y="251.105766304806" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="..\..\bin\AnyCPU\Debug\DynamoRebar.dll" function="DynamoRebar.Rebar.GetMaterialNames@Revit.Elements.Element,bool" />
+    <Dynamo.Nodes.DSFunction guid="b923086b-dae2-4dd1-9096-da2a0e684aed" type="Dynamo.Nodes.DSFunction" nickname="Rebar.GetMaterialProperties" x="725.982334203657" y="250.335740578534" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="..\..\bin\AnyCPU\Debug\DynamoRebar.dll" function="DynamoRebar.Rebar.GetMaterialProperties@string" />
+    <Dynamo.Nodes.DSModelElementSelection guid="7ad51e72-3002-4ced-8189-008a6a0a0085" type="Dynamo.Nodes.DSModelElementSelection" nickname="Select Model Element" x="285.448710146149" y="216.105766304806" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <instance id="799a82b4-167f-474e-85af-539c55899570-00085ddf" />
+    </Dynamo.Nodes.DSModelElementSelection>
+    <DSCoreNodesUI.BoolSelector guid="5a873968-3218-49a0-b375-9a18d4c17aa7" type="DSCoreNodesUI.BoolSelector" nickname="Boolean" x="307.791653987492" y="347.631411231731" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <System.Boolean>False</System.Boolean>
+    </DSCoreNodesUI.BoolSelector>
+    <Dynamo.Nodes.DSFunction guid="3f7ff82d-8ba6-491e-9a1b-a0b927ef659f" type="Dynamo.Nodes.DSFunction" nickname="Rebar.GetParameterNameAndValue" x="1076.30797945808" y="643.745747133221" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="..\..\bin\AnyCPU\Debug\DynamoRebar.dll" function="DynamoRebar.Rebar.GetParameterNameAndValue@var" />
+    <Dynamo.Nodes.DSFunction guid="d8c578b5-7519-41cb-bff7-9054469d3605" type="Dynamo.Nodes.DSFunction" nickname="Rebar.GetParameterNameAndValue" x="1077.46999691192" y="531.035786520291" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="..\..\bin\AnyCPU\Debug\DynamoRebar.dll" function="DynamoRebar.Rebar.GetParameterNameAndValue@var" />
+    <Dynamo.Nodes.DSFunction guid="709113e4-0465-464b-b4b6-80cb83c10767" type="Dynamo.Nodes.DSFunction" nickname="Rebar.GetParameterNameAndValue" x="1074.28947200852" y="415.428240772068" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="..\..\bin\AnyCPU\Debug\DynamoRebar.dll" function="DynamoRebar.Rebar.GetParameterNameAndValue@var" />
+    <Dynamo.Nodes.Watch guid="b7a7a71c-29e0-4d7f-b5f0-244641041985" type="Dynamo.Nodes.Watch" nickname="Watch" x="1574.25407968383" y="528.9639113367" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+    <Dynamo.Nodes.Watch guid="5f8f06b4-012b-406e-8f41-e43d0d3551a5" type="Dynamo.Nodes.Watch" nickname="Watch" x="1349.14687747719" y="582.321612521463" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="64e15a03-e822-48a9-ab4e-affd74ecb1bd" start_index="0" end="b923086b-dae2-4dd1-9096-da2a0e684aed" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b923086b-dae2-4dd1-9096-da2a0e684aed" start_index="9" end="709113e4-0465-464b-b4b6-80cb83c10767" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b923086b-dae2-4dd1-9096-da2a0e684aed" start_index="11" end="d8c578b5-7519-41cb-bff7-9054469d3605" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b923086b-dae2-4dd1-9096-da2a0e684aed" start_index="13" end="3f7ff82d-8ba6-491e-9a1b-a0b927ef659f" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="7ad51e72-3002-4ced-8189-008a6a0a0085" start_index="0" end="64e15a03-e822-48a9-ab4e-affd74ecb1bd" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="5a873968-3218-49a0-b375-9a18d4c17aa7" start_index="0" end="64e15a03-e822-48a9-ab4e-affd74ecb1bd" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d8c578b5-7519-41cb-bff7-9054469d3605" start_index="0" end="b7a7a71c-29e0-4d7f-b5f0-244641041985" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d8c578b5-7519-41cb-bff7-9054469d3605" start_index="1" end="5f8f06b4-012b-406e-8f41-e43d0d3551a5" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-701.53024185884" eyeY="-443.027434694659" eyeZ="-1171.76563106321" lookX="801.349977254712" lookY="179.55491622734" lookZ="30.6358577207114" upX="-0.422309759620702" upY="0.906307787036652" upZ="-0.0161450328533484" />
+  </Cameras>
+</Workspace>

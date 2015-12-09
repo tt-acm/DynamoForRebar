@@ -283,6 +283,117 @@ namespace DynamoRebar
         }
 
 
+        /// <summary>
+        /// Get Material Names from a Revit Element
+        /// </summary>
+        /// <param name="element">Revit Element</param>
+        /// <param name="paintMaterials">Paint Materials</param>
+        /// <returns>List of Names</returns>
+        public static List<string> GetMaterialNames(Revit.Elements.Element element, bool paintMaterials = false)
+        {
+            // Get the active Document
+            Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
+
+            List<string> materialnames = new List<string>();
+
+            foreach (Autodesk.Revit.DB.ElementId id in element.InternalElement.GetMaterialIds(paintMaterials))
+            {
+                RVT.Material material = (RVT.Material)document.GetElement(id);
+                
+                if (!materialnames.Contains(material.Name))
+                    materialnames.Add(material.Name);
+            }
+
+            return materialnames;
+        }
+
+        /// <summary>
+        /// Get Parameter Name and Value
+        /// </summary>
+        /// <param name="parameter">Revit Parameter</param>
+        /// <returns>Name and Value</returns>
+        [MultiReturn(new[] { "Name", "Value" })]
+        public static Dictionary<string, object> GetParameterNameAndValue(Autodesk.Revit.DB.Parameter parameter)
+        {
+            return new Dictionary<string, object>
+            {
+                { "Name", parameter.Definition.Name },
+                { "Value", parameter.AsValueString() },
+            };
+        }
+
+        /// <summary>
+        /// Get Material Properties By Name
+        /// </summary>
+        /// <param name="materialname">Material Name</param>
+        /// <returns>Material Properties</returns>
+        [MultiReturn(new[] { "Name", "Id", "Category", "Class", "Transparency", "Smoothness", "Shininess", "Color", "Appearance Name", "Appearance Parameters", "Structural Name", "Structural Parameters", "Thermal Name", "Thermal Parameters" })]
+        public static Dictionary<string, object> GetMaterialProperties(string materialname)
+        {
+            Revit.Elements.Material mat = Revit.Elements.Material.ByName(materialname);
+            
+            RVT.Material material = (RVT.Material)mat.InternalElement;
+            
+
+            // Get the active Document
+            Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
+
+            string appearancename = "None";
+            List<Autodesk.Revit.DB.Parameter> appearances = new List<Autodesk.Revit.DB.Parameter>();
+            if (material.AppearanceAssetId != Autodesk.Revit.DB.ElementId.InvalidElementId)
+            {
+                RVT.AppearanceAssetElement appearance = (RVT.AppearanceAssetElement)document.GetElement(material.AppearanceAssetId);
+                appearancename = appearance.Name;
+
+                foreach (RVT.Parameter parameter in appearance.Parameters)
+                    if (!appearances.Contains(parameter))
+                        appearances.Add(parameter);
+            }
+
+            string thermalname = "None";
+            List<Autodesk.Revit.DB.Parameter> thermals = new List<Autodesk.Revit.DB.Parameter>();
+            if (material.ThermalAssetId != Autodesk.Revit.DB.ElementId.InvalidElementId)
+            {
+                RVT.PropertySetElement thermal = (RVT.PropertySetElement)document.GetElement(material.ThermalAssetId);
+                thermalname = thermal.Name;
+
+                foreach (RVT.Parameter parameter in thermal.Parameters)
+                    if (!thermals.Contains(parameter))
+                        thermals.Add(parameter);
+            }
+
+            string structuralname = "None";
+            List<Autodesk.Revit.DB.Parameter> structurals = new List<Autodesk.Revit.DB.Parameter>();
+            if (material.StructuralAssetId != Autodesk.Revit.DB.ElementId.InvalidElementId)
+            {
+                RVT.PropertySetElement structural = (RVT.PropertySetElement)document.GetElement(material.StructuralAssetId);
+                structuralname = structural.Name;
+
+                foreach (RVT.Parameter parameter in structural.Parameters)
+                    if (!structurals.Contains(parameter))
+                        structurals.Add(parameter);
+            }
+
+            return new Dictionary<string, object>
+            {
+                { "Name", material.Name },
+                { "Id", material.Id.IntegerValue },
+                { "Category", material.MaterialCategory },
+                { "Class", material.MaterialClass },
+                { "Transparency", material.Transparency },
+                { "Smoothness", material.Smoothness },
+                { "Shininess", material.Shininess },
+                { "Color", material.Color },
+                { "Appearance Name", appearancename },
+                { "Appearance Parameters", appearances },
+                { "Structural Name", structuralname },
+                { "Structural Parameters", structurals },
+                { "Thermal Name", thermalname },
+                { "Thermal Parameters", thermals },
+            };
+        }
+
+
     }
 }
 

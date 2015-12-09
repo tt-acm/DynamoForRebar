@@ -164,7 +164,7 @@ namespace Revit.Elements
         public static Tag ByElement(Revit.Elements.Views.View view, Element element, bool horizontal, bool addLeader, Autodesk.DesignScript.Geometry.Point offset = null, bool isOffset = true, string horizontalAlignment = "Center", string verticalAlignment = "Middle")
         {
             if (offset == null) offset = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0);
-
+            
             Autodesk.Revit.DB.HorizontalAlignmentStyle alignHorizontal = Autodesk.Revit.DB.HorizontalAlignmentStyle.Center;
             Enum.TryParse<Autodesk.Revit.DB.HorizontalAlignmentStyle>(horizontalAlignment, out alignHorizontal);
 

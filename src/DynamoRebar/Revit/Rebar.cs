@@ -268,7 +268,7 @@ namespace Revit.Elements
             if (elementId == ElementId.InvalidElementId) throw new ArgumentNullException("Host ElementId error");
 
             Autodesk.Revit.DB.Element host = DocumentManager.Instance.CurrentDBDocument.GetElement(elementId);
-
+            
 
             Autodesk.Revit.DB.Structure.RebarStyle barStyle = Autodesk.Revit.DB.Structure.RebarStyle.StirrupTie;
             Enum.TryParse<Autodesk.Revit.DB.Structure.RebarStyle>(rebarStyle, out barStyle);
