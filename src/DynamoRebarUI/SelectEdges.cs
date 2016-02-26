@@ -26,6 +26,8 @@ using Dynamo.Controls;
 using Dynamo.Interfaces;
 using Dynamo.Nodes;
 using Dynamo.Models;
+using CoreNodeModels.Properties;
+using Dynamo.Graph.Nodes;
 
 namespace Revit.Elements
 {
@@ -41,6 +43,6 @@ namespace Revit.Elements
         /// <summary>
         /// Select Edges
         /// </summary>
-        public Edges() : base(SelectionType.Many,SelectionObjectType.Edge,"Select edges.","Edges") { }
+        public Edges() : base(CoreNodeModels.SelectionType.Many, CoreNodeModels.SelectionObjectType.Edge, "Select edges.", "Edges") { }
     }
 }

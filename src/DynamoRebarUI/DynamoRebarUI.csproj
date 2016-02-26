@@ -37,13 +37,16 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CoreNodeModels, Version=0.9.1.4062, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.9\nodes\CoreNodeModels.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNodeModels.customization">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo 0.9\nodes\CoreNodeModels.customization.dll</HintPath>
+    </Reference>
     <Reference Include="CoreNodeModelsWpf, Version=0.8.0.950, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\Dynamo 0.9\nodes\CoreNodeModelsWpf.dll</HintPath>
-    </Reference>
-    <Reference Include="DSCoreNodesUI, Version=0.8.0.950, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Dynamo 0.9\nodes\DSCoreNodesUI.dll</HintPath>
     </Reference>
     <Reference Include="DSRevitNodesUI, Version=0.8.1.1942, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

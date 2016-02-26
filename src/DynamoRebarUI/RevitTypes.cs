@@ -24,11 +24,13 @@ using DSRevitNodesUI;
 using RVT = Autodesk.Revit.DB;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
-using DSCoreNodesUI;
+
 using Dynamo.Utilities;
 using Dynamo.Models;
 using Dynamo.Nodes;
 using ProtoCore.AST.AssociativeAST;
+using CoreNodeModels.Properties;
+using Dynamo.Graph.Nodes;
 
 namespace DynamoRebarUI
 {

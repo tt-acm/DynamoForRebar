@@ -24,7 +24,6 @@ using DSRevitNodesUI;
 using RVT = Autodesk.Revit.DB;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
-using DSCoreNodesUI;
 using Dynamo.Utilities;
 using Dynamo.Models;
 using Revit.GeometryConversion;

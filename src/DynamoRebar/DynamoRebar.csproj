@@ -43,9 +43,6 @@
     <Reference Include="DSCoreNodes.customization">
       <HintPath>C:\Program Files\Dynamo 0.9\DSCoreNodes.customization.dll</HintPath>
     </Reference>
-    <Reference Include="DSCoreNodesUI">
-      <HintPath>C:\Program Files\Dynamo 0.9\nodes\DSCoreNodesUI.dll</HintPath>
-    </Reference>
     <Reference Include="DSRevitNodesUI">
       <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\nodes\DSRevitNodesUI.dll</HintPath>
     </Reference>

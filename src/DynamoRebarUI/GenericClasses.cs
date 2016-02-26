@@ -24,7 +24,7 @@ using DSRevitNodesUI;
 using RVT = Autodesk.Revit.DB;
 using RevitServices.Persistence;
 using RevitServices.Transactions;
-using DSCoreNodesUI;
+
 using Dynamo.Utilities;
 using Dynamo.Models;
 using ProtoCore.AST.AssociativeAST;
@@ -68,17 +68,17 @@ namespace DynamoRebarUI
                 // If there is nothing in the collector add the missing Type message to the Dropdown menu.
                 if (fec.ToElements().Count == 0)
                 {
-                    Items.Add(new DSCoreNodesUI.DynamoDropDownItem(noTypes, null));
+                    Items.Add(new CoreNodeModels.DynamoDropDownItem(noTypes, null));
                     SelectedIndex = 0;
                     return;
                 }
 
-                if (this.ElementType.FullName == "Autodesk.Revit.DB.Structure.RebarHookType") Items.Add(new DSCoreNodesUI.DynamoDropDownItem("None", null));
+                if (this.ElementType.FullName == "Autodesk.Revit.DB.Structure.RebarHookType") Items.Add(new CoreNodeModels.DynamoDropDownItem("None", null));
 
                 // Walk through all elements in the collector and add them to the dropdown
                 foreach (var ft in fec.ToElements())
                 {
-                    Items.Add(new DSCoreNodesUI.DynamoDropDownItem(ft.Name, ft));
+                    Items.Add(new CoreNodeModels.DynamoDropDownItem(ft.Name, ft));
                 }
 
                 Items = Items.OrderBy(x => x.Name).ToObservableCollection();
@@ -141,7 +141,7 @@ namespace DynamoRebarUI
                 // Get all enumeration names and add them to the dropdown menu
                 foreach (string name in Enum.GetNames(EnumerationType))
                 {
-                    Items.Add(new DSCoreNodesUI.DynamoDropDownItem(name, Enum.Parse(EnumerationType, name)));
+                    Items.Add(new CoreNodeModels.DynamoDropDownItem(name, Enum.Parse(EnumerationType, name)));
                 }
 
                 Items = Items.OrderBy(x => x.Name).ToObservableCollection();
