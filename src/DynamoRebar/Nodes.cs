@@ -322,6 +322,33 @@ namespace DynamoRebar
         }
 
         /// <summary>
+        /// Update an elements location Point
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="point"></param>
+        public static void UpdateLocationPoint(Revit.Elements.Element element, Point point)
+        {
+            if (element.InternalElement.Location.GetType() == typeof(Autodesk.Revit.DB.LocationPoint)){
+                Autodesk.Revit.DB.LocationPoint pt = (Autodesk.Revit.DB.LocationPoint)element.InternalElement.Location;
+                pt.Point = point.ToRevitType(true);            
+            }
+        }
+
+        /// <summary>
+        /// Update an elements location curve
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="curve"></param>
+        public static void UpdateLocationCurve(Revit.Elements.Element element, Curve curve)
+        {
+            if (element.InternalElement.Location.GetType() == typeof(Autodesk.Revit.DB.LocationCurve))
+            {
+                Autodesk.Revit.DB.LocationCurve pt = (Autodesk.Revit.DB.LocationCurve)element.InternalElement.Location;
+                pt.Curve = curve.ToRevitType(true);
+            }
+        }
+
+        /// <summary>
         /// Get Material Properties By Name
         /// </summary>
         /// <param name="materialname">Material Name</param>
