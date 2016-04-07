@@ -118,12 +118,14 @@ namespace DynamoRebar
         /// </summary>
         /// <param name="face">Surface</param>
         /// <param name="numberOfCurves">Define number of curves or distance between bars</param>
-        /// <param name="desiredDistanceBetweenCurves">Define a desired distance between curves, the actual result will be a best fit</param>
+        /// <param name="desiredDistanceBetweenCurves">Define a desired distance between curves, the actual result will be a best fit</param>     
         /// <param name="flip">Flip orientation</param>
         /// <param name="offset">Offset</param>
         /// <param name="idealize">Idealize surfaces to rectangles</param>
+        /// <param name="includeFirstEdge">Include first Edge of the surface</param>
+        /// <param name="includeLastEdge">Include last Edge of the surface</param>
         /// <returns>List of rebar</returns>
-        public static List<Curve> FollowingSurface(Surface face, int numberOfCurves = 0, double desiredDistanceBetweenCurves = 0, bool flip = true, double offset = 0, bool idealize = true)
+        public static List<Curve> FollowingSurface(Surface face, int numberOfCurves = 0, double desiredDistanceBetweenCurves = 0, bool flip = true, double offset = 0, bool idealize = true, bool includeFirstEdge = false, bool includeLastEdge = false)
         {
             if (idealize)
             {
@@ -153,6 +155,8 @@ namespace DynamoRebar
 
                 TrimmedSurface trimmedSurface = new TrimmedSurface(surface);
 
+                if (includeFirstEdge) curves.Add(trimmedSurface.GetCurveAtParameter(0, flip));
+
                 // Walk thru the amount of lines to create
                 for (int j = 1; j < numberOfCurves; j++)
                 {
@@ -164,6 +168,8 @@ namespace DynamoRebar
 
                     curves.Add(trimmedSurface.GetCurveAtParameter(height, flip));
                 }
+
+                if (includeLastEdge) curves.Add(trimmedSurface.GetCurveAtParameter(1, flip));
 
                 return curves;
             }
@@ -282,25 +288,35 @@ namespace DynamoRebar
             {
                 Curve curve = curves[i];
 
-                // get the offset distance at the start of the curve
-                double startDistance = curve.DistanceAtTangentLength(0, length);
-                if (startDistance != -1)
-                {
-                    // if the distance is valid cut the curve
-                    Curve[] startcuttedcurves = curve.DivideByLengthFromParameter(curve.Length - startDistance, 1);
+                //if (length > 0)
+                //{
+                //    // get the offset distance at the start of the curve
+                //    double startDistance = curve.DistanceAtTangentLength(0, length);
+                //    if (startDistance != -1)
+                //    {
 
-                    // get the offset distance for the end of the curve
-                    double endParameter = startcuttedcurves[0].DistanceAtTangentLength(1, length);
+                //        // if the distance is valid cut the curve
+                //        Curve[] startcuttedcurves = curve.DivideByLengthFromParameter(curve.Length - startDistance, 1);
 
-                    if (endParameter != -1)
-                    {
-                        // If the distance is valid cut the curve
-                        Curve[] endcuttedcurves = startcuttedcurves[0].DivideByLengthFromParameter(endParameter, 0);
 
-                        // Add the cutted middle segment to the result array
-                        result.Add(endcuttedcurves[0]);
-                    }
-                }
+                //        // get the offset distance for the end of the curve
+                //        double endParameter = startcuttedcurves[0].DistanceAtTangentLength(1, length);
+
+                //        if (endParameter != -1)
+                //        {
+                //            // If the distance is valid cut the curve
+                //            Curve[] endcuttedcurves = startcuttedcurves[0].DivideByLengthFromParameter(endParameter, 0);
+
+                //            // Add the cutted middle segment to the result array
+                //            result.Add(endcuttedcurves[0]);
+                //        }
+                //    }
+                //}
+                //else
+                //{
+                Curve extended = curve.ExtendStart(length * -1).ExtendEnd(length * -1);
+                result.Add(extended);
+                //}
             }
             return result;
         }
