@@ -72,6 +72,30 @@ namespace DynamoRebar
 
 
         /// <summary>
+        /// Cover value to Offset value
+        /// </summary>
+        /// <param name="cover">Cover Value</param>
+        /// <param name="barType">Rebar Bar Type</param>
+        /// <returns>Offset</returns>
+        [MultiReturn(new[] { "BarDiameter", "StandardBendDiameter", "StandardHookBendDiameter", "StirrupTieBendDiameter" })]
+        public static Dictionary<string, object> GetRebarTypeProperties(double cover, Revit.Elements.Element barType)
+        {
+            Autodesk.Revit.DB.Structure.RebarBarType revitBarType = (Autodesk.Revit.DB.Structure.RebarBarType)barType.InternalElement;
+            
+            return new Dictionary<string, object>
+            {
+                { "BarDiameter", revitBarType.BarDiameter },
+                { "StandardBendDiameter", revitBarType.StandardBendDiameter },
+                { "StandardHookBendDiameter", revitBarType.StandardHookBendDiameter },
+                { "StirrupTieBendDiameter", revitBarType.StirrupTieBendDiameter },
+
+            };
+        }
+
+
+
+
+        /// <summary>
         /// Create curves perpendicular to Face
         /// </summary>
         /// <param name="face">Face to use</param>
@@ -94,16 +118,16 @@ namespace DynamoRebar
         /// </summary>
         /// <param name="face">Surface</param>
         /// <param name="numberOfCurves">Define number of curves or distance between bars</param>
-        /// <param name="distanceBetweenCurves">Define distance between curves or number of bars</param>
+        /// <param name="desiredDistanceBetweenCurves">Define a desired distance between curves, the actual result will be a best fit</param>
         /// <param name="flip">Flip orientation</param>
         /// <param name="offset">Offset</param>
         /// <param name="idealize">Idealize surfaces to rectangles</param>
         /// <returns>List of rebar</returns>
-        public static List<Curve> FollowingSurface(Surface face, int numberOfCurves, double distanceBetweenCurves = 0, bool flip = true, double offset = 0, bool idealize = true)
+        public static List<Curve> FollowingSurface(Surface face, int numberOfCurves = 0, double desiredDistanceBetweenCurves = 0, bool flip = true, double offset = 0, bool idealize = true)
         {
             if (idealize)
             {
-                return face.Follow(50, offset, distanceBetweenCurves, numberOfCurves, flip);
+                return face.Follow(50, offset, desiredDistanceBetweenCurves, numberOfCurves, flip);
             }
             else
             {
@@ -111,16 +135,16 @@ namespace DynamoRebar
                 // Create return value collection
                 List<Curve> curves = new List<Curve>();
 
-                // Get a reference curve from the surface
-                UV p1 = UV.ByCoordinates(0, 0);
-                UV p2 = UV.ByCoordinates(1, 0);
-
-                double length = (!flip) ? face.DistanceBetweenPoints(p1, p2) : face.DistanceBetweenPoints(p1.Flip(), p2.Flip());
+                // Get the distance between two corner points
+                double length = (!flip) ?
+                    face.DistanceBetweenPoints(UV.ByCoordinates(0, 0), UV.ByCoordinates(0, 1))
+                    :
+                    face.DistanceBetweenPoints(UV.ByCoordinates(0, 0), UV.ByCoordinates(1, 0));
 
                 // If there is a distance applied use it to determine the number of lines to create
-                if (distanceBetweenCurves > 0) numberOfCurves = (int)(length / (distanceBetweenCurves));
+                if (desiredDistanceBetweenCurves > 0) numberOfCurves = (int)(length / (desiredDistanceBetweenCurves));
+                else numberOfCurves++;
 
-                numberOfCurves++;
 
                 Surface surface = face;
 
