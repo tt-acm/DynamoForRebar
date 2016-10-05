@@ -1,4 +1,8 @@
-﻿//
+﻿
+// Has been moved to Dynamo Core in 1.2
+
+/*
+//
 // Copyright 2015 Autodesk, Inc.
 // Author: Thornton Tomasetti Ltd, CORE Studio (Maximilian Thumfart)
 //
@@ -46,3 +50,4 @@ namespace Revit.Elements
         public Edges() : base(CoreNodeModels.SelectionType.Many, CoreNodeModels.SelectionObjectType.Edge, "Select edges.", "Edges") { }
     }
 }
+*/

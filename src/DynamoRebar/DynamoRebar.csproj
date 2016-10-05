@@ -37,73 +37,34 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoreNodeModelsWpf">
-      <HintPath>C:\Program Files\Dynamo 0.9\nodes\CoreNodeModelsWpf.dll</HintPath>
-    </Reference>
-    <Reference Include="DSCoreNodes.customization">
-      <HintPath>C:\Program Files\Dynamo 0.9\DSCoreNodes.customization.dll</HintPath>
-    </Reference>
-    <Reference Include="DSRevitNodesUI">
-      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\nodes\DSRevitNodesUI.dll</HintPath>
-    </Reference>
-    <Reference Include="DSRevitNodesUI.customization">
-      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\DSRevitNodesUI.customization.dll</HintPath>
-    </Reference>
     <Reference Include="DynamoCore">
-      <HintPath>C:\Program Files\Dynamo 0.9\DynamoCore.dll</HintPath>
+      <HintPath>$(DYNAMO_API)\DynamoCore.dll</HintPath>
     </Reference>
     <Reference Include="DynamoCoreWpf">
-      <HintPath>C:\Program Files\Dynamo 0.9\DynamoCoreWpf.dll</HintPath>
-    </Reference>
-    <Reference Include="DynamoRaaS.customization">
-      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\DynamoRaaS.customization.dll</HintPath>
-    </Reference>
-    <Reference Include="DynamoRaaSHelper">
-      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\DynamoRaaSHelper.dll</HintPath>
-    </Reference>
-    <Reference Include="DynamoRevitDS">
-      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\DynamoRevitDS.dll</HintPath>
-    </Reference>
-    <Reference Include="DynamoRevitVersionSelector">
-      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\DynamoRevitVersionSelector.dll</HintPath>
+      <HintPath>$(DYNAMO_API)\DynamoCoreWpf.dll</HintPath>
     </Reference>
     <Reference Include="DynamoServices">
-      <HintPath>C:\Program Files\Dynamo 0.9\DynamoServices.dll</HintPath>
-    </Reference>
-    <Reference Include="DynamoUtilities">
-      <HintPath>C:\Program Files\Dynamo 0.9\DynamoUtilities.dll</HintPath>
+      <HintPath>$(DYNAMO_API)\DynamoServices.dll</HintPath>
     </Reference>
     <Reference Include="ProtoCore">
-      <HintPath>C:\Program Files\Dynamo 0.9\ProtoCore.dll</HintPath>
+      <HintPath>$(DYNAMO_API)\ProtoCore.dll</HintPath>
     </Reference>
     <Reference Include="ProtoGeometry">
-      <HintPath>C:\Program Files\Dynamo 0.9\ProtoGeometry.dll</HintPath>
-    </Reference>
-    <Reference Include="ProtoInterface">
-      <HintPath>C:\Program Files\Dynamo 0.9\ProtoInterface.dll</HintPath>
+      <HintPath>$(DYNAMO_API)\ProtoGeometry.dll</HintPath>
     </Reference>
     <Reference Include="RevitAPI, Version=16.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Autodesk\Revit 2016\RevitAPI.dll</HintPath>
+      <HintPath>$(REVIT_API)\RevitAPI.dll</HintPath>
     </Reference>
     <Reference Include="RevitAPIUI, Version=2015.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files\Autodesk\Revit 2016\RevitAPIUI.dll</HintPath>
+      <HintPath>$(REVIT_API)\RevitAPIUI.dll</HintPath>
     </Reference>
     <Reference Include="RevitNodes">
-      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\RevitNodes.dll</HintPath>
-    </Reference>
-    <Reference Include="RevitNodes.customization">
-      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\RevitNodes.customization.dll</HintPath>
-    </Reference>
-    <Reference Include="RevitRaaS">
-      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\RevitRaaS.dll</HintPath>
+      <HintPath>$(DYNAMOREVIT_API)\RevitNodes.dll</HintPath>
     </Reference>
     <Reference Include="RevitServices">
-      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\RevitServices.dll</HintPath>
-    </Reference>
-    <Reference Include="RevitTestServices">
-      <HintPath>C:\Program Files\Dynamo 0.9\Revit_2016\RevitTestServices.dll</HintPath>
+      <HintPath>$(DYNAMOREVIT_API)\RevitServices.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

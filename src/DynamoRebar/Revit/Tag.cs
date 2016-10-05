@@ -1,4 +1,8 @@
-﻿//
+﻿
+// This has been moved to the Dynamo Core in 1.2
+
+/*
+//
 // Copyright 2015 Autodesk, Inc.
 // Author: Thornton Tomasetti Ltd, CORE Studio (Maximilian Thumfart)
 //
@@ -260,3 +264,4 @@ namespace Revit.Elements
     }
 
 }
+*/

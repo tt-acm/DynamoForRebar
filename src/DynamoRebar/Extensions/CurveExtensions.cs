@@ -58,7 +58,7 @@ namespace DynamoRebar
             if (tangentParameter == -1)
                 return -1;
             else
-                return curve.DistanceAtParameter(tangentParameter);
+                return curve.SegmentLengthAtParameter(tangentParameter);
         }
 
         /// <summary>

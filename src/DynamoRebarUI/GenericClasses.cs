@@ -52,10 +52,16 @@ namespace DynamoRebarUI
         /// </summary>
         public Type ElementType;
 
+        protected override CoreNodeModels.DSDropDownBase.SelectionState PopulateItemsCore(string currentSelection)
+        {
+            PopulateItems();
+            return SelectionState.Done;
+        }
+
         /// <summary>
         /// Populate the Dropdown menu
         /// </summary>
-        public override void PopulateItems()
+        public void PopulateItems()
         {
             if (this.ElementType != null)
             {
@@ -91,7 +97,7 @@ namespace DynamoRebarUI
         public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> inputAstNodes)
         {
             // If there are no elements in the dropdown or the selected Index is invalid return a Null node.
-            if (Items.Count == 0 || 
+            if (Items.Count == 0 ||
             Items[0].Name == noTypes ||
             SelectedIndex == -1 || Items[SelectedIndex].Name == "None")
             {
@@ -128,10 +134,16 @@ namespace DynamoRebarUI
         /// </summary>
         public Type EnumerationType;
 
+        protected override CoreNodeModels.DSDropDownBase.SelectionState PopulateItemsCore(string currentSelection)
+        {
+            PopulateItems();
+            return SelectionState.Done;
+        }
+
         /// <summary>
         /// Populate Items in Dropdown menu
         /// </summary>
-        public override void PopulateItems()
+        public void PopulateItems()
         {
             if (this.EnumerationType != null)
             {

@@ -40,7 +40,7 @@ namespace DynamoRebar
         [IsVisibleInDynamoLibrary(false)]
         public static bool Parallel(this Vector thisVector, Vector vector, double tolerance)
         {
-            double angle = thisVector.AngleBetween(vector);
+            double angle = thisVector.AngleWithVector(vector);
 
             if (Math.Abs(angle) < tolerance || Math.Abs(180 - angle) < tolerance) return true;
             else return false;

@@ -142,7 +142,7 @@ namespace DynamoRebar
 
             Vector normal = surface.NormalAtParameter(0.5, 0.5);
             Surface myface = (Surface)surface.Offset(offset);
-           
+
             // Create return value collection
             List<Curve> curves = new List<Curve>();
 
@@ -231,7 +231,7 @@ namespace DynamoRebar
             if (intersections.Count > 1)
             {
                 // trim the curve into segments if there are gaps or holes
-                Curve[] segments = line.ParameterTrimSegments(intersections.ToArray(), false);
+                Curve[] segments = line.TrimSegmentsByParameter(intersections.ToArray(), false);
 
                 // Walk through trimmed curves and add only those to the return collection
                 // which are of a reasonable length
@@ -241,7 +241,7 @@ namespace DynamoRebar
             }
             else if (intersections.Count == 1)
             {
-                Curve[] segments = line.ParameterSplit(intersections[0]);
+                Curve[] segments = line.SplitByParameter(intersections[0]);
                 curves.Add(segments[0]);
             }
 
