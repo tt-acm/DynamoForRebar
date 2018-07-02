@@ -45,7 +45,7 @@ namespace DynamoRebar
 
             foreach (Autodesk.DesignScript.Geometry.Curve curve in polycurve.Curves())
             {
-                this.Curves.Add((Curve)curve.Approximate());
+                this.Curves.Add((Curve)curve.ApproximateToRvt());
             }
 
             CurveExtensions.SortCurvesContiguous(this.Curves);

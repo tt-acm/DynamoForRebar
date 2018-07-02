@@ -103,7 +103,7 @@ namespace DynamoRebar
         /// <param name="curve"></param>
         /// <returns></returns>
         [IsVisibleInDynamoLibrary(false)]
-        public static object Approximate(this Curve curve)
+        public static object ApproximateToRvt(this Curve curve)
         {
             if (curve.GetType() == typeof(Autodesk.DesignScript.Geometry.NurbsCurve))
             {

@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DynamoRebarUI</RootNamespace>
     <AssemblyName>DynamoRebarUI</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -41,7 +41,7 @@
       <HintPath>$(DYNAMO_API)\nodes\CoreNodeModels.dll</HintPath>
     </Reference>
     <Reference Include="DSRevitNodesUI">
-      <HintPath>$(DYNAMOREVIT_API)\nodes\DSRevitNodesUI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo\Dynamo Revit\2\Revit_2018\nodes\DSRevitNodesUI.dll</HintPath>
     </Reference>
     <Reference Include="DynamoCore, Version=0.8.0.950, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -81,11 +81,11 @@
     </Reference>
     <Reference Include="RevitNodes, Version=0.8.0.951, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(DYNAMOREVIT_API)\RevitNodes.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo\Dynamo Revit\2\Revit_2018\RevitNodes.dll</HintPath>
     </Reference>
     <Reference Include="RevitServices, Version=0.8.0.951, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(DYNAMOREVIT_API)\RevitServices.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo\Dynamo Revit\2\Revit_2018\RevitServices.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

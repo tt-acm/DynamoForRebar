@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DynamoRebar</RootNamespace>
     <AssemblyName>DynamoRebar</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -61,10 +61,10 @@
       <HintPath>$(REVIT_API)\RevitAPIUI.dll</HintPath>
     </Reference>
     <Reference Include="RevitNodes">
-      <HintPath>$(DYNAMOREVIT_API)\RevitNodes.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo\Dynamo Revit\2\Revit_2018\RevitNodes.dll</HintPath>
     </Reference>
     <Reference Include="RevitServices">
-      <HintPath>$(DYNAMOREVIT_API)\RevitServices.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo\Dynamo Revit\2\Revit_2018\RevitServices.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
