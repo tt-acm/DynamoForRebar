@@ -4,7 +4,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <OutputPath Condition="'$(OutputPath)' == ''">$(SolutionDir)..\bin\$(Platform)\$(Configuration)</OutputPath>
     <NunitPath Condition="'$(NunitPath)' == ''">$(SolutionDir)..\extern\NUnit</NunitPath>
-    <REVIT_API Condition="'$(REVIT_API)' == ''">C:\Program Files\Autodesk\Revit 2018</REVIT_API>
+    <REVIT_API Condition="'$(REVIT_API)' == ''">C:\Program Files\Autodesk\Revit 2019</REVIT_API>
     <DYNAMO_API Condition="'$(DYNAMO_API)' == ''">C:\Program Files\Dynamo\Dynamo Core\2</DYNAMO_API>
 	<DYNAMOREVIT_API Condition="'$(DYNAMOREVIT_API)' == ''">C:\Program Files\Dynamo\Dynamo Revit\2</DYNAMOREVIT_API>
     <REVIT_VERSION>Revit_2018</REVIT_VERSION>
@@ -20,7 +20,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <OutputPath Condition="'$(OutputPath)' == ''">$(SolutionDir)..\bin\$(Platform)\$(Configuration)</OutputPath>
     <NunitPath Condition="'$(NunitPath)' == ''">$(SolutionDir)..\extern\NUnit</NunitPath>
-    <REVIT_API Condition="'$(REVIT_API)' == ''">C:\Program Files\Autodesk\Revit 2018</REVIT_API>
+    <REVIT_API Condition="'$(REVIT_API)' == ''">C:\Program Files\Autodesk\Revit 2019</REVIT_API>
     <DYNAMO_API Condition="'$(DYNAMO_API)' == ''">C:\Program Files\Dynamo\Dynamo Core\2</DYNAMO_API>
 	<DYNAMOREVIT_API Condition="'$(DYNAMOREVIT_API)' == ''">C:\Program Files\Dynamo\Dynamo Revit\2</DYNAMOREVIT_API>
     <REVIT_VERSION>Revit_2018</REVIT_VERSION>

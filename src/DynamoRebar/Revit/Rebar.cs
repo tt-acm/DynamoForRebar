@@ -160,7 +160,8 @@ namespace Revit.Elements
 
             if (rebarElem != null)
             {
-                foreach (Curve existingCurve in rebarElem.ComputeDrivingCurves())
+                
+                foreach (Curve existingCurve in rebarElem.GetShapeDrivenAccessor().ComputeDrivingCurves())
                 {
                     bool curveIsExisting = false;
 
