@@ -282,7 +282,7 @@ namespace Revit.Elements
             Autodesk.Revit.DB.Structure.RebarHookType startHookT = (startHookType == null) ? null : (Autodesk.Revit.DB.Structure.RebarHookType)startHookType.InternalElement;
             Autodesk.Revit.DB.Structure.RebarHookType endHookT = (endHookType == null) ? null : (Autodesk.Revit.DB.Structure.RebarHookType)endHookType.InternalElement;
 
-            return new Rebar(curve.Approximate(), (Autodesk.Revit.DB.Structure.RebarBarType)rebarBarType.InternalElement, barStyle, host, startHookT, endHookT
+            return new Rebar(curve.ApproximateToRvt(), (Autodesk.Revit.DB.Structure.RebarBarType)rebarBarType.InternalElement, barStyle, host, startHookT, endHookT
                 , startOrientation, endOrientation, vector.ToRevitType(), true, true);
         }
 

@@ -7,7 +7,7 @@
     <REVIT_API Condition="'$(REVIT_API)' == ''">C:\Program Files\Autodesk\Revit 2019</REVIT_API>
     <DYNAMO_API Condition="'$(DYNAMO_API)' == ''">C:\Program Files\Dynamo\Dynamo Core\2</DYNAMO_API>
 	<DYNAMOREVIT_API Condition="'$(DYNAMOREVIT_API)' == ''">C:\Program Files\Dynamo\Dynamo Revit\2</DYNAMOREVIT_API>
-    <REVIT_VERSION>Revit_2018</REVIT_VERSION>
+    <REVIT_VERSION>Revit_2019</REVIT_VERSION>
     <BaseIntermediateOutputPath>$(OutputPath)\int\</BaseIntermediateOutputPath>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -23,7 +23,7 @@
     <REVIT_API Condition="'$(REVIT_API)' == ''">C:\Program Files\Autodesk\Revit 2019</REVIT_API>
     <DYNAMO_API Condition="'$(DYNAMO_API)' == ''">C:\Program Files\Dynamo\Dynamo Core\2</DYNAMO_API>
 	<DYNAMOREVIT_API Condition="'$(DYNAMOREVIT_API)' == ''">C:\Program Files\Dynamo\Dynamo Revit\2</DYNAMOREVIT_API>
-    <REVIT_VERSION>Revit_2018</REVIT_VERSION>
+    <REVIT_VERSION>Revit_2019</REVIT_VERSION>
     <BaseIntermediateOutputPath>$(OutputPath)\int\</BaseIntermediateOutputPath>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>

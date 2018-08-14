@@ -355,7 +355,7 @@ namespace Revit.Elements
             Autodesk.Revit.DB.Element host = DocumentManager.Instance.CurrentDBDocument.GetElement(elementId);
 
             System.Collections.Generic.List<object> revitCurves = new System.Collections.Generic.List<object>();
-            foreach (Autodesk.DesignScript.Geometry.Curve curve in curves) revitCurves.Add(curve.Approximate());
+            foreach (Autodesk.DesignScript.Geometry.Curve curve in curves) revitCurves.Add(curve.ApproximateToRvt());
 
             // Parse Rebar Style
             Autodesk.Revit.DB.Structure.RebarStyle barStyle = Autodesk.Revit.DB.Structure.RebarStyle.StirrupTie;
