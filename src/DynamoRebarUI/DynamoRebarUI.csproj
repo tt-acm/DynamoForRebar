@@ -39,25 +39,31 @@
   <ItemGroup>
     <Reference Include="CoreNodeModels">
       <HintPath>$(DYNAMO_API)\nodes\CoreNodeModels.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DSRevitNodesUI">
       <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo\Dynamo Revit\2\Revit_2018\nodes\DSRevitNodesUI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DynamoCore, Version=0.8.0.950, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(DYNAMO_API)\DynamoCore.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DynamoCoreWpf, Version=0.8.0.950, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(DYNAMO_API)\DynamoCoreWpf.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DynamoServices, Version=0.8.0.950, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(DYNAMO_API)\DynamoServices.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DynamoUtilities, Version=0.8.0.950, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(DYNAMO_API)\DynamoUtilities.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -65,30 +71,37 @@
     <Reference Include="ProtoCore, Version=0.8.0.950, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(DYNAMO_API)\ProtoCore.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ProtoGeometry, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(DYNAMO_API)\ProtoGeometry.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RebarDBAPI, Version=16.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(REVIT_API)\RebarDBAPI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPI, Version=16.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(REVIT_API)\RevitAPI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI, Version=16.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(REVIT_API)\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitNodes, Version=0.8.0.951, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo\Dynamo Revit\2\Revit_2018\RevitNodes.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitServices, Version=0.8.0.951, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo\Dynamo Revit\2\Revit_2018\RevitServices.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -109,6 +122,7 @@
     <ProjectReference Include="..\DynamoRebar\DynamoRebar.csproj">
       <Project>{09e303fe-0a2f-49b0-878f-870c90c8f40b}</Project>
       <Name>DynamoRebar</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

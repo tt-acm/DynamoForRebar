@@ -39,32 +39,41 @@
   <ItemGroup>
     <Reference Include="DynamoCore">
       <HintPath>$(DYNAMO_API)\DynamoCore.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DynamoCoreWpf">
       <HintPath>$(DYNAMO_API)\DynamoCoreWpf.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DynamoServices">
       <HintPath>$(DYNAMO_API)\DynamoServices.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ProtoCore">
       <HintPath>$(DYNAMO_API)\ProtoCore.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ProtoGeometry">
       <HintPath>$(DYNAMO_API)\ProtoGeometry.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPI, Version=19.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2019\RevitAPI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI, Version=18.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitNodes">
       <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo\Dynamo Revit\2\Revit_2018\RevitNodes.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="RevitServices">
       <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo\Dynamo Revit\2\Revit_2018\RevitServices.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
