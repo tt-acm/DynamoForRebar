@@ -373,6 +373,122 @@ namespace DynamoRebar
         }
 
         /// <summary>
+        /// Sets the Layout Rule property of rebar set to SetLayoutAsMaximumSpacing
+        /// </summary>
+        /// <param name="rebar"></param>
+        /// <param name="spacing"></param>
+        /// <param name="arrayLength"></param>
+        /// <param name="barsOnNormalSide"></param>
+        /// <param name="includeFirstBar"></param>
+        /// <param name="includeLastBar"></param>
+        public static void SetLayoutAsMaximumSpacing(Revit.Elements.Rebar rebar, double spacing, double arrayLength, bool barsOnNormalSide, bool includeFirstBar, bool includeLastBar)
+        {
+            var sda = rebar.InternalRebar.GetShapeDrivenAccessor();
+            if (sda != null)
+            {
+                sda.SetLayoutAsMaximumSpacing(spacing, arrayLength, barsOnNormalSide, includeFirstBar, includeLastBar);
+            }
+        }
+
+        /// <summary>
+        /// Sets the Layout Rule property of rebar set to SetLayoutAsMinimumClearSpacing
+        /// </summary>
+        /// <param name="rebar"></param>
+        /// <param name="spacing"></param>
+        /// <param name="arrayLength"></param>
+        /// <param name="barsOnNormalSide"></param>
+        /// <param name="includeFirstBar"></param>
+        /// <param name="includeLastBar"></param>
+        public static void SetLayoutAsMinimumClearSpacing(Revit.Elements.Rebar rebar, double spacing, double arrayLength, bool barsOnNormalSide, bool includeFirstBar, bool includeLastBar)
+        {
+            var sda = rebar.InternalRebar.GetShapeDrivenAccessor();
+            if (sda != null)
+            {
+                sda.SetLayoutAsMinimumClearSpacing(spacing, arrayLength, barsOnNormalSide, includeFirstBar, includeLastBar);
+            }
+        }
+
+        /// <summary>
+        /// Sets the Layout Rule property of rebar set to SetLayoutAsFixedNumber
+        /// </summary>
+        /// <param name="rebar"></param>
+        /// <param name="numberOfBarPositions"></param>
+        /// <param name="arrayLength"></param>
+        /// <param name="barsOnNormalSide"></param>
+        /// <param name="includeFirstBar"></param>
+        /// <param name="includeLastBar"></param>
+        public static void SetLayoutAsFixedNumber(Revit.Elements.Rebar rebar, int numberOfBarPositions, double arrayLength, bool barsOnNormalSide, bool includeFirstBar, bool includeLastBar)
+        {
+            var sda = rebar.InternalRebar.GetShapeDrivenAccessor();
+            if (sda != null)
+            {
+                sda.SetLayoutAsFixedNumber(numberOfBarPositions, arrayLength, barsOnNormalSide, includeFirstBar, includeLastBar);
+            }
+        }
+
+        /// <summary>
+        /// Sets the Layout Rule property of rebar set to NumberWithSpacing
+        /// </summary>
+        /// <param name="rebar"></param>
+        /// <param name="numberOfBarPositions"></param>
+        /// <param name="arrayLength"></param>
+        /// <param name="barsOnNormalSide"></param>
+        /// <param name="includeFirstBar"></param>
+        /// <param name="includeLastBar"></param>
+        public static void SetLayoutAsNumberWithSpacing(Revit.Elements.Rebar rebar, int numberOfBarPositions, double arrayLength, bool barsOnNormalSide, bool includeFirstBar, bool includeLastBar)
+        {
+            var sda = rebar.InternalRebar.GetShapeDrivenAccessor();
+            if (sda != null)
+            {
+                sda.SetLayoutAsNumberWithSpacing(numberOfBarPositions, arrayLength, barsOnNormalSide, includeFirstBar, includeLastBar);
+            }
+        }
+
+        /// <summary>
+        /// Sets the Layout Rule property of rebar set to Single
+        /// </summary>
+        /// <param name="rebar"></param>
+        public static void SetLayoutAsSingle(Revit.Elements.Rebar rebar)
+        {
+            var sda = rebar.InternalRebar.GetShapeDrivenAccessor();
+            if (sda != null)
+            {
+                sda.SetLayoutAsSingle();
+            }
+        }
+
+        /// <summary>
+        /// Distribution path length
+        /// </summary>
+        /// <param name="rebar"></param>
+        /// <returns></returns>
+        public static double GetArrayLength(Revit.Elements.Rebar rebar)
+        {
+            var sda = rebar.InternalRebar.GetShapeDrivenAccessor();
+            if (sda != null)
+            {
+                return sda.ArrayLength;
+            }
+            return 0.0;
+        }
+
+        /// <summary>
+        /// Overall height for spirals
+        /// </summary>
+        /// <param name="rebar"></param>
+        /// <returns></returns>
+        public static double GetHeight(Revit.Elements.Rebar rebar)
+        {
+            var sda = rebar.InternalRebar.GetShapeDrivenAccessor();
+            if (sda != null)
+            {
+                return sda.Height;
+            }
+            return 0.0;
+        }
+
+
+        /// <summary>
         /// Get Material Properties By Name
         /// </summary>
         /// <param name="materialname">Material Name</param>
