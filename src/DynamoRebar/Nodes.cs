@@ -487,6 +487,21 @@ namespace DynamoRebar
             return 0.0;
         }
 
+        /// <summary>
+        /// Normal Vector
+        /// </summary>
+        /// <param name="rebar"></param>
+        /// <returns></returns>
+        public static Vector GetNormal(Revit.Elements.Rebar rebar)
+        {
+            var sda = rebar.InternalRebar.GetShapeDrivenAccessor();
+            if (sda != null)
+            {
+                return Vector.ByCoordinates(sda.Normal.X, sda.Normal.Y, sda.Normal.Z);
+            }
+            return Vector.ByCoordinates(0, 0, 0);
+        }
+
 
         /// <summary>
         /// Get Material Properties By Name
