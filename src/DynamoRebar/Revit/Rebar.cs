@@ -90,6 +90,13 @@ namespace Revit.Elements
             SafeInit(() => InitRebar(curve, barType, barStyle, host, startHook, endHook, startHookOrientation, endHookOrientation, normal, useExistingShape, createNewShape));
         }
 
+        private void RebarFreeForm(IList<IList<Curve>> curves,
+    Autodesk.Revit.DB.Structure.RebarBarType barType,
+    Autodesk.Revit.DB.Element host)
+        {
+            SafeInit(() => InitRebarFreeForm(curves, barType, host));
+        }
+
         #endregion
 
         #region Helpers for private constructors
@@ -208,6 +215,72 @@ namespace Revit.Elements
                 ElementBinder.SetElementForTrace(this.InternalElement);
             }
 
+        }
+
+        private void InitRebarFreeForm(IList<IList<Curve>> curves,
+            Autodesk.Revit.DB.Structure.RebarBarType barType,
+            Autodesk.Revit.DB.Element host)
+        {
+            Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
+
+            TransactionManager.Instance.EnsureInTransaction(document);
+
+            var rebarElem = ElementBinder.GetElementFromTrace<Autodesk.Revit.DB.Structure.Rebar>(document);
+
+
+
+            bool changed = false;
+
+
+
+            // Check for existing Geometry
+
+            if (rebarElem != null)
+            {
+
+                foreach (Curve existingCurve in rebarElem.GetShapeDrivenAccessor().ComputeDrivingCurves())
+                {
+                    bool curveIsExisting = false;
+
+                    foreach (Curve newCurve in curves)
+                        if (CurveUtils.CurvesAreSimilar(newCurve, existingCurve)) { curveIsExisting = true; break; }
+
+                    if (!curveIsExisting) changed = true;
+                }
+            }
+
+
+
+
+            if (rebarElem == null || changed)
+            {
+                // Delete exsiting Rebar Element
+                if (rebarElem != null && rebarElem.Id != ElementId.InvalidElementId)
+                    document.Delete(rebarElem.Id);
+
+                Autodesk.Revit.DB.Structure.RebarFreeFormValidationResult res = new Autodesk.Revit.DB.Structure.RebarFreeFormValidationResult();
+                rebarElem = Autodesk.Revit.DB.Structure.Rebar.CreateFreeForm(document, barType, host, curves, out res);
+            }
+            else
+            {
+                rebarElem.SetHostId(document, host.Id);
+                rebarElem.ChangeTypeId(barType.Id);
+            }
+
+
+            InternalSetRebar(rebarElem);
+
+            TransactionManager.Instance.TransactionTaskDone();
+
+
+            if (rebarElem != null)
+            {
+                ElementBinder.CleanupAndSetElementForTrace(document, this.InternalElement);
+            }
+            else
+            {
+                ElementBinder.SetElementForTrace(this.InternalElement);
+            }
         }
 
         #endregion
