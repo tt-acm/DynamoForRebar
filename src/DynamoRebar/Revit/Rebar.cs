@@ -90,7 +90,7 @@ namespace Revit.Elements
             SafeInit(() => InitRebar(curve, barType, barStyle, host, startHook, endHook, startHookOrientation, endHookOrientation, normal, useExistingShape, createNewShape));
         }
 
-        private void RebarFreeForm(IList<IList<Curve>> curves,
+        private Rebar(IList<IList<Curve>> curves,
     Autodesk.Revit.DB.Structure.RebarBarType barType,
     Autodesk.Revit.DB.Element host)
         {
@@ -234,20 +234,7 @@ namespace Revit.Elements
 
 
             // Check for existing Geometry
-
-            if (rebarElem != null)
-            {
-
-                foreach (Curve existingCurve in rebarElem.GetShapeDrivenAccessor().ComputeDrivingCurves())
-                {
-                    bool curveIsExisting = false;
-
-                    foreach (Curve newCurve in curves)
-                        if (CurveUtils.CurvesAreSimilar(newCurve, existingCurve)) { curveIsExisting = true; break; }
-
-                    if (!curveIsExisting) changed = true;
-                }
-            }
+            // TBI
 
 
 
@@ -260,6 +247,11 @@ namespace Revit.Elements
 
                 Autodesk.Revit.DB.Structure.RebarFreeFormValidationResult res = new Autodesk.Revit.DB.Structure.RebarFreeFormValidationResult();
                 rebarElem = Autodesk.Revit.DB.Structure.Rebar.CreateFreeForm(document, barType, host, curves, out res);
+                if (res != Autodesk.Revit.DB.Structure.RebarFreeFormValidationResult.Success)
+                {
+                    TransactionManager.Instance.ForceCloseTransaction();
+                    throw new Exception(res.ToString());
+                }
             }
             else
             {
@@ -305,13 +297,12 @@ namespace Revit.Elements
         /// <summary>
         /// Create Rebar by Curves
         /// </summary>
-        /// <param name="curves">Input Curves</param>
+        /// <param name="curve">Input Curves</param>
         /// <param name="hostElementId">Host Element Id</param>
         /// <param name="rebarStyle">Rebar Style</param>
         /// <param name="rebarBarType">Bar Type</param>
         /// <param name="startHookOrientation">Hokk orientation at the start</param>
         /// <param name="endHookOrientation">Hook orientation at the end</param>
-        /// <param name="startHookType">Hook type at the start</param>
         /// <param name="startHookType">Hook type at the start</param>
         /// <param name="endHookType">Hook type at the end</param>
         /// <param name="vector">Normal Vectors</param>
@@ -357,6 +348,42 @@ namespace Revit.Elements
 
             return new Rebar(curve.ApproximateToRvt(), (Autodesk.Revit.DB.Structure.RebarBarType)rebarBarType.InternalElement, barStyle, host, startHookT, endHookT
                 , startOrientation, endOrientation, vector.ToRevitType(), true, true);
+        }
+
+        /// <summary>
+        /// Create FreeForm Rebar
+        /// </summary>
+        /// <param name="curves">nested List of Curves</param>
+        /// <param name="hostElementId">Rebar Host ID</param>
+        /// <param name="rebarBarType">Bar Types</param>
+        /// <returns></returns>
+        public static Rebar FreeFormRebarByCurves(
+    IEnumerable<IEnumerable<Autodesk.DesignScript.Geometry.Curve>> curves,
+    int hostElementId,
+    Revit.Elements.Element rebarBarType
+    )
+        {
+            if (curves == null) throw new ArgumentNullException("Input Curves missing");
+            if (hostElementId == null) throw new ArgumentNullException("Host ElementId missing");
+            if (rebarBarType == null) throw new ArgumentNullException("Rebar Bar Type missing");
+
+            ElementId elementId = new ElementId(hostElementId);
+            if (elementId == ElementId.InvalidElementId) throw new ArgumentNullException("Host ElementId error");
+
+            Autodesk.Revit.DB.Element host = DocumentManager.Instance.CurrentDBDocument.GetElement(elementId);
+
+            IList<IList<Curve>> rvtcurvescontainer = new List<IList<Curve>>();
+            foreach (IEnumerable<Autodesk.DesignScript.Geometry.Curve> dyncurves in curves)
+            {
+                List<Curve> rvtcurves = new List<Curve>();
+                foreach (Autodesk.DesignScript.Geometry.Curve dyncurve in dyncurves)
+                {
+                    rvtcurves.Add(dyncurve.ToRevitType());
+                }
+                rvtcurvescontainer.Add(rvtcurves);
+            }
+
+            return new Rebar(rvtcurvescontainer, (Autodesk.Revit.DB.Structure.RebarBarType)rebarBarType.InternalElement, host);
         }
 
         /// <summary>
