@@ -537,6 +537,25 @@ namespace DynamoRebar
         }
 
         /// <summary>
+        /// Depth of multiplanar rebar
+        /// </summary>
+        /// <param name="rebar">Rebar element</param>
+        /// <returns>Multiplanar depth</returns>
+        public static double GetMultiplanarDepth(Revit.Elements.Element rebar)
+        {
+            Autodesk.Revit.DB.Structure.Rebar bar = rebar.InternalElement as Autodesk.Revit.DB.Structure.Rebar;
+            if (bar != null)
+            {
+                var sda = bar.GetShapeDrivenAccessor();
+                if (sda != null)
+                {
+                    return sda.MultiplanarDepth;
+                }
+            }
+            return 0.0;
+        }
+
+        /// <summary>
         /// Normal Vector
         /// </summary>
         /// <param name="rebar"></param>
