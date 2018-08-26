@@ -424,9 +424,31 @@ namespace Revit.Elements
             {
                 Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
                 TransactionManager.Instance.EnsureInTransaction(document);
-
+                
                 Autodesk.Revit.DB.View3D viewElement = (Autodesk.Revit.DB.View3D)view.InternalElement;
                 bar.SetSolidInView(viewElement, solid);
+
+                TransactionManager.Instance.TransactionTaskDone();
+            }
+        }
+
+        /// <summary>
+        /// Hide a specific item in a rebar container
+        /// </summary>
+        /// <param name="rebarContainer">Rebar Container</param>
+        /// <param name="view">Revit View</param>
+        /// <param name="itemIndex">Item Index</param>
+        /// <param name="hide">Hide setting</param>
+        public static void SetItemHiddenStatus(Element rebarContainer, Revit.Elements.Views.View3D view, int itemIndex, bool hide)
+        {
+            Autodesk.Revit.DB.Structure.RebarContainer bar = rebarContainer.InternalElement as Autodesk.Revit.DB.Structure.RebarContainer;
+            if (bar != null)
+            {
+                Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
+                TransactionManager.Instance.EnsureInTransaction(document);
+
+                Autodesk.Revit.DB.View3D viewElement = (Autodesk.Revit.DB.View3D)view.InternalElement;
+                bar.SetItemHiddenStatus(viewElement, itemIndex, hide);
 
                 TransactionManager.Instance.TransactionTaskDone();
             }

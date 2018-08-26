@@ -402,7 +402,7 @@ namespace Revit.Elements
 
                 Autodesk.Revit.DB.View viewElement = (Autodesk.Revit.DB.View)view.InternalElement;
                 bar.SetUnobscuredInView(viewElement, unobscured);
-
+                
                 TransactionManager.Instance.TransactionTaskDone();
             }
         }
@@ -428,6 +428,27 @@ namespace Revit.Elements
             }
         }
 
+        /// <summary>
+        /// Set Bar hidden Status
+        /// </summary>
+        /// <param name="rebar">Rebar element</param>
+        /// <param name="view">Revit View</param>
+        /// <param name="barIndex">Bar Index</param>
+        /// <param name="hidden">Hidden Status</param>
+        public static void SetBarHiddenStatus(Revit.Elements.Element rebar, Revit.Elements.Views.View view, int barIndex, bool hidden)
+        {
+            Autodesk.Revit.DB.Structure.Rebar bar = rebar.InternalElement as Autodesk.Revit.DB.Structure.Rebar;
+            if (bar != null)
+            {
+                Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
+                TransactionManager.Instance.EnsureInTransaction(document);
+                
+                Autodesk.Revit.DB.View viewElement = (Autodesk.Revit.DB.View)view.InternalElement;
+                bar.SetBarHiddenStatus(viewElement, barIndex, hidden);
+
+                TransactionManager.Instance.TransactionTaskDone();
+            }
+        }
 
         #endregion
 
