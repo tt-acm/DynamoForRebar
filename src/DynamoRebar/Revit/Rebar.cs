@@ -410,16 +410,19 @@ namespace Revit.Elements
         /// <param name="rebar">Single Rebar</param>
         /// <param name="view">3D View</param>
         /// <param name="solid">Solid</param>
-        public static void SetSolidInView(Rebar rebar, Revit.Elements.Views.View3D view, bool solid)
+        public static void SetSolidInView(Revit.Elements.Element rebar, Revit.Elements.Views.View3D view, bool solid)
         {
-            Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
-            TransactionManager.Instance.EnsureInTransaction(document);
+            Autodesk.Revit.DB.Structure.Rebar bar = rebar.InternalElement as Autodesk.Revit.DB.Structure.Rebar;
+            if (bar != null)
+            {
+                Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
+                TransactionManager.Instance.EnsureInTransaction(document);
 
-            Autodesk.Revit.DB.Structure.Rebar rebarElement = (Autodesk.Revit.DB.Structure.Rebar)rebar.InternalElement;
-            Autodesk.Revit.DB.View3D viewElement = (Autodesk.Revit.DB.View3D)view.InternalElement;
-            rebarElement.SetSolidInView(viewElement, solid);
+                Autodesk.Revit.DB.View3D viewElement = (Autodesk.Revit.DB.View3D)view.InternalElement;
+                bar.SetSolidInView(viewElement, solid);
 
-            TransactionManager.Instance.TransactionTaskDone();
+                TransactionManager.Instance.TransactionTaskDone();
+            }
         }
 
 
