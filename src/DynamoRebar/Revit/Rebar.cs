@@ -392,16 +392,19 @@ namespace Revit.Elements
         /// <param name="rebar">Single Rebar</param>
         /// <param name="view">View</param>
         /// <param name="unobscured">Unobscured</param>
-        public static void SetUnobscuredInView(Rebar rebar, Revit.Elements.Views.View view, bool unobscured)
+        public static void SetUnobscuredInView(Revit.Elements.Element rebar, Revit.Elements.Views.View view, bool unobscured)
         {
-            Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
-            TransactionManager.Instance.EnsureInTransaction(document);
+            Autodesk.Revit.DB.Structure.Rebar bar = rebar.InternalElement as Autodesk.Revit.DB.Structure.Rebar;
+            if (bar != null)
+            {
+                Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
+                TransactionManager.Instance.EnsureInTransaction(document);
 
-            Autodesk.Revit.DB.Structure.Rebar rebarElement = (Autodesk.Revit.DB.Structure.Rebar)rebar.InternalElement;
-            Autodesk.Revit.DB.View viewElement = (Autodesk.Revit.DB.View)view.InternalElement;
-            rebarElement.SetUnobscuredInView(viewElement, unobscured);
+                Autodesk.Revit.DB.View viewElement = (Autodesk.Revit.DB.View)view.InternalElement;
+                bar.SetUnobscuredInView(viewElement, unobscured);
 
-            TransactionManager.Instance.TransactionTaskDone();
+                TransactionManager.Instance.TransactionTaskDone();
+            }
         }
 
         /// <summary>
