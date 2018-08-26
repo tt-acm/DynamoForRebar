@@ -56,15 +56,21 @@ namespace DynamoRebar
         /// </summary>
         /// <param name="cover">Cover Value</param>
         /// <param name="barType">Rebar Bar Type</param>
+        /// <param name="autoconvert">Optional: Convert Units (default: false)</param>
         /// <returns>Offset</returns>
-        public static double CoverToOffset(double cover, Revit.Elements.Element barType)
+        public static double CoverToOffset(double cover, Revit.Elements.Element barType, bool autoconvert = false)
         {
+            Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
+            var getDocUnits = doc.GetUnits();
+            var getDisplayUnits = getDocUnits.GetFormatOptions(RVT.UnitType.UT_Length).DisplayUnits;
+
             double offset = cover;
 
             if (barType.InternalElement != null)
             {
                 Autodesk.Revit.DB.Structure.RebarBarType revitBarType = (Autodesk.Revit.DB.Structure.RebarBarType)barType.InternalElement;
-                offset = cover + revitBarType.BarDiameter / 2;            
+                var diam = (autoconvert) ? RVT.UnitUtils.ConvertFromInternalUnits(revitBarType.BarDiameter, getDisplayUnits) : revitBarType.BarDiameter;
+                offset = cover + diam / 2;            
             }
 
             return offset;
@@ -80,14 +86,17 @@ namespace DynamoRebar
         [MultiReturn(new[] { "BarDiameter", "StandardBendDiameter", "StandardHookBendDiameter", "StirrupTieBendDiameter" })]
         public static Dictionary<string, object> GetRebarTypeProperties(double cover, Revit.Elements.Element barType)
         {
+            Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
             Autodesk.Revit.DB.Structure.RebarBarType revitBarType = (Autodesk.Revit.DB.Structure.RebarBarType)barType.InternalElement;
-            
+            var getDocUnits = doc.GetUnits();
+            var getDisplayUnits = getDocUnits.GetFormatOptions(RVT.UnitType.UT_Length).DisplayUnits;
+
             return new Dictionary<string, object>
             {
-                { "BarDiameter", revitBarType.BarDiameter },
-                { "StandardBendDiameter", revitBarType.StandardBendDiameter },
-                { "StandardHookBendDiameter", revitBarType.StandardHookBendDiameter },
-                { "StirrupTieBendDiameter", revitBarType.StirrupTieBendDiameter },
+                { "BarDiameter", RVT.UnitUtils.ConvertFromInternalUnits(revitBarType.BarDiameter, getDisplayUnits) },
+                { "StandardBendDiameter", RVT.UnitUtils.ConvertFromInternalUnits(revitBarType.StandardBendDiameter, getDisplayUnits) },
+                { "StandardHookBendDiameter", RVT.UnitUtils.ConvertFromInternalUnits(revitBarType.StandardHookBendDiameter, getDisplayUnits) },
+                { "StirrupTieBendDiameter", RVT.UnitUtils.ConvertFromInternalUnits(revitBarType.StirrupTieBendDiameter, getDisplayUnits) },
 
             };
         }
