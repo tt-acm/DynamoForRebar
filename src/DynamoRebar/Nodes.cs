@@ -28,6 +28,7 @@ using Dynamo.Utilities;
 using Dynamo.Models;
 using Revit.GeometryConversion;
 
+
 namespace DynamoRebar
 {
 
@@ -396,7 +397,7 @@ namespace DynamoRebar
         /// <param name="barsOnNormalSide"></param>
         /// <param name="includeFirstBar"></param>
         /// <param name="includeLastBar"></param>
-        public static void SetLayoutAsMaximumSpacing(Revit.Elements.Element rebar, double spacing, double arrayLength, bool barsOnNormalSide, bool includeFirstBar, bool includeLastBar)
+        public static Revit.Elements.Element SetLayoutAsMaximumSpacing(Revit.Elements.Element rebar, double spacing, double arrayLength, bool barsOnNormalSide, bool includeFirstBar, bool includeLastBar)
         {
             Autodesk.Revit.DB.Structure.Rebar bar = rebar.InternalElement as Autodesk.Revit.DB.Structure.Rebar;
             if (bar != null)
@@ -406,10 +407,11 @@ namespace DynamoRebar
                 {
                     Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
                     TransactionManager.Instance.EnsureInTransaction(document);
-                    sda.SetLayoutAsMaximumSpacing(spacing, arrayLength, barsOnNormalSide, includeFirstBar, includeLastBar);
+                    sda.SetLayoutAsMaximumSpacing(spacing.ToRvtLength(), arrayLength.ToRvtLength(), barsOnNormalSide, includeFirstBar, includeLastBar);
                     TransactionManager.Instance.TransactionTaskDone();
                 }
             }
+            return rebar;
         }
 
         /// <summary>
@@ -421,7 +423,7 @@ namespace DynamoRebar
         /// <param name="barsOnNormalSide"></param>
         /// <param name="includeFirstBar"></param>
         /// <param name="includeLastBar"></param>
-        public static void SetLayoutAsMinimumClearSpacing(Revit.Elements.Element rebar, double spacing, double arrayLength, bool barsOnNormalSide, bool includeFirstBar, bool includeLastBar)
+        public static Revit.Elements.Element SetLayoutAsMinimumClearSpacing(Revit.Elements.Element rebar, double spacing, double arrayLength, bool barsOnNormalSide, bool includeFirstBar, bool includeLastBar)
         {
             Autodesk.Revit.DB.Structure.Rebar bar = rebar.InternalElement as Autodesk.Revit.DB.Structure.Rebar;
             if (bar != null)
@@ -429,12 +431,14 @@ namespace DynamoRebar
                 var sda = bar.GetShapeDrivenAccessor();
                 if (sda != null)
                 {
+                    
                     Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
                     TransactionManager.Instance.EnsureInTransaction(document);
-                    sda.SetLayoutAsMinimumClearSpacing(spacing, arrayLength, barsOnNormalSide, includeFirstBar, includeLastBar);
+                    sda.SetLayoutAsMinimumClearSpacing(spacing.ToRvtLength(), arrayLength.ToRvtLength(), barsOnNormalSide, includeFirstBar, includeLastBar);
                     TransactionManager.Instance.TransactionTaskDone();
                 }
             }
+            return rebar;
         }
 
         /// <summary>
@@ -446,7 +450,7 @@ namespace DynamoRebar
         /// <param name="barsOnNormalSide"></param>
         /// <param name="includeFirstBar"></param>
         /// <param name="includeLastBar"></param>
-        public static void SetLayoutAsFixedNumber(Revit.Elements.Element rebar, int numberOfBarPositions, double arrayLength, bool barsOnNormalSide, bool includeFirstBar, bool includeLastBar)
+        public static Revit.Elements.Element SetLayoutAsFixedNumber(Revit.Elements.Element rebar, int numberOfBarPositions, double arrayLength, bool barsOnNormalSide, bool includeFirstBar, bool includeLastBar)
         {
             Autodesk.Revit.DB.Structure.Rebar bar = rebar.InternalElement as Autodesk.Revit.DB.Structure.Rebar;
             if (bar != null)
@@ -456,10 +460,11 @@ namespace DynamoRebar
                 {
                     Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
                     TransactionManager.Instance.EnsureInTransaction(document);
-                    sda.SetLayoutAsFixedNumber(numberOfBarPositions, arrayLength, barsOnNormalSide, includeFirstBar, includeLastBar);
+                    sda.SetLayoutAsFixedNumber(numberOfBarPositions, arrayLength.ToRvtLength(), barsOnNormalSide, includeFirstBar, includeLastBar);
                     TransactionManager.Instance.TransactionTaskDone();
                 }
             }
+            return rebar;
         }
 
         /// <summary>
@@ -471,7 +476,7 @@ namespace DynamoRebar
         /// <param name="barsOnNormalSide"></param>
         /// <param name="includeFirstBar"></param>
         /// <param name="includeLastBar"></param>
-        public static void SetLayoutAsNumberWithSpacing(Revit.Elements.Element rebar, int numberOfBarPositions, double arrayLength, bool barsOnNormalSide, bool includeFirstBar, bool includeLastBar)
+        public static Revit.Elements.Element SetLayoutAsNumberWithSpacing(Revit.Elements.Element rebar, int numberOfBarPositions, double arrayLength, bool barsOnNormalSide, bool includeFirstBar, bool includeLastBar)
         {
             Autodesk.Revit.DB.Structure.Rebar bar = rebar.InternalElement as Autodesk.Revit.DB.Structure.Rebar;
             if (bar != null)
@@ -481,17 +486,18 @@ namespace DynamoRebar
                 {
                     Autodesk.Revit.DB.Document document = DocumentManager.Instance.CurrentDBDocument;
                     TransactionManager.Instance.EnsureInTransaction(document);
-                    sda.SetLayoutAsNumberWithSpacing(numberOfBarPositions, arrayLength, barsOnNormalSide, includeFirstBar, includeLastBar);
+                    sda.SetLayoutAsNumberWithSpacing(numberOfBarPositions, arrayLength.ToRvtLength(), barsOnNormalSide, includeFirstBar, includeLastBar);
                     TransactionManager.Instance.TransactionTaskDone();
                 }
             }
+            return rebar;
         }
 
         /// <summary>
         /// Sets the Layout Rule property of rebar set to Single
         /// </summary>
         /// <param name="rebar"></param>
-        public static void SetLayoutAsSingle(Revit.Elements.Element rebar)
+        public static Revit.Elements.Element SetLayoutAsSingle(Revit.Elements.Element rebar)
         {
             Autodesk.Revit.DB.Structure.Rebar bar = rebar.InternalElement as Autodesk.Revit.DB.Structure.Rebar;
             if (bar != null)
@@ -505,6 +511,7 @@ namespace DynamoRebar
                     TransactionManager.Instance.TransactionTaskDone();
                 }
             }
+            return rebar;
         }
 
         /// <summary>
@@ -520,7 +527,7 @@ namespace DynamoRebar
                 var sda = bar.GetShapeDrivenAccessor();
                 if (sda != null)
                 {
-                    return sda.ArrayLength;
+                    return sda.ArrayLength.FromRvtLength();
                 }
             }
             return 0.0;
@@ -539,7 +546,7 @@ namespace DynamoRebar
                 var sda = bar.GetShapeDrivenAccessor();
                 if (sda != null)
                 {
-                    return sda.Height;
+                    return sda.Height.FromRvtLength();
                 }
             }
             return 0.0;
