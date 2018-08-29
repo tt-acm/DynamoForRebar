@@ -88,6 +88,7 @@
     <Compile Include="Extensions\PolyCurve.cs" />
     <Compile Include="Extensions\SurfaceExtensions.cs" />
     <Compile Include="Extensions\CurveExtensions.cs" />
+    <Compile Include="Extensions\UnitConversion.cs" />
     <Compile Include="Revit\VerticalAlignment.cs" />
     <Compile Include="Revit\HorizontalAlignment.cs" />
     <Compile Include="TrimmedSurface.cs" />
