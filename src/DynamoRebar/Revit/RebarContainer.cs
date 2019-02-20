@@ -1,4 +1,4 @@
-﻿//
+//
 // Copyright 2015 Autodesk, Inc.
 // Author: Thornton Tomasetti Ltd, CORE Studio (Maximilian Thumfart)
 //
@@ -385,9 +385,18 @@ namespace Revit.Elements
         /// </summary>
         /// <param name="rebars">Bars to create the container from</param>
         /// <returns></returns>
-        public static RebarContainer ByBars(System.Collections.Generic.List<Revit.Elements.Rebar> rebars)
+        public static RebarContainer ByBars(System.Collections.Generic.IEnumerable<Revit.Elements.Element> rebars)
         {
-            return new RebarContainer(rebars);
+            List<Revit.Elements.Rebar> mybars = new List<Revit.Elements.Rebar>();
+            foreach (Revit.Elements.Element e in rebars)
+            {
+                if (e.InternalElement is Autodesk.Revit.DB.Structure.Rebar)
+                {
+                    Revit.Elements.Rebar bar = Revit.Elements.Rebar.FromExisting(e.InternalElement as Autodesk.Revit.DB.Structure.Rebar, true);
+                    mybars.Add(bar);
+                }
+            }
+            return new RebarContainer(mybars);
         }
 
         /// <summary>
